@@ -2,10 +2,13 @@ import React from 'react';
 import styled from "styled-components"; 
 
 const SpecimenBody = styled.div`
+  line-height: 1.8;
   .label {
     color: ${props => props.theme.lightGray};
     display: inline-block;
-    width: 150px;
+    margin-right: 20px;
+    text-align: right;
+    width: 160px;
   }
 `;
 
@@ -26,9 +29,8 @@ const Specimen = (props) => {
   return (
     <SpecimenBody>
       <span class="label">
-        {typeScaleEms}
-        em&nbsp;
-        {typeScalePx}px
+        {typeScaleEms}em
+        ({typeScalePx}px)
       </span>
       <span class="value" style={styles}>
         {props.previewText}

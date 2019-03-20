@@ -21,7 +21,7 @@ class SpecimenList extends Component {
 
     return (
       <StyledList>
-        {specimens.map((specimen, i) => (
+        {specimens.sort().reverse().map((specimen, i) => (
           <li>
             <Specimen
               baseSize={baseSize}

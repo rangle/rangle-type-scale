@@ -13,8 +13,12 @@ class App extends Component {
     return (
       <ThemeProvider theme={theme}>
         <div className="App">
-          <Sidebar></Sidebar>
-          <SpecimenList></SpecimenList>
+          <aside>
+            <Sidebar></Sidebar>
+          </aside>
+          <main>
+            <SpecimenList></SpecimenList>
+          </main>
         </div>
       </ThemeProvider>
     );
