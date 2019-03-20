@@ -1,4 +1,13 @@
 import React from 'react';
+import styled from "styled-components"; 
+
+const SpecimenBody = styled.div`
+  .label {
+    color: ${props => props.theme.lightGray};
+    display: inline-block;
+    width: 150px;
+  }
+`;
 
 const countDecimals = (num) => {
   if (Math.floor(num.valueOf()) === num.valueOf()) return 0;
@@ -15,16 +24,16 @@ const Specimen = (props) => {
   };
 
   return (
-    <li>
-      <span>
+    <SpecimenBody>
+      <span class="label">
         {typeScaleEms}
         em&nbsp;
         {typeScalePx}px
       </span>
-      <span style={styles}>
+      <span class="value" style={styles}>
         {props.previewText}
       </span>
-    </li>
+    </SpecimenBody>
   );
 };
 
