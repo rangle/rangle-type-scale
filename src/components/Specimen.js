@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 const SpecimenBody = styled.div`
   line-height: 1.8;
+
   .label {
     color: ${props => props.theme.lightGray};
     display: inline-block;
@@ -23,16 +24,17 @@ const Specimen = (props) => {
   const typeScalePx = (countDecimals(baseSizeValue) > 2 ? baseSizeValue.toFixed(2) : baseSizeValue);
   const styles = {
     display: 'inline-block',
-    fontSize: `${typeScalePx}px`
+    fontSize: `${typeScalePx}px`,
+    fontWeight: `${props.weight}`
   };
 
   return (
     <SpecimenBody>
-      <span class="label">
+      <span className="label">
         {typeScaleEms}em
         ({typeScalePx}px)
       </span>
-      <span class="value" style={styles}>
+      <span className="value" style={styles}>
         {props.previewText}
       </span>
     </SpecimenBody>

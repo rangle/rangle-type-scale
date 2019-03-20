@@ -12,7 +12,7 @@ const StyledList = styled.div`
 
 class SpecimenList extends Component {
   render() {
-    const { baseSize, numberOfSpecimens, previewText, typeScaleSize } = this.props;
+    const { baseSize, numberOfSpecimens, previewText, typeScaleSize, weight } = this.props;
     const specimens = [1];
     for (let i = 2; i <= numberOfSpecimens; i++) {
         specimens.unshift(Math.pow(typeScaleSize, i));
@@ -22,13 +22,13 @@ class SpecimenList extends Component {
     return (
       <StyledList>
         {specimens.sort().reverse().map((specimen, i) => (
-          <li>
+          <li key={`specimen-${i}`}>
             <Specimen
               baseSize={baseSize}
               previewText={previewText}
               typeScaleSize={typeScaleSize}
               typeScaleValue={specimen}
-              key={`specimen-${i}`}
+              weight={weight}
             />
           </li>
         ))}
@@ -42,6 +42,7 @@ const mapStateToProps = state => ({
   numberOfSpecimens: state.numberOfSpecimens,
   previewText: state.previewText,
   typeScaleSize: state.typeScale.value,
+  weight: state.weight
 });
 
 export default connect(
