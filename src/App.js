@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
+import Sidebar from './components/Sidebar';
+import SpecimenList from './components/SpecimenList';
 
 class App extends Component {
   render() {
@@ -9,6 +11,8 @@ class App extends Component {
           <p>
             Type scale
           </p>
+          <Sidebar></Sidebar>
+          <SpecimenList></SpecimenList>
         </header>
       </div>
     );
