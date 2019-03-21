@@ -28,6 +28,12 @@ const InputForm = (props) => {
           value={props.previewText}
           handleChange={props.changePreviewText}
          />
+         <label for="typeScale">Scale</label>
+         <select name="typeScale" id="typescale" value={props.typeScaleSelected} onChange={props.changeTypeScale}>
+          {props.typeScaleValues.map((value, i) => (
+            <option value={i}>{value.value} – {value.name}</option>
+          ))}
+         </select>
       </form>
     </div>
   );

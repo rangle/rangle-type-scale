@@ -15,8 +15,8 @@ class SpecimenList extends Component {
     const { baseSize, numberOfSpecimens, previewText, typeScaleSize, weight } = this.props;
     const specimens = [1];
     for (let i = 2; i <= numberOfSpecimens; i++) {
-        specimens.unshift(Math.pow(typeScaleSize, i));
-        specimens.push(Math.pow(typeScaleSize, -i));
+      specimens.unshift(Math.pow(typeScaleSize, i));
+      specimens.push(Math.pow(typeScaleSize, -i));
     }
 
     return (
@@ -41,7 +41,7 @@ const mapStateToProps = state => ({
   baseSize: state.baseSize,
   numberOfSpecimens: state.numberOfSpecimens,
   previewText: state.previewText,
-  typeScaleSize: state.typeScale.value,
+  typeScaleSize: state.typeScaleValues[state.typeScaleSelected].value,
   weight: state.weight
 });
 
