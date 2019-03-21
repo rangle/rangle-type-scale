@@ -6,19 +6,16 @@ const Input = (props) => {
   const max = props.max;
 
   return (
-    <div>
-      <label htmlFor={props.name}>{props.text}</label>  
-      <input 
-        type={props.type || "text"} 
-        name={props.name} 
-        id={props.name} 
-        value={props.value}
-        step={step}
-        min={min}
-        max={max}
-        onChange={props.handleChange}
-      ></input>    
-    </div>
+    <input 
+      type={props.type || "text"} 
+      name={props.name} 
+      id={props.name} 
+      value={props.value}
+      step={step}
+      min={min}
+      max={max}
+      onChange={props.handleChange}
+    ></input>    
   );
 };
 

@@ -1,6 +1,7 @@
 export const TYPESCALE_ACTIONS = {
   CHANGE_BASE_SIZE: 'CHANGE_BASE_SIZE',
   CHANGE_PREVIEW_TEXT: 'CHANGE_PREVIEW_TEXT',
+  CHANGE_FONT: 'CHANGE_FONT',
   CHANGE_NUMBER_OF_SPECIMENS: 'CHANGE_NUMBER_OF_SPECIMENS',
   CHANGE_WEIGHT: 'CHANGE_WEIGHT',
   CHANGE_TYPESCALE: 'CHANGE_TYPESCALE'
@@ -8,6 +9,8 @@ export const TYPESCALE_ACTIONS = {
 
 export const INITIAL_STATE = {
   baseSize: 16,
+  fontFamily: "Rangle Riforma",
+  fontFamilies: ["Rangle Riforma", "Rangle Riforma Light"],
   numberOfSpecimens: 5,
   previewText: "A Visual Type Scale",
   typeScale: {
@@ -82,6 +85,12 @@ export const reducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         typeScaleSelected: action.payload
+      }
+    }
+    case (TYPESCALE_ACTIONS.CHANGE_FONT): {
+      return {
+        ...state,
+        fontFamily: action.payload
       }
     }
     default:

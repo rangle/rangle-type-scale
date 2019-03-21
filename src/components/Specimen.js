@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from "styled-components"; 
+import '../fonts/fonts.css';
 
 const SpecimenBody = styled.div`
   line-height: 1.8;
@@ -25,7 +26,8 @@ const Specimen = (props) => {
   const styles = {
     display: 'inline-block',
     fontSize: `${typeScalePx}px`,
-    fontWeight: `${props.weight}`
+    fontFamily: `${props.fontFamily}`,
+    fontWeight: `${props.weight}`,
   };
 
   return (

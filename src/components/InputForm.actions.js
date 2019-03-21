@@ -19,3 +19,8 @@ export const changeTypeScale = e => ({
   type: TYPESCALE_ACTIONS.CHANGE_TYPESCALE,
   payload: e.target.value
 })
+
+export const changeFont = e => ({
+  type: TYPESCALE_ACTIONS.CHANGE_FONT,
+  payload: e.target.value
+});

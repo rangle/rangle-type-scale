@@ -12,7 +12,14 @@ const StyledList = styled.div`
 
 class SpecimenList extends Component {
   render() {
-    const { baseSize, numberOfSpecimens, previewText, typeScaleSize, weight } = this.props;
+    const {
+      baseSize,
+      fontFamily, 
+      numberOfSpecimens,
+      previewText,
+      typeScaleSize,
+      weight
+    } = this.props;
     const specimens = [1];
     for (let i = 2; i <= numberOfSpecimens; i++) {
       specimens.unshift(Math.pow(typeScaleSize, i));
@@ -25,6 +32,7 @@ class SpecimenList extends Component {
           <li key={`specimen-${i}`}>
             <Specimen
               baseSize={baseSize}
+              fontFamily={fontFamily}
               previewText={previewText}
               typeScaleSize={typeScaleSize}
               typeScaleValue={specimen}
@@ -39,6 +47,7 @@ class SpecimenList extends Component {
 
 const mapStateToProps = state => ({
   baseSize: state.baseSize,
+  fontFamily: state.fontFamily,
   numberOfSpecimens: state.numberOfSpecimens,
   previewText: state.previewText,
   typeScaleSize: state.typeScaleValues[state.typeScaleSelected].value,
