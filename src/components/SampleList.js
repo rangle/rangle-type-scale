@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import Specimen from './Specimen';
+import Sample from './Sample';
 import styled from 'styled-components';
 
 const StyledList = styled.div`
@@ -10,33 +10,33 @@ const StyledList = styled.div`
   padding: 0;
 `;
 
-class SpecimenList extends Component {
+class SampleList extends Component {
   render() {
     const {
       baseSize,
       fontFamily, 
-      numberOfSpecimens,
-      previewText,
+      numberOfSamples,
+      previewHeadline,
       typeScaleSize,
-      weight
+      sampleWeight
     } = this.props;
-    const specimens = [1];
-    for (let i = 2; i <= numberOfSpecimens; i++) {
-      specimens.unshift(Math.pow(typeScaleSize, i));
-      specimens.push(Math.pow(typeScaleSize, -i));
+    const samples = [1];
+    for (let i = 2; i <= numberOfSamples; i++) {
+      samples.unshift(Math.pow(typeScaleSize, i));
+      samples.push(Math.pow(typeScaleSize, -i));
     }
 
     return (
       <StyledList>
-        {specimens.sort().reverse().map((specimen, i) => (
-          <li key={`specimen-${i}`}>
-            <Specimen
+        {samples.sort().reverse().map((sample, i) => (
+          <li key={`sample-${i}`}>
+            <Sample
               baseSize={baseSize}
               fontFamily={fontFamily}
-              previewText={previewText}
+              previewHeadline={previewHeadline}
               typeScaleSize={typeScaleSize}
-              typeScaleValue={specimen}
-              weight={weight}
+              typeScaleValue={sample}
+              sampleWeight={sampleWeight}
             />
           </li>
         ))}
@@ -48,12 +48,12 @@ class SpecimenList extends Component {
 const mapStateToProps = state => ({
   baseSize: state.baseSize,
   fontFamily: state.fontFamily,
-  numberOfSpecimens: state.numberOfSpecimens,
-  previewText: state.previewText,
+  numberOfSamples: state.numberOfSamples,
+  previewHeadline: state.previewHeadline,
   typeScaleSize: state.typeScaleValues[state.typeScaleSelected].value,
-  weight: state.weight
+  sampleWeight: state.sampleWeight
 });
 
 export default connect(
   mapStateToProps,
-)(SpecimenList);
+)(SampleList);

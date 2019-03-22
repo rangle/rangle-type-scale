@@ -2,7 +2,7 @@ import React from 'react';
 import styled from "styled-components"; 
 import '../fonts/fonts.css';
 
-const SpecimenBody = styled.div`
+const SampleBody = styled.div`
   line-height: 1.8;
 
   .label {
@@ -19,7 +19,7 @@ const countDecimals = (num) => {
   return num.toString().split(".")[1].length || 0;
 }
 
-const Specimen = (props) => {
+const Sample = (props) => {
   const baseSizeValue = props.baseSize * props.typeScaleValue;
   const typeScaleEms = (countDecimals(props.typeScaleValue) > 3 ? props.typeScaleValue.toFixed(3) : props.typeScaleValue);
   const typeScalePx = (countDecimals(baseSizeValue) > 2 ? baseSizeValue.toFixed(2) : baseSizeValue);
@@ -27,20 +27,20 @@ const Specimen = (props) => {
     display: 'inline-block',
     fontSize: `${typeScalePx}px`,
     fontFamily: `${props.fontFamily}`,
-    fontWeight: `${props.weight}`,
+    fontWeight: `${props.sampleWeight}`,
   };
 
   return (
-    <SpecimenBody>
+    <SampleBody>
       <span className="label">
         {typeScaleEms}em
         ({typeScalePx}px)
       </span>
       <span className="value" style={styles}>
-        {props.previewText}
+        {props.previewHeadline}
       </span>
-    </SpecimenBody>
+    </SampleBody>
   );
 };
 
-export default Specimen;
+export default Sample;

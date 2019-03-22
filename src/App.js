@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { ThemeProvider } from "styled-components";
 import Sidebar from './components/Sidebar';
-import SpecimenList from './components/SpecimenList';
 import styled from "styled-components";
+import Main from './components/Main';
 
 const theme = {
   black: "#333333",
@@ -23,9 +23,7 @@ class App extends Component {
           <aside>
             <Sidebar />
           </aside>
-          <main>
-            <SpecimenList />
-          </main>
+          <Main />
         </StyledApp>
       </ThemeProvider>
     );

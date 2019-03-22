@@ -9,9 +9,7 @@ const Select = (props) => {
         value={props.selectedValue}
         onChange={props.handleChange}
       >
-        {props.array.map((item, index) => (
-          <option value={index}>{item}</option>
-        ))}
+        {props.children}
       </select>      
     </div>
   );

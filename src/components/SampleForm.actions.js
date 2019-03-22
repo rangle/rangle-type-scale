@@ -6,12 +6,12 @@ export const changeBaseSize = e => ({
 });
 
 export const changeWeight = e => ({
-  type: TYPESCALE_ACTIONS.CHANGE_WEIGHT,
+  type: TYPESCALE_ACTIONS.CHANGE_SAMPLE_WEIGHT,
   payload: e.target.value
 });
 
-export const changePreviewText = e => ({
-  type: TYPESCALE_ACTIONS.CHANGE_PREVIEW_TEXT,
+export const changePreviewHeadline = e => ({
+  type: TYPESCALE_ACTIONS.CHANGE_PREVIEW_HEADLINE,
   payload: e.target.value
 });
 
@@ -20,7 +20,7 @@ export const changeTypeScale = e => ({
   payload: e.target.value
 })
 
-export const changeFont = e => ({
-  type: TYPESCALE_ACTIONS.CHANGE_FONT,
+export const changeHeadlineFont = e => ({
+  type: TYPESCALE_ACTIONS.CHANGE_HEADLINE_FONT,
   payload: e.target.value
 });

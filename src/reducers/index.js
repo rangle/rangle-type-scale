@@ -1,23 +1,40 @@
 export const TYPESCALE_ACTIONS = {
   CHANGE_BASE_SIZE: 'CHANGE_BASE_SIZE',
-  CHANGE_PREVIEW_TEXT: 'CHANGE_PREVIEW_TEXT',
-  CHANGE_FONT: 'CHANGE_FONT',
+  CHANGE_PREVIEW_HEADLINE: 'CHANGE_PREVIEW_HEADLINE',
+  CHANGE_HEADLINE_FONT: 'CHANGE_HEADLINE_FONT',
   CHANGE_NUMBER_OF_SPECIMENS: 'CHANGE_NUMBER_OF_SPECIMENS',
-  CHANGE_WEIGHT: 'CHANGE_WEIGHT',
-  CHANGE_TYPESCALE: 'CHANGE_TYPESCALE'
+  CHANGE_SAMPLE_WEIGHT: 'CHANGE_SAMPLE_WEIGHT',
+  CHANGE_TYPESCALE: 'CHANGE_TYPESCALE',
+  CHANGE_BODY_WEIGHT: 'CHANGE_BODY_WEIGHT',
+  CHANGE_BODY_FONT: 'CHANGE_BODY_FONT',
+  CHANGE_LINE_HEIGHT: 'CHANGE_LINE_HEIGHT',
+  CHANGE_BACKGROUND_COLOR: 'CHANGE_BACKGROUND_COLOR',
+  CHANGE_FONT_COLOR: 'CHANGE_FONT_COLOR',
+  CHANGE_PREVIEW_PARAGRAPH: 'CHANGE_PREVIEW_PARAGRAPH'   
 };
 
 export const INITIAL_STATE = {
+  /* body text */
+  backgroundColor: "white",
+  lineHeight: 1.5,
+  bodyWeight: 400,
+  bodyFontColor: "#333",
+  bodyFont: "Rangle Riforma",
+  previewParagraph: "What looked like a small patch of purple grass, above five feet square, was moving across the sand in their direction. When it came near enough he perceived that it was not grass; there were no blades, but only purple roots. The roots were revolving, for each small plant in the whole patch, like the spokes of a rimless wheel.",
+  
+  /* type sample */
+  numberOfSamples: 5,
+  sampleWeight: 400,
+  
+  /* both */
   baseSize: 16,
   fontFamily: "Rangle Riforma",
   fontFamilies: ["Rangle Riforma", "Rangle Riforma Light"],
-  numberOfSpecimens: 5,
-  previewText: "A Visual Type Scale",
+  previewHeadline: "A Visual Type Scale",
   typeScale: {
     value: 1.2,
     name: "Minor Third"
   },
-  weight: 400,
   typeScaleSelected: 2,
   typeScaleValues: [
     {
@@ -66,19 +83,19 @@ export const reducer = (state = INITIAL_STATE, action) => {
     case (TYPESCALE_ACTIONS.CHANGE_NUMBER_OF_SPECIMENS): {
       return {
         ...state,
-        numberOfSpecimens: action.payload
+        numberOfSamples: action.payload
       }
     }
-    case(TYPESCALE_ACTIONS.CHANGE_PREVIEW_TEXT): {
+    case(TYPESCALE_ACTIONS.CHANGE_PREVIEW_HEADLINE): {
       return {
         ...state,
-        previewText: action.payload
+        previewHeadline: action.payload
       }
     }
-    case (TYPESCALE_ACTIONS.CHANGE_WEIGHT): {
+    case (TYPESCALE_ACTIONS.CHANGE_SAMPLE_WEIGHT): {
       return {
         ...state,
-        weight: action.payload
+        sampleWeight: action.payload
       }
     }
     case (TYPESCALE_ACTIONS.CHANGE_TYPESCALE): {
@@ -87,10 +104,46 @@ export const reducer = (state = INITIAL_STATE, action) => {
         typeScaleSelected: action.payload
       }
     }
-    case (TYPESCALE_ACTIONS.CHANGE_FONT): {
+    case (TYPESCALE_ACTIONS.CHANGE_HEADLINE_FONT): {
       return {
         ...state,
         fontFamily: action.payload
+      }
+    }
+    case (TYPESCALE_ACTIONS.CHANGE_BODY_WEIGHT): {
+      return {
+        ...state,
+        bodyWeight: action.payload
+      }
+    }
+    case (TYPESCALE_ACTIONS.CHANGE_BODY_FONT): {
+      return {
+        ...state,
+        bodyFont: action.payload
+      }
+    }
+    case (TYPESCALE_ACTIONS.CHANGE_FONT_COLOR): {
+      return {
+        ...state,
+        bodyFontColor: action.payload
+      }
+    }
+    case (TYPESCALE_ACTIONS.CHANGE_LINE_HEIGHT): {
+      return {
+        ...state,
+        lineHeight: action.payload
+      }
+    }
+    case (TYPESCALE_ACTIONS.CHANGE_BACKGROUND_COLOR): {
+      return {
+        ...state,
+        backgroundColor: action.payload
+      }
+    }
+    case (TYPESCALE_ACTIONS.CHANGE_PREVIEW_PARAGRAPH): {
+      return {
+        ...state,
+        previewParagraph: action.payload
       }
     }
     default:

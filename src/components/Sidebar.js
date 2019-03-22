@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import InputFormContainer from './InputFormContainer';
+import SampleFormContainer from './SampleFormContainer';
+import BodyFormContainer from './BodyFormContainer';
 
 class Sidebar extends Component {
   render() {
     return (
       <div>
-        <InputFormContainer></InputFormContainer>
+        <SampleFormContainer />
+        <BodyFormContainer />
       </div>
     );
   }

@@ -1,46 +1,46 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import InputForm from './InputForm';
+import SampleForm from './SampleForm';
 import {
   changeBaseSize, 
-  changeFont,
+  changeHeadlineFont,
   changeWeight,
-  changePreviewText,
+  changePreviewHeadline,
   changeTypeScale
-} from './InputForm.actions';
+} from './SampleForm.actions';
 
-class InputFormContainer extends Component {
+class SampleFormContainer extends Component {
   render() {
     const { 
       baseSize, 
       fontFamily,
       fontFamilies,
-      previewText, 
+      previewHeadline, 
       typeScaleSelected,
       typeScaleSize, 
       typeScaleValues, 
-      weight, 
+      sampleWeight, 
       changeBaseSize, 
-      changeFont,
+      changeHeadlineFont,
       changeWeight,
-      changePreviewText, 
+      changePreviewHeadline, 
       changeTypeScale } = this.props;
 
     return (
       <div>
-        <InputForm 
+        <SampleForm 
           baseSize={baseSize}
           fontFamily={fontFamily}
           fontFamilies={fontFamilies}
-          previewText={previewText}
+          previewHeadline={previewHeadline}
           typeScaleSize={typeScaleSize}
           typeScaleValues={typeScaleValues}
           typeScaleSelected={typeScaleSelected}
-          weight={weight}
+          sampleWeight={sampleWeight}
           changeBaseSize={changeBaseSize}
-          changeFont={changeFont}
+          changeHeadlineFont={changeHeadlineFont}
           changeWeight={changeWeight}
-          changePreviewText={changePreviewText}
+          changePreviewHeadline={changePreviewHeadline}
           changeTypeScale={changeTypeScale}
         />
       </div>
@@ -52,22 +52,22 @@ const mapStateToProps = state => ({
   baseSize: state.baseSize,
   fontFamily: state.fontFamily,
   fontFamilies: state.fontFamilies,
-  previewText: state.previewText,
+  previewHeadline: state.previewHeadline,
   typeScaleSize: state.typeScale.value,
   typeScaleSelected: state.typeScaleSelected,
   typeScaleValues: state.typeScaleValues,
-  weight: state.weight
+  sampleWeight: state.sampleWeight
 });
 
 const mapDispatchToProps = {
   changeBaseSize,
-  changeFont,
+  changeHeadlineFont,
   changeWeight,
-  changePreviewText,
+  changePreviewHeadline,
   changeTypeScale
 };
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(InputFormContainer);
+)(SampleFormContainer);
