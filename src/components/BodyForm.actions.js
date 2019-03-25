@@ -17,12 +17,12 @@ export const changeLineHeight = e => ({
 
 export const changeBackgroundColor = e => ({
   type: TYPESCALE_ACTIONS.CHANGE_BACKGROUND_COLOR,
-  payload: e.target.value
+  payload: e
 });
 
 export const changeFontColor = e => ({
   type: TYPESCALE_ACTIONS.CHANGE_FONT_COLOR,
-  payload: e.target.value
+  payload: e
 });
 
 export const changePreviewParagraph = e => ({

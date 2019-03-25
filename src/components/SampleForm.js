@@ -1,39 +1,89 @@
 import React from 'react';
-import Input from './Input';
+import Input from "@material-ui/core/Input";
 import FormField from './FormField';
-import Select from './Select';
 import Option from './Option';
+import {
+  InputLabel,
+  TextField,
+  FormControl,
+  NativeSelect
+} from "@material-ui/core";
 
 const SampleForm = (props) => {
   return (
       <form>
-        <FormField name="baseSize" text="Base Size">
-          <Input
-            type="number"
-            min="1"
-            value={props.baseSize}
-            handleChange={props.changeBaseSize}
-          />{" "}
-          px
-        </FormField>
-        <FormField name="sampleWeight" text="Weight">
-          <Input
-            type="number"
-            step="100"
-            min="100"
-            max="1000"
-            value={props.sampleWeight}
-            handleChange={props.changeWeight}
+        <TextField 
+          id="baseSize" 
+          label="Base Size (px)"
+          type="number"
+          value={props.baseSize}
+          onChange={props.changeBaseSize}
+          inputProps={
+            {
+              min: 1
+            }
+          }
+          fullWidth={true}
+          margin="normal"
           />
-        </FormField>
-        <FormField name="previewHeadline" text="Preview Text">
-          <Input
-            value={props.previewHeadline}
-            handleChange={props.changePreviewHeadline}
+      <FormControl
+        name="fontFamily"
+        text="Headline Font"
+        fullWidth={true}
+        margin="normal"
+      >
+        <InputLabel>
+          Headline Font
+          </InputLabel>
+        <NativeSelect
+          name="fontFamily"
+          id="fontFamily"
+          value={props.fontFamily}
+          onChange={props.changeHeadlineFont}
+        >
+          {props.fontFamilies.map(family => (
+            <Option
+              key={family}
+              value={family}>
+              {family}
+            </Option>
+          ))}
+        </NativeSelect>
+      </FormControl>
+        <TextField 
+          id="sampleWeight" 
+          label="Headline Weight"
+          type="number"
+          value={props.sampleWeight}
+          onChange={props.changeWeight}
+          inputProps={
+            {
+              step: 100,
+              min: 100,
+              max: 1000
+            }
+          }
+          fullWidth={true}
+          margin="normal"
           />
-        </FormField>
-        <FormField name="typeScale" text="Scale">
-          <Select
+        <TextField 
+          id="previewHeadline" 
+          label="Headline Preview Text"
+          value={props.previewHeadline}
+          onChange={props.changePreviewHeadline}
+          fullWidth={true}
+          margin="normal"
+          />
+        <FormControl 
+          name="typeScale" 
+          text="Scale"
+          fullWidth={true}
+          margin="normal"
+          >
+          <InputLabel>
+            Scale
+          </InputLabel>
+          <NativeSelect
             name="typeScale"
             id="typescale"
             value={props.typeScaleSelected}
@@ -44,24 +94,8 @@ const SampleForm = (props) => {
                 {value.value} – {value.name}
               </Option>
             ))}
-          </Select>
-        </FormField>
-        <FormField name="fontFamily" text="Font">
-          <Select
-            name="fontFamily"
-            id="fontFamily"
-            value={props.fontFamily}
-            onChange={props.changeHeadlineFont}
-          >
-            {props.fontFamilies.map(family => (
-              <Option 
-                key={family} 
-                value={family}>
-                {family}
-              </Option>
-            ))}
-          </Select>
-        </FormField>
+          </NativeSelect>
+        </FormControl>
       </form>
   );
 };

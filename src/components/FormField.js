@@ -1,6 +1,7 @@
 import React from 'react';
 import Label from './Label';
 import styled from 'styled-components';
+import FormControl from '@material-ui/core/FormControl';
 
 const StyledFormField = styled.div`
   margin-bottom: 10px;
@@ -8,13 +9,15 @@ const StyledFormField = styled.div`
 
 const FormField = (props) => {
   return (
-    <StyledFormField>
+    <FormControl
+      fullWidth={props.fullWidth ? props.fullWidth : true}
+    >
       <Label 
         name={props.name}
         text={props.text}
       />
       {props.children}
-    </StyledFormField>
+    </FormControl>
   );
 };
 

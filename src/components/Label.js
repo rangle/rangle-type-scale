@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import InputLabel from '@material-ui/core/InputLabel';
+import FormLabel from '@material-ui/core/FormLabel';
 
 const StyledLabel = styled.label`
   display: block;
@@ -9,7 +11,7 @@ const StyledLabel = styled.label`
 
 const Label = ({ name, text }) => {
   return (
-    <StyledLabel htmlFor={name}>{text}</StyledLabel>
+    <FormLabel htmlFor={name}>{text}</FormLabel>
   );
 };
 

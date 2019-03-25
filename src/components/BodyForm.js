@@ -1,69 +1,77 @@
 import React from 'react';
-import FormField from "./FormField";
-import Input from "./Input";
-import Select from "./Select";
 import Option from "./Option";
+import { InputLabel, TextField, FormControl, NativeSelect } from '@material-ui/core';
 
 const BodyForm = (props) => {
   return (
     <form>
-      <FormField name="bodyFont" text="Body Font">
-        <Select
+      <FormControl fullWidth={true} margin="normal">
+        <InputLabel name="bodyFont">Body Font</InputLabel>
+        <NativeSelect
           name="fontFamily"
           id="fontFamily"
           value={props.bodyFontFamily}
-          handleChange={props.changeBodyFont}
+          onChange={props.changeBodyFont}
         >
           {props.fontFamilies.map(family => (
             <Option key={family} value={family}>
               {family}
             </Option>
           ))}
-        </Select>
-      </FormField>
-      <FormField name="bodyWeight" text="Body Weight">
-        <Input
+        </NativeSelect>
+      </FormControl>
+        <TextField
           type="number"
-          step="100"
-          min="100"
-          max="1000"
-          name="bodyWeight"
+          id="bodyWeight"
+          label="Body Weight"
           value={props.bodyWeight}
-          handleChange={props.changeBodyWeight}
+          onChange={props.changeBodyWeight}
+          inputProps={{
+            step: 100,
+            min: 100,
+            max: 1000
+          }}
+          fullWidth={true}
+          margin="normal"
         />
-      </FormField>
-      <FormField name="lineHeight" text="Line Height">
-        <Input
-          type="number"
-          min="0"
-          name="lineHeight"
-          value={props.lineHeight}
-          handleChange={props.changeLineHeight}
-        />
-      </FormField>
-      <FormField name="backgroundColor" text="Background">
-        <Input
-          name="backgroundColor"
-          value={props.backgroundColor}
-          handleChange={props.changeBackgroundColor}
-        />
-      </FormField>
-      <FormField name="fontColor" text="Font Colour">
-        <Input
-          name="fontColor"
-          value={props.bodyFontColor}
-          handleChange={props.changeFontColor}
-        />
-      </FormField>
-      <FormField
-        name="previewParagraph"
-        text="Preview Text"
-      >
-        <textarea
-          onChange={props.changePreviewParagraph}
-          value={props.previewParagraph}
-        ></textarea>
-      </FormField>
+      <TextField
+        id="lineHeight"
+        label="Line Height"
+        type="number"
+        inputProps={{
+          min: 0,
+          step: 0.25
+        }}
+        value={props.lineHeight}
+        onChange={props.changeLineHeight}
+        fullWidth={true}
+        margin="normal"
+      />
+      <TextField
+        id="backgroundColor"
+        label="Background Color"
+        value={props.backgroundColor}
+        onChange={props.changeBackgroundColor}
+        fullWidth={true}
+        margin="normal"
+      />
+      <TextField
+        id="fontColor"
+        label="Font Color"
+        value={props.bodyFontColor}
+        onChange={props.changeFontColor}
+        fullWidth={true}
+        margin="normal"
+      />
+      <TextField
+        id="previewParagraph"
+        label="Paragraph Preview Text"
+        onChange={props.changePreviewParagraph}
+        value={props.previewParagraph}
+        multiline={true}
+        fullWidth={true}
+        margin="normal"
+      />
     </form>
   );
 };
