@@ -25,9 +25,8 @@ export const INITIAL_STATE = {
   previewParagraph: "What looked like a small patch of purple grass, above five feet square, was moving across the sand in their direction. When it came near enough he perceived that it was not grass; there were no blades, but only purple roots. The roots were revolving, for each small plant in the whole patch, like the spokes of a rimless wheel.",
   
   /* type samples */
-  largeSamples: 4,
-  smallSamples: 4,
-  numberOfSamples: 5,
+  largeSamples: 5,
+  smallSamples: 5,
   sampleWeight: 400,
   
   /* both */

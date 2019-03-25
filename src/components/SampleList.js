@@ -13,7 +13,13 @@ const StyledList = styled.div`
   padding: 0;
 
   .icon-button {
-    margin-left: 150px;
+    margin-left: 145px;
+    transition: opacity 0.5s ease-in-out;
+
+    &:hover {
+      cursor: pointer;
+      opacity: 0.6;
+    }
   }
 `;
 
@@ -71,7 +77,6 @@ class SampleList extends Component {
 const mapStateToProps = state => ({
   baseSize: state.baseSize,
   fontFamily: state.fontFamily,
-  numberOfSamples: state.numberOfSamples,
   largeSamples: state.largeSamples,
   smallSamples: state.smallSamples,
   previewHeadline: state.previewHeadline,

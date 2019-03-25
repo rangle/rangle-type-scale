@@ -13,7 +13,7 @@ const StyledApp = styled.div`
   display: grid;
   grid-column-gap: 50px;
   grid-template-columns: 350px 1fr;
-  margin: 0 15px;
+  margin: 0 30px;
 `;
 
 class App extends Component {
