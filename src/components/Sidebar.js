@@ -4,7 +4,7 @@ import BodyFormContainer from './BodyFormContainer';
 import styled from 'styled-components';
 
 const StyledSidebar = styled.div`
-  margin: 0 50px 0 15px;
+  margin: 0 15px;
 `;
 
 class Sidebar extends Component {

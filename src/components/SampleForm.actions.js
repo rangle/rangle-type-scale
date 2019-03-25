@@ -24,3 +24,11 @@ export const changeHeadlineFont = e => ({
   type: TYPESCALE_ACTIONS.CHANGE_HEADLINE_FONT,
   payload: e.target.value
 });
+
+export const addLargeSample = () => ({
+  type: TYPESCALE_ACTIONS.ADD_LARGE_SAMPLE
+});
+
+export const addSmallSample = () => ({
+  type: TYPESCALE_ACTIONS.ADD_SMALL_SAMPLE
+});

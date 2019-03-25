@@ -11,9 +11,10 @@ const theme = {
 
 const StyledApp = styled.div`
   display: grid;
+  grid-column-gap: 50px;
   grid-template-columns: 350px 1fr;
+  margin: 0 15px;
 `;
-
 
 class App extends Component {
   render() {

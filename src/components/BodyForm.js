@@ -1,25 +1,28 @@
 import React from 'react';
-import Option from "./Option";
-import { InputLabel, TextField, FormControl, NativeSelect } from '@material-ui/core';
+import { TextField } from '@material-ui/core';
 
 const BodyForm = (props) => {
   return (
     <form>
-      <FormControl fullWidth={true} margin="normal">
-        <InputLabel name="bodyFont">Body Font</InputLabel>
-        <NativeSelect
-          name="fontFamily"
-          id="fontFamily"
-          value={props.bodyFontFamily}
-          onChange={props.changeBodyFont}
+      <TextField 
+        fullWidth={true} 
+        margin="normal"
+        select
+        id="bodyFont"
+        label="Body Font"
+        value={props.bodyFontFamily}
+        onChange={props.changeBodyFont}
+        SelectProps={{
+          native: true,
+        }}        
         >
           {props.fontFamilies.map(family => (
-            <Option key={family} value={family}>
+            <option key={family} value={family}>
               {family}
-            </Option>
+            </option>
           ))}
-        </NativeSelect>
-      </FormControl>
+      </TextField>
+
         <TextField
           type="number"
           id="bodyWeight"

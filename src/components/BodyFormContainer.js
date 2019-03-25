@@ -9,7 +9,6 @@ import {
   changeFontColor,
   changePreviewParagraph
 } from "./BodyForm.actions";
-import { truncate } from 'fs';
 
 class BodyFormContainer extends Component {
   render() {

@@ -1,4 +1,6 @@
 export const TYPESCALE_ACTIONS = {
+  ADD_LARGE_SAMPLE: 'ADD_LARGE_SAMPLE',
+  ADD_SMALL_SAMPLE: 'ADD_SMALL_SAMPLE',
   CHANGE_BASE_SIZE: 'CHANGE_BASE_SIZE',
   CHANGE_PREVIEW_HEADLINE: 'CHANGE_PREVIEW_HEADLINE',
   CHANGE_HEADLINE_FONT: 'CHANGE_HEADLINE_FONT',
@@ -22,7 +24,9 @@ export const INITIAL_STATE = {
   bodyFont: "Rangle Riforma",
   previewParagraph: "What looked like a small patch of purple grass, above five feet square, was moving across the sand in their direction. When it came near enough he perceived that it was not grass; there were no blades, but only purple roots. The roots were revolving, for each small plant in the whole patch, like the spokes of a rimless wheel.",
   
-  /* type sample */
+  /* type samples */
+  largeSamples: 4,
+  smallSamples: 4,
   numberOfSamples: 5,
   sampleWeight: 400,
   
@@ -74,6 +78,18 @@ export const INITIAL_STATE = {
 
 export const reducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
+    case(TYPESCALE_ACTIONS.ADD_LARGE_SAMPLE): {
+      return {
+        ...state,
+        largeSamples: state.largeSamples += 1
+      }
+    }
+    case (TYPESCALE_ACTIONS.ADD_SMALL_SAMPLE): {
+      return {
+        ...state,
+        smallSamples: state.smallSamples += 1
+      }
+    }
     case(TYPESCALE_ACTIONS.CHANGE_BASE_SIZE): {
       return {
         ...state,
