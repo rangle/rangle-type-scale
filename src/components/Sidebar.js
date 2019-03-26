@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import SampleFormContainer from './SampleFormContainer';
-import BodyFormContainer from './BodyFormContainer';
+import SampleFormContainer from './SampleType/SampleFormContainer';
+import BodyFormContainer from './BodyType/BodyFormContainer';
 import styled from 'styled-components';
 
 const StyledSidebar = styled.div`

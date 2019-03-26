@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import styled from 'styled-components';
-import Heading from './Heading';
-import Paragraph from './Paragraph';
+import Heading from '../Heading';
+import Paragraph from '../Paragraph';
 
 const levels = [...Array(6).keys()].map(level => level + 1);
 

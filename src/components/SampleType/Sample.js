@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "styled-components"; 
-import '../fonts/fonts.css';
+import '../../fonts/fonts.css';
 
 const SampleBody = styled.div`
   line-height: 1.8;

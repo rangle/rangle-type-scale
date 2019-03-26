@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import SampleList from "./SampleList";
-import BodyTypeTester from "./BodyTypeTester";
+import SampleList from "./SampleType/SampleList";
+import BodyTypeTester from "./BodyType/BodyTypeTester";
 
 class Main extends Component {
   render() {

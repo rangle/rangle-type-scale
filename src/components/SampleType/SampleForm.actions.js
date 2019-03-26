@@ -1,4 +1,4 @@
-import { TYPESCALE_ACTIONS } from '../reducers';
+import { TYPESCALE_ACTIONS } from '../../reducers';
 
 export const changeBaseSize = e => ({
   type: TYPESCALE_ACTIONS.CHANGE_BASE_SIZE,
