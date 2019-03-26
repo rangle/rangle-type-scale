@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/rangle-type-scale/precache-manifest.033ff64d5dcb5bd1e5aee54d952fc4eb.js"
+  "/rangle-type-scale/precache-manifest.312c8039f25b8ea97a6923f2bc646c0e.js"
 );
 
 workbox.clientsClaim();
