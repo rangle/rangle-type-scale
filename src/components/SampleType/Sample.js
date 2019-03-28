@@ -1,33 +1,39 @@
 import React from 'react';
 import styled from "styled-components"; 
 import '../../fonts/fonts.css';
+import { calculateBaseSize, convertToFixed } from '../../helpers';
+
+const breakpoint = "1100px"
 
 const SampleBody = styled.div`
   line-height: 1.8;
 
+  @media (max-width: ${breakpoint}) {
+    margin-bottom: 1em;
+  }
+
   .label {
     color: ${props => props.theme.lightGray};
-    display: inline-block;
-    margin-right: 20px;
-    text-align: right;
-    width: 160px;
+    display: block;
+    
+    @media (min-width: ${breakpoint}) {      
+      display: inline-block;
+      margin-right: 20px;
+      text-align: right;
+      width: 160px;
+    }
   }
 `;
 
-const countDecimals = (num) => {
-  if (Math.floor(num.valueOf()) === num.valueOf()) return 0;
-  return num.toString().split(".")[1].length || 0;
-}
+const Sample = ({baseSize, typeScaleValue, fontFamily, sampleWeight, previewHeadline}) => {
 
-const Sample = (props) => {
-  const baseSizeValue = props.baseSize * props.typeScaleValue;
-  const typeScaleEms = (countDecimals(props.typeScaleValue) > 3 ? props.typeScaleValue.toFixed(3) : props.typeScaleValue);
-  const typeScalePx = (countDecimals(baseSizeValue) > 2 ? baseSizeValue.toFixed(2) : baseSizeValue);
+  const baseSizeValue = calculateBaseSize(baseSize, typeScaleValue);
+  const typeScaleEms = convertToFixed(typeScaleValue, 3);
+  const typeScalePx = convertToFixed(baseSizeValue, 2);
   const styles = {
-    display: 'inline-block',
     fontSize: `${typeScalePx}px`,
-    fontFamily: `${props.fontFamily}`,
-    fontWeight: `${props.sampleWeight}`,
+    fontFamily: `${fontFamily}`,
+    fontWeight: `${sampleWeight}`,
   };
 
   return (
@@ -37,7 +43,7 @@ const Sample = (props) => {
         ({typeScalePx}px)
       </span>
       <span className="value" style={styles}>
-        {props.previewHeadline}
+        {previewHeadline}
       </span>
     </SampleBody>
   );

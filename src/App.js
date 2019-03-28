@@ -1,31 +1,31 @@
 import React, { Component } from 'react';
 import { ThemeProvider } from "styled-components";
-import Sidebar from './components/Sidebar';
-import styled from "styled-components";
-import Main from './components/Main';
+import MediaQuery from 'react-responsive';
+import GridLayout from './components/GridLayout';
+import StackedLayout from './components/StackedLayout';
 
 const theme = {
   black: "#333333",
   lightGray: "#858585",
 }
 
-const StyledApp = styled.div`
-  display: grid;
-  grid-column-gap: 50px;
-  grid-template-columns: 350px 1fr;
-  margin: 0 15px;
-`;
-
 class App extends Component {
   render() {
     return (
       <ThemeProvider theme={theme}>
-        <StyledApp>
-          <aside>
-            <Sidebar />
-          </aside>
-          <Main />
-        </StyledApp>
+        <MediaQuery minDeviceWidth={700}>
+          {(matches) => {
+            if (matches) {
+              return (
+                <GridLayout />
+              )
+            } else {
+              return (
+                <StackedLayout />
+              );
+            }
+          }}
+        </MediaQuery>
       </ThemeProvider>
     );
   }

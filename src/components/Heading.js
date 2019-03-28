@@ -1,17 +1,18 @@
 import React from 'react';
+import { calculateBaseSize } from '../helpers';
 
-const Heading = (props) => {
-  const fontSize = Math.pow(props.typeScaleSize, props.multiplier);
-  const fontSizeToPx = props.baseSize * fontSize;
+const Heading = ({baseSize, typeScaleSize, multiplier, fontFamily, sampleWeight, level, text}) => {
+  const fontSize = Math.pow(typeScaleSize, multiplier);
+  const fontSizeToPx = calculateBaseSize(baseSize, fontSize);
   const styles = {
-    fontFamily: `${props.fontFamily}`,
+    fontFamily: `${fontFamily}`,
     fontSize: `${fontSizeToPx}px`,
-    fontWeight: `${props.sampleWeight}`,
+    fontWeight: `${sampleWeight}`,
     margin: '2rem 0 1rem'
   };
-  const H = 'h' + props.level;
+  const H = 'h' + level;
   return (
-    <H style={styles}>{props.text}</H>
+    <H style={styles}>{text}</H>
   );
 };
 

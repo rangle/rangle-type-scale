@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import Heading from '../Heading';
 import Paragraph from '../Paragraph';
 
-const levels = [...Array(6).keys()].map(level => level + 1);
-
 class BodyTypeTester extends Component {
   render() {
     const { 
@@ -25,16 +23,17 @@ class BodyTypeTester extends Component {
       color: `${bodyFontColor}`,
       fontFamily: `${bodyFont}`,
     }
+    const headingLevels = [...Array(6).keys()].map(level => level + 1);
     return (
       <div style={styles}>
-        {levels.map((level, i, levels) => (
+        {headingLevels.map((level, i, headingLevels) => (
           <div key={i}>
             <Heading 
               baseSize={baseSize}
               fontFamily={fontFamily}
               sampleWeight={sampleWeight}
               level={level}
-              multiplier={(levels.length - i) - 1}
+              multiplier={(headingLevels.length - i) - 1}
               text={previewHeadline}
               typeScaleSize={typeScaleSize} />
             <Paragraph 
