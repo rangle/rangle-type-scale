@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Sidebar from './Sidebar';
 import Main from './Main';
 
-const StyledApp = styled.div`
+const StyledApp = styled.main`
   display: grid;
   grid-column-gap: 30px;
   grid-template-columns: 250px 1fr;
@@ -18,9 +18,9 @@ const StyledApp = styled.div`
 const GridLayout = () => {
   return (
     <StyledApp>
-      <aside>
+      <div>
         <Sidebar />
-      </aside>
+      </div>
       <Main />
     </StyledApp>
   );

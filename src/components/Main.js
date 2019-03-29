@@ -13,10 +13,10 @@ class Main extends Component {
       backgroundColor: `${backgroundColor}`
     } 
     return (
-      <main style={styles}>
+      <div style={styles}>
         <SampleList />
         <BodyTypeTester />
-      </main>
+      </div>
     );
   }
 }
