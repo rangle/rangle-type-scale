@@ -22,7 +22,7 @@ export const INITIAL_STATE = {
   bodyWeight: 400,
   bodyFontColor: "#333333",
   bodyFont: "Rangle Riforma",
-  previewParagraph: "What looked like a small patch of purple grass, above five feet square, was moving across the sand in their direction. When it came near enough he perceived that it was not grass; there were no blades, but only purple roots. The roots were revolving, for each small plant in the whole patch, like the spokes of a rimless wheel.",
+  previewParagraph: "Guesswork isn’t in our toolkit. Through discovery, empathy, and relentless curiosity, we partner with clients to identify, frame, and build the right thing.",
   
   /* type samples */
   largeSamples: 5,
@@ -33,7 +33,7 @@ export const INITIAL_STATE = {
   baseSize: 16,
   fontFamily: "Rangle Riforma",
   fontFamilies: ["Rangle Riforma", "Rangle Riforma Light"],
-  previewHeadline: "A Visual Type Scale",
+  previewHeadline: "Making Things That Matter",
   typeScale: {
     value: 1.2,
     name: "Minor Third"
