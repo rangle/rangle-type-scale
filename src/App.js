@@ -11,7 +11,7 @@ const theme = {
 
 const StyledApp = styled.div`
   header {
-    margin-bottom: 90px;
+    margin-bottom: 80px;
   }
 
   .wrapper.body {

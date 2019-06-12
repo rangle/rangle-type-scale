@@ -7,9 +7,9 @@ const StyledHeader = styled.header`
   color: white;
   padding: 20px 0;
 
-  .headline {
-    font-size: 20px;
-    line-height: 24px;
+  h1.headline {
+    font-size: 1.25rem; /* 20px */
+    line-height: 1.2; /* 24px */
     margin-left: 28px;
   }
   .wrapper.header {
