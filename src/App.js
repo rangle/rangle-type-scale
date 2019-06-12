@@ -1,19 +1,24 @@
 import React, { Component } from 'react';
-import { ThemeProvider } from "styled-components";
+import styled, { ThemeProvider } from 'styled-components';
 import Sidebar from './components/Sidebar';
-import styled from "styled-components";
 import Main from './components/Main';
+import Header from './components/Header';
 
 const theme = {
-  black: "#333333",
+  black: "#262626",
   lightGray: "#858585",
 }
 
 const StyledApp = styled.div`
-  display: grid;
-  grid-column-gap: 50px;
-  grid-template-columns: 350px 1fr;
-  margin: 0 30px;
+  header {
+    margin-bottom: 90px;
+  }
+
+  .wrapper.body {
+    display: grid;
+    grid-column-gap: 50px;
+    grid-template-columns: 350px 1fr;
+  }
 `;
 
 class App extends Component {
@@ -21,10 +26,13 @@ class App extends Component {
     return (
       <ThemeProvider theme={theme}>
         <StyledApp>
-          <aside>
+          <>
+          <Header />
+          <div className="wrapper body">
             <Sidebar />
-          </aside>
-          <Main />
+            <Main />
+          </div>
+          </>
         </StyledApp>
       </ThemeProvider>
     );
