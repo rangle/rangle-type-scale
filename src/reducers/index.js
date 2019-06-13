@@ -3,7 +3,7 @@ export const TYPESCALE_ACTIONS = {
   ADD_SMALL_SAMPLE: 'ADD_SMALL_SAMPLE',
   CHANGE_BASE_SIZE: 'CHANGE_BASE_SIZE',
   CHANGE_PREVIEW_HEADLINE: 'CHANGE_PREVIEW_HEADLINE',
-  CHANGE_HEADLINE_FONT: 'CHANGE_HEADLINE_FONT',
+  CHANGE_HEADING_FONT: 'CHANGE_HEADING_FONT',
   CHANGE_HEADING_LINE_HEIGHT: 'CHANGE_HEADING_LINE_HEIGHT',
   CHANGE_NUMBER_OF_SPECIMENS: 'CHANGE_NUMBER_OF_SPECIMENS',
   CHANGE_SAMPLE_WEIGHT: 'CHANGE_SAMPLE_WEIGHT',
@@ -26,6 +26,8 @@ export const INITIAL_STATE = {
   bodyWeight: 400,
   bodyFontColor: "#333333",
   bodyFont: "Rangle Riforma",
+  bodyFontSelected: 0,
+  bodyWeightSelected: "Regular",
   previewParagraph: "Guesswork isn’t in our toolkit. Through discovery, empathy, and relentless curiosity, we partner with clients to identify, frame, and build the right thing.",
   
   /* type samples */
@@ -48,7 +50,7 @@ export const INITIAL_STATE = {
     {
       name: "Rangle Riforma",
       weights: ["Light", "Regular", "Medium", "Bold", "Heavy"]
-    }
+    },
   ],
   previewHeadline: "Making things that matter",
   roundFontSizes: true,
@@ -131,7 +133,7 @@ export const reducer = (state = INITIAL_STATE, action) => {
         sampleWeight: action.payload
       }
     }
-    case (TYPESCALE_ACTIONS.CHANGE_HEADING_WEIGHT): {
+    case (TYPESCALE_ACTIONS.CHANGE_HEADING_WEIGHT): { 
       return {
         ...state,
         headingWeightSelected: action.payload
@@ -146,7 +148,7 @@ export const reducer = (state = INITIAL_STATE, action) => {
     case (TYPESCALE_ACTIONS.CHANGE_HEADING_FONT): {
       return {
         ...state,
-        fontFamily: action.payload
+        headingFontSelected: action.payload
       }
     }
     case (TYPESCALE_ACTIONS.CHANGE_BODY_WEIGHT): {
@@ -158,7 +160,7 @@ export const reducer = (state = INITIAL_STATE, action) => {
     case (TYPESCALE_ACTIONS.CHANGE_BODY_FONT): {
       return {
         ...state,
-        bodyFont: action.payload
+        bodyFontSelected: action.payload
       }
     }
     case (TYPESCALE_ACTIONS.CHANGE_FONT_COLOR): {

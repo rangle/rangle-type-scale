@@ -10,33 +10,38 @@ const BodyForm = (props) => {
         select
         id="bodyFont"
         label="Body Font"
-        value={props.bodyFontFamily}
+        value={props.bodyFontSelected}
         onChange={props.changeBodyFont}
         SelectProps={{
           native: true,
         }}        
-        >
-          {props.fontFamilies.map(family => (
-            <option key={family} value={family}>
-              {family}
-            </option>
-          ))}
+      >
+        {props.fonts.map((font, index) => (
+          <option key={font.name} value={index}>
+            {font.name}
+          </option>
+        ))}
       </TextField>
-
-        <TextField
-          type="number"
-          id="bodyWeight"
-          label="Body Weight"
-          value={props.bodyWeight}
-          onChange={props.changeBodyWeight}
-          inputProps={{
-            step: 100,
-            min: 100,
-            max: 1000
-          }}
-          fullWidth={true}
-          margin="normal"
-        />
+      <TextField
+        id="bodyWeight"
+        label="Body Weight"
+        fullWidth={true}
+        margin="normal"
+        select
+        SelectProps={{
+          native: true,
+        }}
+        value={props.bodyWeightSelected}
+        onChange={props.changeBodyWeight}
+      >
+        {props.fonts[props.bodyFontSelected].weights.map(weight => (
+          <option
+            key={weight}
+            value={weight}>
+            {weight}
+          </option>
+        ))}
+      </TextField>
       <TextField
         id="lineHeight"
         label="Line Height"

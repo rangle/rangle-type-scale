@@ -13,33 +13,29 @@ import {
 class BodyFormContainer extends Component {
   render() {
     const {
-      backgroundColor,
-      bodyWeight,
       bodyFontColor,
-      bodyFont,
-      fontFamilies,
+      bodyFontSelected,
+      bodyWeightSelected,
+      fonts,
       lineHeight,
       previewParagraph,
       changeBodyWeight,
       changeBodyFont,
       changeLineHeight,
-      changeBackgroundColor,
       changeFontColor,
       changePreviewParagraph
     } = this.props;
     return (
       <BodyForm
-        backgroundColor={backgroundColor}
-        bodyFont={bodyFont}
-        bodyWeight={bodyWeight}
+        bodyFontSelected={bodyFontSelected}
+        bodyWeightSelected={bodyWeightSelected}
         bodyFontColor={bodyFontColor}
-        fontFamilies={fontFamilies}
+        fonts={fonts}
         lineHeight={lineHeight}
         previewParagraph={previewParagraph}
         changeBodyWeight={changeBodyWeight}
         changeBodyFont={changeBodyFont}
         changeLineHeight={changeLineHeight}
-        changeBackgroundColor={changeBackgroundColor}
         changeFontColor={changeFontColor}
         changePreviewParagraph={changePreviewParagraph}
       />
@@ -48,11 +44,10 @@ class BodyFormContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-  backgroundColor: state.backgroundColor,
-  bodyWeight: state.bodyWeight,
   bodyFontColor: state.bodyFontColor,
-  bodyFont: state.bodyFont,
-  fontFamilies: state.fontFamilies,
+  bodyFontSelected: state.bodyFontSelected,
+  bodyWeightSelected: state.bodyWeightSelected,
+  fonts: state.fonts,
   lineHeight: state.lineHeight,
   previewParagraph: state.previewParagraph
 }); 
@@ -61,7 +56,6 @@ const mapDispatchToProps = {
   changeBodyWeight,
   changeBodyFont,
   changeLineHeight,
-  changeBackgroundColor,
   changeFontColor,
   changePreviewParagraph
 };

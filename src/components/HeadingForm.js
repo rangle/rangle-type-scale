@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-  TextField,
-} from "@material-ui/core";
+import TextField from "@material-ui/core/TextField";
 
 const HeadingForm = (props) => {
   return (
@@ -14,19 +12,20 @@ const HeadingForm = (props) => {
         SelectProps={{
           native: true,
         }}        
-          id="fontFamily"
-        value={props.fonts[props.headingFontSelected].name}
-          onChange={props.changeHeadlineFont}
-        >
-          {props.fonts.map(font => (
-            <option
-              key={font.name}
-              value={font.name}>
-              {font.name}
-            </option>
-          ))}
+        id="headingFont"
+        value={props.headingFontSelected}
+        onChange={props.changeHeadingFont}
+      >
+        {props.fonts.map((font, index) => (
+          <option
+            key={font.name}
+            value={index}>
+            {font.name}
+          </option>
+        ))}
       </TextField>
       <TextField
+        id="headingWeight"
         label="Heading Weight"
         fullWidth={true}
         margin="normal"
@@ -34,7 +33,6 @@ const HeadingForm = (props) => {
         SelectProps={{
           native: true,
         }}
-        id="fontWeights"
         value={props.headingWeightSelected}
         onChange={props.changeHeadingWeight}
       >
@@ -67,7 +65,7 @@ const HeadingForm = (props) => {
         fullWidth={true}
         margin="normal"
       />
-      </form>
+    </form>
   );
 };
 

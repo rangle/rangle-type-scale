@@ -11,8 +11,6 @@ import {
 class HeadingFormContainer extends Component {
   render() {
     const { 
-      fontFamily,
-      fontFamilies,
       fonts,
       headingFontSelected,
       headingLineHeight,
@@ -21,13 +19,11 @@ class HeadingFormContainer extends Component {
       changeHeadingFont,
       changeHeadingLineHeight,
       changeHeadingWeight,
-      changePreviewHeadline } = this.props;
-
+      changePreviewHeadline
+    } = this.props;
     return (
       <div>
         <HeadingForm 
-          fontFamily={fontFamily}
-          fontFamilies={fontFamilies}
           fonts={fonts}
           headingFontSelected={headingFontSelected}
           headingLineHeight={headingLineHeight}
@@ -45,8 +41,6 @@ class HeadingFormContainer extends Component {
 
 const mapStateToProps = state => ({
   baseSize: state.baseSize,
-  fontFamily: state.fontFamily,
-  fontFamilies: state.fontFamilies,
   fonts: state.fonts,
   headingFontSelected: state.headingFontSelected,
   headingLineHeight: state.headingLineHeight,
