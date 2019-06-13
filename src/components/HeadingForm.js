@@ -7,7 +7,7 @@ const HeadingForm = (props) => {
   return (
     <form>
       <TextField
-        label="Headline Font"
+        label="Heading Font"
         fullWidth={true}
         margin="normal"
         select
@@ -15,36 +15,40 @@ const HeadingForm = (props) => {
           native: true,
         }}        
           id="fontFamily"
-          value={props.fontFamily}
+        value={props.fonts[props.headingFontSelected].name}
           onChange={props.changeHeadlineFont}
         >
-          {props.fontFamilies.map(family => (
+          {props.fonts.map(font => (
             <option
-              key={family}
-              value={family}>
-              {family}
+              key={font.name}
+              value={font.name}>
+              {font.name}
             </option>
           ))}
       </TextField>
-      <TextField 
-        id="sampleWeight" 
-        label="Headline Weight"
-        type="number"
-        value={props.sampleWeight}
-        onChange={props.changeWeight}
-        inputProps={
-          {
-            step: 100,
-            min: 100,
-            max: 1000
-          }
-        }
+      <TextField
+        label="Heading Weight"
         fullWidth={true}
         margin="normal"
-      />
+        select
+        SelectProps={{
+          native: true,
+        }}
+        id="fontWeights"
+        value={props.headingWeightSelected}
+        onChange={props.changeHeadingWeight}
+      >
+        {props.fonts[props.headingFontSelected].weights.map(weight => (
+          <option
+            key={weight}
+            value={weight}>
+            {weight}
+          </option>
+        ))}
+      </TextField>
       <TextField 
         id="previewHeadline" 
-        label="Headline Preview"
+        label="Heading Text"
         value={props.previewHeadline}
         onChange={props.changePreviewHeadline}
         fullWidth={true}

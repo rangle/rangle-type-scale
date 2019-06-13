@@ -12,7 +12,8 @@ export const TYPESCALE_ACTIONS = {
   CHANGE_LINE_HEIGHT: 'CHANGE_LINE_HEIGHT',
   CHANGE_BACKGROUND_COLOR: 'CHANGE_BACKGROUND_COLOR',
   CHANGE_FONT_COLOR: 'CHANGE_FONT_COLOR',
-  CHANGE_PREVIEW_PARAGRAPH: 'CHANGE_PREVIEW_PARAGRAPH'   
+  CHANGE_PREVIEW_PARAGRAPH: 'CHANGE_PREVIEW_PARAGRAPH',
+  CHANGE_HEADING_WEIGHT: 'CHANGE_HEADING_WEIGHT' 
 };
 
 export const INITIAL_STATE = {
@@ -28,12 +29,25 @@ export const INITIAL_STATE = {
   largeSamples: 5,
   smallSamples: 5,
   sampleWeight: 400,
+
+  /* heading fonts */
+  headingFontSelected: 0,
+  headingWeightSelected: "Regular",
   
   /* both */
   baseSize: 16,
+  baseUnit: "px",
+  displayMode: "light-mode",
   fontFamily: "Rangle Riforma",
   fontFamilies: ["Rangle Riforma", "Rangle Riforma Light"],
+  fonts: [
+    {
+      name: "Rangle Riforma",
+      weights: ["Light", "Regular", "Medium", "Bold", "Heavy"]
+    }
+  ],
   previewHeadline: "Making things that matter",
+  roundFontSizes: true,
   typeScale: {
     value: 1.2,
     name: "Minor Third"
@@ -113,13 +127,19 @@ export const reducer = (state = INITIAL_STATE, action) => {
         sampleWeight: action.payload
       }
     }
+    case (TYPESCALE_ACTIONS.CHANGE_HEADING_WEIGHT): {
+      return {
+        ...state,
+        headingWeightSelected: action.payload
+      }
+    }
     case (TYPESCALE_ACTIONS.CHANGE_TYPESCALE): {
       return {
         ...state,
         typeScaleSelected: action.payload
       }
     }
-    case (TYPESCALE_ACTIONS.CHANGE_HEADLINE_FONT): {
+    case (TYPESCALE_ACTIONS.CHANGE_HEADING_FONT): {
       return {
         ...state,
         fontFamily: action.payload

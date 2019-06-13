@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import HeadingForm from './HeadingForm';
 import {
-  changeHeadlineFont,
-  changeWeight,
+  changeHeadingFont,
+  changeHeadingWeight,
   changePreviewHeadline,
 } from './HeadingForm.actions';
 
@@ -12,10 +12,12 @@ class HeadingFormContainer extends Component {
     const { 
       fontFamily,
       fontFamilies,
+      fonts,
+      headingFontSelected,
+      headingWeightSelected,
       previewHeadline, 
-      sampleWeight, 
-      changeHeadlineFont,
-      changeWeight,
+      changeHeadingFont,
+      changeHeadingWeight,
       changePreviewHeadline } = this.props;
 
     return (
@@ -23,10 +25,12 @@ class HeadingFormContainer extends Component {
         <HeadingForm 
           fontFamily={fontFamily}
           fontFamilies={fontFamilies}
+          fonts={fonts}
+          headingFontSelected={headingFontSelected}
+          headingWeightSelected={headingWeightSelected}
           previewHeadline={previewHeadline}
-          sampleWeight={sampleWeight}
-          changeHeadlineFont={changeHeadlineFont}
-          changeWeight={changeWeight}
+          changeHeadingFont={changeHeadingFont}
+          changeHeadingWeight={changeHeadingWeight}
           changePreviewHeadline={changePreviewHeadline}
         />
       </div>
@@ -38,13 +42,15 @@ const mapStateToProps = state => ({
   baseSize: state.baseSize,
   fontFamily: state.fontFamily,
   fontFamilies: state.fontFamilies,
+  fonts: state.fonts,
+  headingFontSelected: state.headingFontSelected,
+  headingWeightSelected: state.headingWeightSelected,
   previewHeadline: state.previewHeadline,
-  sampleWeight: state.sampleWeight
 });
 
 const mapDispatchToProps = {
-  changeHeadlineFont,
-  changeWeight,
+  changeHeadingFont,
+  changeHeadingWeight,
   changePreviewHeadline,
 };
 
