@@ -3,28 +3,34 @@ import { connect } from 'react-redux';
 import BaseForm from './BaseForm';
 import {
   changeBaseSize, 
-  changeTypeScale
+  changeTypeScale,
+  toggleRounding
 } from './BaseForm.actions';
 
 class BaseFormContainer extends Component {
   render() {
     const { 
       baseSize, 
+      roundFontSizes,
       typeScaleSelected,
       typeScaleSize, 
       typeScaleValues, 
       changeBaseSize, 
-      changeTypeScale } = this.props;
+      changeTypeScale,
+      toggleRounding 
+    } = this.props;
 
     return (
       <div>
         <BaseForm 
           baseSize={baseSize}
+          roundFontSizes={roundFontSizes}
           typeScaleSize={typeScaleSize}
           typeScaleValues={typeScaleValues}
           typeScaleSelected={typeScaleSelected}
           changeBaseSize={changeBaseSize}
           changeTypeScale={changeTypeScale}
+          toggleRounding={toggleRounding}
         />
       </div>
     );
@@ -33,6 +39,7 @@ class BaseFormContainer extends Component {
 
 const mapStateToProps = state => ({
   baseSize: state.baseSize,
+  roundFontSizes: state.roundFontSizes,
   typeScaleSize: state.typeScale.value,
   typeScaleSelected: state.typeScaleSelected,
   typeScaleValues: state.typeScaleValues,
@@ -40,7 +47,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   changeBaseSize,
-  changeTypeScale
+  changeTypeScale,
+  toggleRounding
 };
 
 export default connect(

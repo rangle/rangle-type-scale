@@ -17,3 +17,7 @@ export const addLargeSample = () => ({
 export const addSmallSample = () => ({
   type: TYPESCALE_ACTIONS.ADD_SMALL_SAMPLE
 });
+
+export const toggleRounding = () => ({
+  type: TYPESCALE_ACTIONS.TOGGLE_ROUNDING
+});

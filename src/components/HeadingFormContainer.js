@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import HeadingForm from './HeadingForm';
 import {
   changeHeadingFont,
+  changeHeadingLineHeight,
   changeHeadingWeight,
   changePreviewHeadline,
 } from './HeadingForm.actions';
@@ -14,9 +15,11 @@ class HeadingFormContainer extends Component {
       fontFamilies,
       fonts,
       headingFontSelected,
+      headingLineHeight,
       headingWeightSelected,
       previewHeadline, 
       changeHeadingFont,
+      changeHeadingLineHeight,
       changeHeadingWeight,
       changePreviewHeadline } = this.props;
 
@@ -27,11 +30,13 @@ class HeadingFormContainer extends Component {
           fontFamilies={fontFamilies}
           fonts={fonts}
           headingFontSelected={headingFontSelected}
+          headingLineHeight={headingLineHeight}
           headingWeightSelected={headingWeightSelected}
           previewHeadline={previewHeadline}
           changeHeadingFont={changeHeadingFont}
           changeHeadingWeight={changeHeadingWeight}
           changePreviewHeadline={changePreviewHeadline}
+          changeHeadingLineHeight={  changeHeadingLineHeight}
         />
       </div>
     );
@@ -44,12 +49,14 @@ const mapStateToProps = state => ({
   fontFamilies: state.fontFamilies,
   fonts: state.fonts,
   headingFontSelected: state.headingFontSelected,
+  headingLineHeight: state.headingLineHeight,
   headingWeightSelected: state.headingWeightSelected,
   previewHeadline: state.previewHeadline,
 });
 
 const mapDispatchToProps = {
   changeHeadingFont,
+  changeHeadingLineHeight,
   changeHeadingWeight,
   changePreviewHeadline,
 };

@@ -43,26 +43,10 @@ const BodyForm = (props) => {
         type="number"
         inputProps={{
           min: 0,
-          step: 0.25
+          step: 0.1
         }}
         value={props.lineHeight}
         onChange={props.changeLineHeight}
-        fullWidth={true}
-        margin="normal"
-      />
-      <TextField
-        id="backgroundColor"
-        label="Background Color"
-        value={props.backgroundColor}
-        onChange={props.changeBackgroundColor}
-        fullWidth={true}
-        margin="normal"
-      />
-      <TextField
-        id="fontColor"
-        label="Font Color"
-        value={props.bodyFontColor}
-        onChange={props.changeFontColor}
         fullWidth={true}
         margin="normal"
       />

@@ -4,6 +4,7 @@ export const TYPESCALE_ACTIONS = {
   CHANGE_BASE_SIZE: 'CHANGE_BASE_SIZE',
   CHANGE_PREVIEW_HEADLINE: 'CHANGE_PREVIEW_HEADLINE',
   CHANGE_HEADLINE_FONT: 'CHANGE_HEADLINE_FONT',
+  CHANGE_HEADING_LINE_HEIGHT: 'CHANGE_HEADING_LINE_HEIGHT',
   CHANGE_NUMBER_OF_SPECIMENS: 'CHANGE_NUMBER_OF_SPECIMENS',
   CHANGE_SAMPLE_WEIGHT: 'CHANGE_SAMPLE_WEIGHT',
   CHANGE_TYPESCALE: 'CHANGE_TYPESCALE',
@@ -13,10 +14,12 @@ export const TYPESCALE_ACTIONS = {
   CHANGE_BACKGROUND_COLOR: 'CHANGE_BACKGROUND_COLOR',
   CHANGE_FONT_COLOR: 'CHANGE_FONT_COLOR',
   CHANGE_PREVIEW_PARAGRAPH: 'CHANGE_PREVIEW_PARAGRAPH',
-  CHANGE_HEADING_WEIGHT: 'CHANGE_HEADING_WEIGHT' 
+  CHANGE_HEADING_WEIGHT: 'CHANGE_HEADING_WEIGHT',
+  TOGGLE_ROUNDING: 'TOGGLE_ROUNDING'
 };
 
 export const INITIAL_STATE = {
+  
   /* body text */
   backgroundColor: "#ffffff",
   lineHeight: 1.5,
@@ -33,8 +36,9 @@ export const INITIAL_STATE = {
   /* heading fonts */
   headingFontSelected: 0,
   headingWeightSelected: "Regular",
+  headingLineHeight: 1.5,
   
-  /* both */
+  /* base */
   baseSize: 16,
   baseUnit: "px",
   displayMode: "light-mode",
@@ -169,6 +173,12 @@ export const reducer = (state = INITIAL_STATE, action) => {
         lineHeight: action.payload
       }
     }
+    case (TYPESCALE_ACTIONS.CHANGE_HEADING_LINE_HEIGHT): {
+      return {
+        ...state,
+        headingLineHeight: action.payload
+      }
+    }
     case (TYPESCALE_ACTIONS.CHANGE_BACKGROUND_COLOR): {
       return {
         ...state,
@@ -179,6 +189,12 @@ export const reducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         previewParagraph: action.payload
+      }
+    }
+    case (TYPESCALE_ACTIONS.TOGGLE_ROUNDING): {
+      return {
+        ...state,
+        roundFontSizes: !state.roundFontSizes
       }
     }
     default:

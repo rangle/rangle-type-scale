@@ -1,7 +1,7 @@
 import React from 'react';
-import {
-  TextField,
-} from "@material-ui/core";
+import TextField from "@material-ui/core/TextField";
+import Checkbox from '@material-ui/core/Checkbox';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 const BaseForm = (props) => {
   return (
@@ -19,6 +19,15 @@ const BaseForm = (props) => {
         }
         fullWidth={true}
         margin="normal"
+      />
+      <FormControlLabel
+        control={
+          <Checkbox 
+            checked={props.roundFontSizes} 
+            onChange={props.toggleRounding}
+          />
+        }
+        label="Round Font Sizes"
       />
       <TextField 
         id="typeScale" 

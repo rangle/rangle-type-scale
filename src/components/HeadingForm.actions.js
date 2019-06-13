@@ -10,6 +10,11 @@ export const changeHeadingFont = e => ({
   payload: e.target.value
 });
 
+export const changeHeadingLineHeight = e => ({
+  type: TYPESCALE_ACTIONS.CHANGE_HEADING_LINE_HEIGHT,
+  payload: e.target.value
+});
+
 export const changeHeadingWeight = e => ({
   type: TYPESCALE_ACTIONS.CHANGE_HEADING_WEIGHT,
   payload: e.target.value

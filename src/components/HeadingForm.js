@@ -46,6 +46,19 @@ const HeadingForm = (props) => {
           </option>
         ))}
       </TextField>
+      <TextField
+        id="lineHeight"
+        label="Heading Line Height"
+        type="number"
+        inputProps={{
+          min: 0,
+          step: 0.1
+        }}
+        value={props.headingLineHeight}
+        onChange={props.changeHeadingLineHeight}
+        fullWidth={true}
+        margin="normal"
+      />
       <TextField 
         id="previewHeadline" 
         label="Heading Text"
