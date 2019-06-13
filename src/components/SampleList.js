@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import Sample from './Sample';
 import styled from 'styled-components';
-import { addLargeSample, addSmallSample } from './SampleForm.actions';
+import { addLargeSample, addSmallSample } from './BaseForm.actions';
 import { AddCircle } from "@material-ui/icons";
 import IconButton from "@material-ui/core/IconButton";
  

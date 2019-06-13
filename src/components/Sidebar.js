@@ -1,17 +1,53 @@
-import React, { Component } from 'react';
-import SampleFormContainer from './SampleFormContainer';
+import React from 'react';
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import BaseFormContainer from './BaseFormContainer';
 import BodyFormContainer from './BodyFormContainer';
-import styled from 'styled-components';
+import HeadingFormContainer from './HeadingFormContainer';
 
-class Sidebar extends Component {
-  render() {
-    return (
-      <div>
-        <SampleFormContainer />
-        <BodyFormContainer />
-      </div>
-    );
-  }
-}
+const Sidebar = () => {
+  return (
+    <div>
+      <ExpansionPanel defaultExpanded>
+        <ExpansionPanelSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          Base
+          </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+          <BaseFormContainer />
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
+      <ExpansionPanel defaultExpanded>
+        <ExpansionPanelSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2a-content"
+          id="panel2a-header"
+        >
+          Heading
+          </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+          <HeadingFormContainer />
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
+      <ExpansionPanel>
+        <ExpansionPanelSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel3a-content"
+          id="panel3a-header"
+        >Body
+          </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+          <BodyFormContainer />
+        </ExpansionPanelDetails>
+
+      </ExpansionPanel>
+    </div>
+  );
+};
 
 export default Sidebar;

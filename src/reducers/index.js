@@ -33,7 +33,7 @@ export const INITIAL_STATE = {
   baseSize: 16,
   fontFamily: "Rangle Riforma",
   fontFamilies: ["Rangle Riforma", "Rangle Riforma Light"],
-  previewHeadline: "Making Things That Matter",
+  previewHeadline: "Making things that matter",
   typeScale: {
     value: 1.2,
     name: "Minor Third"
