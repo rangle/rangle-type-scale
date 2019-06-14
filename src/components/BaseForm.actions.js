@@ -10,12 +10,24 @@ export const changeTypeScale = e => ({
   payload: e.target.value
 })
 
-export const addLargeSample = () => ({
-  type: TYPESCALE_ACTIONS.ADD_LARGE_SAMPLE
+export const addLargeSample = (quantity) => ({
+  type: TYPESCALE_ACTIONS.ADD_LARGE_SAMPLE,
+  payload: quantity
 });
 
-export const addSmallSample = () => ({
-  type: TYPESCALE_ACTIONS.ADD_SMALL_SAMPLE
+export const addSmallSample = (quantity) => ({
+  type: TYPESCALE_ACTIONS.ADD_SMALL_SAMPLE,
+  payload: quantity
+});
+
+export const removeLargeSample = (quantity) => ({
+  type: TYPESCALE_ACTIONS.REMOVE_LARGE_SAMPLE,
+  payload: quantity
+});
+
+export const removeSmallSample = (quantity) => ({
+  type: TYPESCALE_ACTIONS.REMOVE_SMALL_SAMPLE,
+  payload: quantity
 });
 
 export const toggleRounding = () => ({

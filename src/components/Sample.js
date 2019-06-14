@@ -3,14 +3,20 @@ import styled from "styled-components";
 import '../fonts/fonts.css';
 
 const SampleBody = styled.div`
-  line-height: 1.8;
+  align-items: center;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-column-gap: 20px;
+  margin-bottom: 30px;
 
   .label {
-    color: ${props => props.theme.lightGray};
+    background-color: #F0F4F6;
+    color: ${props => props.theme.black};
     display: inline-block;
-    margin-right: 20px;
-    text-align: right;
-    width: 160px;
+    font-size: 0.875em;
+    padding: 3px 0;
+    text-align: center;
+    width: 60px;
   }
 `;
 
@@ -20,25 +26,34 @@ const countDecimals = (num) => {
 }
 
 const Sample = (props) => {
+  const roundOutput = (val, decimals) => {
+    if (props.roundFontSizes) {
+      return Math.round(val)
+    } else {
+      return (countDecimals(val) > decimals ? val.toFixed(decimals) : val)
+    }
+  };
   const baseSizeValue = props.baseSize * props.typeScaleValue;
-  const typeScaleEms = (countDecimals(props.typeScaleValue) > 3 ? props.typeScaleValue.toFixed(3) : props.typeScaleValue);
-  const typeScalePx = (countDecimals(baseSizeValue) > 2 ? baseSizeValue.toFixed(2) : baseSizeValue);
-  const styles = {
-    display: 'inline-block',
-    fontSize: `${typeScalePx}px`,
-    fontFamily: `${props.fontFamily}`,
-    fontWeight: `${props.sampleWeight}`,
+  const typeScaleEms = `${roundOutput(props.typeScaleValue, 3)}em`;
+  const typeScalePx = `${roundOutput(baseSizeValue, 2)}px`;
+  
+  const headlineStyles = {
+    fontSize: typeScalePx,
+    fontFamily: `${props.fonts[props.headingFontSelected].name}`,
+    fontWeight: `${props.headingWeightSelected}`,
+    lineHeight: `${props.headingLineHeight}`
   };
 
   return (
     <SampleBody>
-      <span className="label">
-        {typeScaleEms}em
-        ({typeScalePx}px)
-      </span>
-      <span className="value" style={styles}>
+      <div className="label">
+        {props.baseUnit === "px" ? 
+          typeScalePx : typeScaleEms
+        }
+      </div>
+      <div className="value" style={headlineStyles}>
         {props.previewHeadline}
-      </span>
+      </div>
     </SampleBody>
   );
 };

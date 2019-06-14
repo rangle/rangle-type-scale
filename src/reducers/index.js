@@ -1,20 +1,22 @@
 export const TYPESCALE_ACTIONS = {
   ADD_LARGE_SAMPLE: 'ADD_LARGE_SAMPLE',
   ADD_SMALL_SAMPLE: 'ADD_SMALL_SAMPLE',
+  CHANGE_BACKGROUND_COLOR: 'CHANGE_BACKGROUND_COLOR',
   CHANGE_BASE_SIZE: 'CHANGE_BASE_SIZE',
-  CHANGE_PREVIEW_HEADLINE: 'CHANGE_PREVIEW_HEADLINE',
-  CHANGE_HEADING_FONT: 'CHANGE_HEADING_FONT',
-  CHANGE_HEADING_LINE_HEIGHT: 'CHANGE_HEADING_LINE_HEIGHT',
-  CHANGE_NUMBER_OF_SPECIMENS: 'CHANGE_NUMBER_OF_SPECIMENS',
-  CHANGE_SAMPLE_WEIGHT: 'CHANGE_SAMPLE_WEIGHT',
-  CHANGE_TYPESCALE: 'CHANGE_TYPESCALE',
   CHANGE_BODY_WEIGHT: 'CHANGE_BODY_WEIGHT',
   CHANGE_BODY_FONT: 'CHANGE_BODY_FONT',
-  CHANGE_LINE_HEIGHT: 'CHANGE_LINE_HEIGHT',
-  CHANGE_BACKGROUND_COLOR: 'CHANGE_BACKGROUND_COLOR',
   CHANGE_FONT_COLOR: 'CHANGE_FONT_COLOR',
-  CHANGE_PREVIEW_PARAGRAPH: 'CHANGE_PREVIEW_PARAGRAPH',
+  CHANGE_HEADING_FONT: 'CHANGE_HEADING_FONT',
+  CHANGE_HEADING_LINE_HEIGHT: 'CHANGE_HEADING_LINE_HEIGHT',
   CHANGE_HEADING_WEIGHT: 'CHANGE_HEADING_WEIGHT',
+  CHANGE_LINE_HEIGHT: 'CHANGE_LINE_HEIGHT',
+  CHANGE_NUMBER_OF_SPECIMENS: 'CHANGE_NUMBER_OF_SPECIMENS',
+  CHANGE_PREVIEW_HEADLINE: 'CHANGE_PREVIEW_HEADLINE',
+  CHANGE_PREVIEW_PARAGRAPH: 'CHANGE_PREVIEW_PARAGRAPH',
+  CHANGE_SAMPLE_WEIGHT: 'CHANGE_SAMPLE_WEIGHT',
+  CHANGE_TYPESCALE: 'CHANGE_TYPESCALE',
+  REMOVE_LARGE_SAMPLE: 'REMOVE_LARGE_SAMPLE',
+  REMOVE_SMALL_SAMPLE: 'REMOVE_SMALL_SAMPLE',
   TOGGLE_ROUNDING: 'TOGGLE_ROUNDING'
 };
 
@@ -22,22 +24,21 @@ export const INITIAL_STATE = {
   
   /* body text */
   backgroundColor: "#ffffff",
-  lineHeight: 1.5,
+  bodyLineHeight: 1.5,
   bodyWeight: 400,
   bodyFontColor: "#333333",
   bodyFont: "Rangle Riforma",
   bodyFontSelected: 0,
-  bodyWeightSelected: "Regular",
+  bodyWeightSelected: 400,
   previewParagraph: "Guesswork isn’t in our toolkit. Through discovery, empathy, and relentless curiosity, we partner with clients to identify, frame, and build the right thing.",
   
   /* type samples */
   largeSamples: 5,
   smallSamples: 5,
-  sampleWeight: 400,
 
   /* heading fonts */
   headingFontSelected: 0,
-  headingWeightSelected: "Regular",
+  headingWeightSelected: 400,
   headingLineHeight: 1.5,
   
   /* base */
@@ -49,7 +50,7 @@ export const INITIAL_STATE = {
   fonts: [
     {
       name: "Rangle Riforma",
-      weights: ["Light", "Regular", "Medium", "Bold", "Heavy"]
+      weights: [300, 400, 500, 700, 900]
     },
   ],
   previewHeadline: "Making things that matter",
@@ -100,13 +101,13 @@ export const reducer = (state = INITIAL_STATE, action) => {
     case(TYPESCALE_ACTIONS.ADD_LARGE_SAMPLE): {
       return {
         ...state,
-        largeSamples: state.largeSamples += 1
+        largeSamples: state.largeSamples += action.payload
       }
     }
     case (TYPESCALE_ACTIONS.ADD_SMALL_SAMPLE): {
       return {
         ...state,
-        smallSamples: state.smallSamples += 1
+        smallSamples: state.smallSamples += action.payload
       }
     }
     case(TYPESCALE_ACTIONS.CHANGE_BASE_SIZE): {
@@ -125,12 +126,6 @@ export const reducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         previewHeadline: action.payload
-      }
-    }
-    case (TYPESCALE_ACTIONS.CHANGE_SAMPLE_WEIGHT): {
-      return {
-        ...state,
-        sampleWeight: action.payload
       }
     }
     case (TYPESCALE_ACTIONS.CHANGE_HEADING_WEIGHT): { 
@@ -154,7 +149,7 @@ export const reducer = (state = INITIAL_STATE, action) => {
     case (TYPESCALE_ACTIONS.CHANGE_BODY_WEIGHT): {
       return {
         ...state,
-        bodyWeight: action.payload
+        bodyWeightSelected: action.payload
       }
     }
     case (TYPESCALE_ACTIONS.CHANGE_BODY_FONT): {
@@ -172,7 +167,7 @@ export const reducer = (state = INITIAL_STATE, action) => {
     case (TYPESCALE_ACTIONS.CHANGE_LINE_HEIGHT): {
       return {
         ...state,
-        lineHeight: action.payload
+        bodyLineHeight: action.payload
       }
     }
     case (TYPESCALE_ACTIONS.CHANGE_HEADING_LINE_HEIGHT): {
@@ -191,6 +186,18 @@ export const reducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         previewParagraph: action.payload
+      }
+    }
+    case (TYPESCALE_ACTIONS.REMOVE_LARGE_SAMPLE): {
+      return {
+        ...state,
+        largeSamples: state.largeSamples -= action.payload
+      }
+    }
+    case (TYPESCALE_ACTIONS.REMOVE_SMALL_SAMPLE): {
+      return {
+        ...state,
+        smallSamples: state.smallSamples -= action.payload
       }
     }
     case (TYPESCALE_ACTIONS.TOGGLE_ROUNDING): {

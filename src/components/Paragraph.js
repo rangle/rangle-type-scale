@@ -3,8 +3,9 @@ import React from 'react';
 const Paragraph = (props) => {
   const styles={
     color: `${props.bodyFontColor}`,
-    lineHeight: `${props.lineHeight}`,
-    fontWeight: `${props.bodyWeight}`
+    fontFamily: `${props.bodyFont}`,
+    lineHeight: `${props.bodyLineHeight}`,
+    fontWeight: `${props.bodyWeightSelected}`
   }
   return (
     <p style={styles}>

@@ -2,24 +2,14 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import Sample from './Sample';
 import styled from 'styled-components';
-import { addLargeSample, addSmallSample } from './BaseForm.actions';
-import { AddCircle } from "@material-ui/icons";
-import IconButton from "@material-ui/core/IconButton";
+import { addLargeSample, addSmallSample, removeLargeSample, removeSmallSample } from './BaseForm.actions';
+import ScaleControl from './ScaleControl'
  
 const StyledList = styled.div`
   color: ${props => props.theme.black};
-  list-style: none;
-  margin: 0;
-  padding: 0;
 
-  .icon-button {
-    margin-left: 145px;
-    transition: opacity 0.5s ease-in-out;
-
-    &:hover {
-      cursor: pointer;
-      opacity: 0.6;
-    }
+  .sample-container {
+    margin: 30px 0;
   }
 `;
 
@@ -29,10 +19,18 @@ class SampleList extends Component {
       addLargeSample,
       addSmallSample,
       baseSize,
+      baseUnit,
       fontFamily,
+      fonts,
+      headingFontSelected,
+      headingWeightSelected,
+      headingLineHeight,
       largeSamples,
       smallSamples,
       previewHeadline,
+      removeLargeSample,
+      removeSmallSample,
+      roundFontSizes,
       typeScaleSize,
       sampleWeight
     } = this.props;
@@ -47,27 +45,39 @@ class SampleList extends Component {
     return (
       <div>
         <StyledList>
-        <IconButton aria-label="Add a large sample" onClick={addLargeSample} className="icon-button">
-          <AddCircle />
-        </IconButton>
+          <ScaleControl 
+            incrementLabel="Add a large sample"
+            incrementCounter={addLargeSample}
+            decrementLabel="Remove a large sample"
+            decrementCounter={removeLargeSample}
+        />
+        <div className="sample-container">
           {samples
-            .sort()
-            .reverse()
             .map((sample, i) => (
-              <li key={`sample-${i}`}>
+              <div key={`sample-${i}`}>
                 <Sample
                   baseSize={baseSize}
+                  baseUnit={baseUnit}
                   fontFamily={fontFamily}
+                  fonts={fonts}
+                  headingFontSelected={headingFontSelected}
+                  headingWeightSelected={headingWeightSelected}
+                  headingLineHeight={headingLineHeight}
                   previewHeadline={previewHeadline}
+                  roundFontSizes={roundFontSizes}
                   typeScaleSize={typeScaleSize}
                   typeScaleValue={sample}
                   sampleWeight={sampleWeight}
                 />
-              </li>
+              </div>
             ))}
-          <IconButton aria-label="Add a small sample" onClick={addSmallSample} className="icon-button">
-            <AddCircle />
-          </IconButton>
+        </div>
+        <ScaleControl
+          incrementLabel="Add a small sample"
+          incrementCounter={addSmallSample}
+          decrementLabel="Remove a small sample"
+          decrementCounter={removeSmallSample}
+        />
         </StyledList>
       </div>
     );
@@ -76,17 +86,25 @@ class SampleList extends Component {
 
 const mapStateToProps = state => ({
   baseSize: state.baseSize,
+  baseUnit: state.baseUnit,
+  fonts: state.fonts,
+  headingFontSelected: state.headingFontSelected,
+  headingWeightSelected: state.headingWeightSelected,
+  headingLineHeight: state.headingLineHeight,
   fontFamily: state.fontFamily,
   largeSamples: state.largeSamples,
   smallSamples: state.smallSamples,
   previewHeadline: state.previewHeadline,
+  roundFontSizes: state.roundFontSizes,
   typeScaleSize: state.typeScaleValues[state.typeScaleSelected].value,
   sampleWeight: state.sampleWeight
 });
 
 const mapDispatchToProps = {
   addLargeSample,
-  addSmallSample
+  addSmallSample,
+  removeLargeSample,
+  removeSmallSample,
 }
 
 export default connect(

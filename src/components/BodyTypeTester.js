@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import styled from 'styled-components';
 import Heading from './Heading';
 import Paragraph from './Paragraph';
 
@@ -9,41 +8,40 @@ const levels = [...Array(6).keys()].map(level => level + 1);
 class BodyTypeTester extends Component {
   render() {
     const { 
-      backgroundColor,
       baseSize,
-      bodyFont,
       bodyFontColor,
-      bodyWeight,
-      fontFamily, 
-      lineHeight,
+      bodyFontSelected,
+      bodyLineHeight,
+      bodyWeightSelected,
+      fonts,
+      headingFontSelected,
+      headingWeightSelected,
       previewParagraph, 
       previewHeadline,
-      sampleWeight,
       typeScaleSize
     } = this.props;
-    const styles = {
-      backgroundColor: `${backgroundColor}`,
-      color: `${bodyFontColor}`,
-      fontFamily: `${bodyFont}`,
-    }
+    const bodyFontValue = `${fonts[bodyFontSelected].name}`;
+    const headingFontValue = `${fonts[headingFontSelected].name}`;
+
     return (
-      <div style={styles}>
+      <div>
         {levels.map((level, i, levels) => (
           <div key={i}>
             <Heading 
               baseSize={baseSize}
-              fontFamily={fontFamily}
-              sampleWeight={sampleWeight}
+              fontFamily={headingFontValue}
+              headingWeightSelected={headingWeightSelected}
               level={level}
               multiplier={(levels.length - i) - 1}
               text={previewHeadline}
-              typeScaleSize={typeScaleSize} />
+              typeScaleSize={typeScaleSize} 
+            />
             <Paragraph 
               text={previewParagraph}
-              lineHeight={lineHeight}
-              bodyFont={bodyFont}
+              bodyLineHeight={bodyLineHeight}
+              bodyFont={bodyFontValue}
               bodyFontColor={bodyFontColor}
-              bodyWeight={bodyWeight}
+              bodyWeightSelected={bodyWeightSelected}
             />  
           </div>
         ))}
@@ -53,14 +51,16 @@ class BodyTypeTester extends Component {
 }
 
 const mapStateToProps = state => ({
-  backgroundColor: state.backgroundColor,
   baseSize: state.baseSize,
   bodyFont: state.bodyFont,
-  bodyWeight: state.bodyWeight,
   bodyFontColor: state.bodyFontColor,
+  bodyFontSelected: state.bodyFontSelected,
+  bodyWeightSelected: state.bodyWeightSelected,
   fontFamily: state.fontFamily,
-  sampleWeight: state.sampleWeight,
-  lineHeight: state.lineHeight,
+  fonts: state.fonts,
+  headingFontSelected: state.headingFontSelected,
+  headingWeightSelected: state.headingWeightSelected,
+  bodyLineHeight: state.bodyLineHeight,
   previewParagraph: state.previewParagraph,
   previewHeadline: state.previewHeadline,
   typeScaleSize: state.typeScaleValues[state.typeScaleSelected].value

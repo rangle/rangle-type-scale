@@ -50,7 +50,7 @@ const BodyForm = (props) => {
           min: 0,
           step: 0.1
         }}
-        value={props.lineHeight}
+        value={props.bodyLineHeight}
         onChange={props.changeLineHeight}
         fullWidth={true}
         margin="normal"

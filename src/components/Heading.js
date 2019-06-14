@@ -6,7 +6,7 @@ const Heading = (props) => {
   const styles = {
     fontFamily: `${props.fontFamily}`,
     fontSize: `${fontSizeToPx}px`,
-    fontWeight: `${props.sampleWeight}`,
+    fontWeight: `${props.headingWeightSelected}`,
     margin: '2rem 0 1rem'
   };
   const H = 'h' + props.level;

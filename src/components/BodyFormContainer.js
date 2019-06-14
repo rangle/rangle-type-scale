@@ -5,7 +5,6 @@ import {
   changeBodyWeight,
   changeBodyFont,
   changeLineHeight,
-  changeBackgroundColor,
   changeFontColor,
   changePreviewParagraph
 } from "./BodyForm.actions";
@@ -17,7 +16,7 @@ class BodyFormContainer extends Component {
       bodyFontSelected,
       bodyWeightSelected,
       fonts,
-      lineHeight,
+      bodyLineHeight,
       previewParagraph,
       changeBodyWeight,
       changeBodyFont,
@@ -31,7 +30,7 @@ class BodyFormContainer extends Component {
         bodyWeightSelected={bodyWeightSelected}
         bodyFontColor={bodyFontColor}
         fonts={fonts}
-        lineHeight={lineHeight}
+        bodyLineHeight={bodyLineHeight}
         previewParagraph={previewParagraph}
         changeBodyWeight={changeBodyWeight}
         changeBodyFont={changeBodyFont}
@@ -48,7 +47,7 @@ const mapStateToProps = state => ({
   bodyFontSelected: state.bodyFontSelected,
   bodyWeightSelected: state.bodyWeightSelected,
   fonts: state.fonts,
-  lineHeight: state.lineHeight,
+  bodyLineHeight: state.bodyLineHeight,
   previewParagraph: state.previewParagraph
 }); 
 
