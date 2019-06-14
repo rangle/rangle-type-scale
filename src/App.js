@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import styled, { ThemeProvider } from 'styled-components';
 import Sidebar from './components/Sidebar';
 import Main from './components/Main';
@@ -14,6 +15,16 @@ const StyledApp = styled.div`
     margin-bottom: 80px;
   }
 
+  &.dark-mode {
+    background-color: #262626;
+    color: white;
+  }
+
+  &.light-mode {
+    background-color: white;
+    color: #262626;
+  }
+
   .wrapper.body {
     display: grid;
     grid-column-gap: 50px;
@@ -23,9 +34,13 @@ const StyledApp = styled.div`
 
 class App extends Component {
   render() {
+    const {
+      lightMode
+    } = this.props;
+
     return (
       <ThemeProvider theme={theme}>
-        <StyledApp>
+        <StyledApp className={lightMode ? "light-mode" : "dark-mode"}>
           <>
           <Header />
           <div className="wrapper body">
@@ -39,4 +54,10 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  lightMode: state.lightMode
+});
+
+export default connect(
+  mapStateToProps,
+)(App);

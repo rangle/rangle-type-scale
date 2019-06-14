@@ -44,7 +44,7 @@ export const INITIAL_STATE = {
   /* base */
   baseSize: 16,
   baseUnit: "px",
-  displayMode: "light-mode",
+  lightMode: true,
   fontFamily: "Rangle Riforma",
   fontFamilies: ["Rangle Riforma", "Rangle Riforma Light"],
   fonts: [
