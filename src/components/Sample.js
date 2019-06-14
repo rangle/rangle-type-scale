@@ -16,7 +16,7 @@ const SampleBody = styled.div`
     font-size: 0.875em;
     padding: 3px 0;
     text-align: center;
-    width: 60px;
+    width: 70px;
   }
 `;
 

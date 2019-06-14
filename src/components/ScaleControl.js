@@ -19,6 +19,12 @@ const ScaleControlSet = styled.div`
       cursor: pointer;
       opacity: 0.6;
     }
+
+    &:disabled {
+      path {
+        color: rgba(101, 101, 101, 0.15);
+      }
+    }
   }
 
   .label {
@@ -39,7 +45,9 @@ const ScaleControl = ({incrementCounter, decrementCounter, incrementLabel, decre
       </label>
       <IconButton
         aria-label={incrementLabel}
-        onClick={() => incrementCounter(count)} className="icon-button">
+        onClick={() => incrementCounter(count)} className="icon-button"
+        disabled={count < 1}
+      >
         <AddBox />
       </IconButton>
       <TextField 
@@ -49,10 +57,16 @@ const ScaleControl = ({incrementCounter, decrementCounter, incrementLabel, decre
         onChange={(e) => setCount(parseInt(e.target.value))}
         style={{ width: 40 }}
         margin="dense"
+        inputProps={{
+          min: 0,
+          max: 5
+        }}
       />
       <IconButton
         aria-label={decrementLabel}
-        onClick={() => decrementCounter(count)} className="icon-button">
+        onClick={() => decrementCounter(count)} className="icon-button" 
+        disabled={count < 1}
+        >
         <IndeterminateCheckBox />
       </IconButton>  
     </ScaleControlSet>

@@ -6,7 +6,9 @@ import { addLargeSample, addSmallSample, removeLargeSample, removeSmallSample } 
 import ScaleControl from './ScaleControl'
  
 const StyledList = styled.div`
+  border-bottom: 1px solid #D8D8D8;
   color: ${props => props.theme.black};
+  padding: 0 0 30px;
 
   .sample-container {
     margin: 30px 0;
@@ -43,7 +45,6 @@ class SampleList extends Component {
     }
 
     return (
-      <div>
         <StyledList>
           <ScaleControl 
             incrementLabel="Add a large sample"
@@ -79,7 +80,6 @@ class SampleList extends Component {
           decrementCounter={removeSmallSample}
         />
         </StyledList>
-      </div>
     );
   }
 }
