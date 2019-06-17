@@ -40,7 +40,7 @@ const ScaleControl = ({incrementCounter, decrementCounter, incrementLabel, decre
 
   return (
     <ScaleControlSet>
-      <label class="label" for="incrementCounter">
+      <label className="label" htmlFor="incrementCounter">
         Scale
       </label>
       <IconButton

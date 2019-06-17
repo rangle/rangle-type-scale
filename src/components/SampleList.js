@@ -16,6 +16,37 @@ const StyledList = styled.div`
 `;
 
 class SampleList extends Component {
+  constructor(props) {
+    super(props);
+      this.state = {
+      sampleList: []
+    }  
+  }
+
+  componentDidMount() {
+    this.generateSamples();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if ((this.props.largeSamples !== prevProps.largeSamples) || (this.props.smallSamples !== prevProps.smallSamples)) { this.generateSamples(); }
+  }
+
+  generateSamples() {
+    const { largeSamples, smallSamples, typeScaleSize } = this.props;
+    const newSampleList = [1];
+
+    for (let i = 1; i <= largeSamples; i++) {
+      newSampleList.unshift(Math.pow(typeScaleSize, i));
+    }
+    for (let i = 1; i <= smallSamples; i++) {
+      newSampleList.push(Math.pow(typeScaleSize, -i));
+    }
+    
+    this.setState({
+      sampleList: newSampleList
+    })
+  }
+
   render() {
     const {
       addLargeSample,
@@ -27,8 +58,6 @@ class SampleList extends Component {
       headingFontSelected,
       headingWeightSelected,
       headingLineHeight,
-      largeSamples,
-      smallSamples,
       previewHeadline,
       removeLargeSample,
       removeSmallSample,
@@ -36,13 +65,7 @@ class SampleList extends Component {
       typeScaleSize,
       sampleWeight
     } = this.props;
-    const samples = [1];
-    for (let i = 1; i <= largeSamples; i++) {
-      samples.unshift(Math.pow(typeScaleSize, i));
-    }
-    for (let i = 1; i <= smallSamples; i++) {
-      samples.push(Math.pow(typeScaleSize, -i));
-    }
+    const { sampleList } = this.state;
 
     return (
         <StyledList>
@@ -53,7 +76,7 @@ class SampleList extends Component {
             decrementCounter={removeLargeSample}
         />
         <div className="sample-container">
-          {samples
+          {sampleList
             .map((sample, i) => (
               <div key={`sample-${i}`}>
                 <Sample

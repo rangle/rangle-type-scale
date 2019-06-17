@@ -16,13 +16,13 @@ const StyledApp = styled.div`
   }
 
   &.dark-mode {
-    background-color: #262626;
+    background-color: ${props => props.theme.black};
     color: white;
   }
 
   &.light-mode {
     background-color: white;
-    color: #262626;
+    color: ${props => props.theme.black};
   }
 
   .wrapper.body {
