@@ -15,7 +15,7 @@ export const changeLineHeight = e => ({
   payload: e.target.value
 });
 
-export const changeBackgroundColor = e => ({
+export const changebackgroundColor = e => ({
   type: TYPESCALE_ACTIONS.CHANGE_BACKGROUND_COLOR,
   payload: e
 });

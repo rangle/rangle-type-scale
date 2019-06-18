@@ -23,7 +23,6 @@ export const TYPESCALE_ACTIONS = {
 export const INITIAL_STATE = {
   
   /* body text */
-  backgroundColor: "#ffffff",
   bodyLineHeight: 1.5,
   bodyWeight: 400,
   bodyFontColor: "#333333",
@@ -37,11 +36,13 @@ export const INITIAL_STATE = {
   smallSamples: 5,
 
   /* heading fonts */
+  headingFontColor: "#ffffff",
   headingFontSelected: 0,
-  headingWeightSelected: 400,
   headingLineHeight: 1.5,
+  headingWeightSelected: 400,
   
   /* base */
+  backgroundColor: "#ffffff",
   baseSize: 16,
   baseUnit: "px",
   lightMode: true,
