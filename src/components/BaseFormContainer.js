@@ -40,7 +40,7 @@ class BaseFormContainer extends Component {
 const mapStateToProps = state => ({
   baseSize: state.baseSize,
   roundFontSizes: state.roundFontSizes,
-  typeScaleSize: state.typeScale.value,
+  typeScaleSize: state.typeScaleValues[state.typeScaleSelected].value,
   typeScaleSelected: state.typeScaleSelected,
   typeScaleValues: state.typeScaleValues,
 });

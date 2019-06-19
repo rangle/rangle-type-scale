@@ -114,7 +114,7 @@ const mapStateToProps = state => ({
   headingFontSelected: state.headingFontSelected,
   headingWeightSelected: state.headingWeightSelected,
   headingLineHeight: state.headingLineHeight,
-  fontFamily: state.fontFamily,
+  fontFamily: state.fonts[state.headingFontSelected].name,
   largeSamples: state.largeSamples,
   smallSamples: state.smallSamples,
   previewHeadline: state.previewHeadline,

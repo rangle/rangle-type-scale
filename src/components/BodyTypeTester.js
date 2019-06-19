@@ -56,7 +56,7 @@ const mapStateToProps = state => ({
   bodyFontColor: state.bodyFontColor,
   bodyFontSelected: state.bodyFontSelected,
   bodyWeightSelected: state.bodyWeightSelected,
-  fontFamily: state.fontFamily,
+  fontFamily: state.fonts[state.bodyFontSelected].name,
   fonts: state.fonts,
   headingFontSelected: state.headingFontSelected,
   headingWeightSelected: state.headingWeightSelected,

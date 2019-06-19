@@ -24,7 +24,6 @@ export const INITIAL_STATE = {
   
   /* body text */
   bodyLineHeight: 1.5,
-  bodyWeight: 400,
   bodyFontColor: "#333333",
   bodyFont: "Rangle Riforma",
   bodyFontSelected: 0,
@@ -46,8 +45,6 @@ export const INITIAL_STATE = {
   baseSize: 16,
   baseUnit: "px",
   lightMode: true,
-  fontFamily: "Rangle Riforma",
-  fontFamilies: ["Rangle Riforma", "Rangle Riforma Light"],
   fonts: [
     {
       name: "Rangle Riforma",
@@ -56,10 +53,6 @@ export const INITIAL_STATE = {
   ],
   previewHeadline: "Making things that matter",
   roundFontSizes: true,
-  typeScale: {
-    value: 1.2,
-    name: "Minor Third"
-  },
   typeScaleSelected: 2,
   typeScaleValues: [
     {

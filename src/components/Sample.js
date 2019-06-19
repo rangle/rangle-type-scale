@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from "styled-components"; 
 import '../fonts/fonts.css';
+import { roundOutput } from '../helpers';
 
 const SampleBody = styled.div`
   align-items: center;
@@ -20,22 +21,10 @@ const SampleBody = styled.div`
   }
 `;
 
-const countDecimals = (num) => {
-  if (Math.floor(num.valueOf()) === num.valueOf()) return 0;
-  return num.toString().split(".")[1].length || 0;
-}
-
 const Sample = (props) => {
-  const roundOutput = (val, decimals) => {
-    if (props.roundFontSizes) {
-      return Math.round(val)
-    } else {
-      return (countDecimals(val) > decimals ? val.toFixed(decimals) : val)
-    }
-  };
   const baseSizeValue = props.baseSize * props.typeScaleValue;
-  const typeScaleEms = `${roundOutput(props.typeScaleValue, 3)}em`;
-  const typeScalePx = `${roundOutput(baseSizeValue, 2)}px`;
+  const typeScaleEms = `${roundOutput(props.typeScaleValue, 3, props.roundFontSizes)}em`;
+  const typeScalePx = `${roundOutput(baseSizeValue, 2, props.roundFontSizes)}px`;
   
   const headlineStyles = {
     fontSize: typeScalePx,
