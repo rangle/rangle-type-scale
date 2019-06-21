@@ -3,9 +3,9 @@ import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import BaseFormContainer from './BaseFormContainer';
-import BodyFormContainer from './BodyFormContainer';
-import HeadingFormContainer from './HeadingFormContainer';
+import BaseFormContainer from '../controls/BaseFormContainer';
+import BodyFormContainer from '../controls/BodyFormContainer';
+import HeadingFormContainer from '../controls/HeadingFormContainer';
 
 const Sidebar = () => {
   return (

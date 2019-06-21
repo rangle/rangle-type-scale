@@ -1,6 +1,6 @@
 import React from 'react';
-import SampleList from "./SampleList";
-import BodyTypeTester from "./BodyTypeTester";
+import SampleList from "../modularScale/SampleList";
+import BodyTypeTester from "../bodyScale/BodyTypeTester";
 
 const Main = () => {
   return (

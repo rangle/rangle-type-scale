@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import Sample from './Sample';
 import styled from 'styled-components';
-import { addLargeSample, addSmallSample, removeLargeSample, removeSmallSample } from './BaseForm.actions';
-import ScaleControl from './ScaleControl'
+import { addLargeSample, addSmallSample, removeLargeSample, removeSmallSample } from '../actions/Controls.actions';
+import ScaleControl from './ScaleControl';
  
 const StyledList = styled.div`
   border-bottom: 1px solid #D8D8D8;

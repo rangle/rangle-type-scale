@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from "styled-components"; 
-import '../fonts/fonts.css';
-import { roundOutput } from '../helpers';
+import '../../../fonts/fonts.css';
+import { roundOutput } from '../../../helpers';
 
 const SampleBody = styled.div`
   align-items: center;
@@ -20,6 +20,7 @@ const SampleBody = styled.div`
     width: 70px;
   }
 `;
+
 
 const Sample = (props) => {
   const baseSizeValue = props.baseSize * props.typeScaleValue;

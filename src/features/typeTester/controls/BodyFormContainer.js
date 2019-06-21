@@ -7,7 +7,7 @@ import {
   changeLineHeight,
   changeFontColor,
   changePreviewParagraph
-} from "./BodyForm.actions";
+} from "../actions/Controls.actions";
 
 class BodyFormContainer extends Component {
   render() {

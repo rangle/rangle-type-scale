@@ -5,7 +5,7 @@ import {
   changeBaseSize, 
   changeTypeScale,
   toggleRounding
-} from './BaseForm.actions';
+} from '../actions/Controls.actions';
 
 class BaseFormContainer extends Component {
   render() {

@@ -6,7 +6,7 @@ import {
   changeHeadingLineHeight,
   changeHeadingWeight,
   changePreviewHeadline,
-} from './HeadingForm.actions';
+} from '../actions/Controls.actions';
 
 class HeadingFormContainer extends Component {
   render() {

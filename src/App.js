@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled, { ThemeProvider } from 'styled-components';
-import Sidebar from './components/Sidebar';
-import Main from './components/Main';
+import Sidebar from './features/typeTester/containers/Sidebar';
+import Main from './features/typeTester/containers/Main';
 import Header from './components/Header';
 
 const theme = {
