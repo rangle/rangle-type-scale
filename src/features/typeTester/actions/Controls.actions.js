@@ -68,7 +68,7 @@ export const changePreviewParagraph = e => ({
 
 export const changeTypeScale = e => ({
   type: TYPESCALE_ACTIONS.CHANGE_TYPESCALE,
-  payload: e.target.value
+  payload: parseInt(e.target.value)
 });
 
 export const removeLargeSample = (quantity) => ({

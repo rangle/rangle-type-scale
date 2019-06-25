@@ -30,8 +30,9 @@ const Sample = ({
   previewHeadline,
   roundFontSizes,
   typeScaleValue,
+  typeScaleSize
 }) => {
-  const baseSizeValue = baseSize * typeScaleValue;
+  const baseSizeValue = baseSize * typeScaleValue * typeScaleSize;
   const typeScaleEms = `${roundOutput(typeScaleValue, 3)}em`;
   const typeScalePx = `${roundOutput(baseSizeValue, 2, roundFontSizes)}px`;
   

@@ -6,6 +6,7 @@ import {
   changeTypeScale,
   toggleRounding
 } from '../actions/Controls.actions';
+import { typeScaleValue } from '../../../store/selectors';
 
 class BaseFormContainer extends Component {
   render() {
@@ -40,7 +41,7 @@ class BaseFormContainer extends Component {
 const mapStateToProps = state => ({
   baseSize: state.baseSize,
   roundFontSizes: state.roundFontSizes,
-  typeScaleSize: state.typeScaleValues[state.typeScaleSelected].value,
+  typeScaleSize: typeScaleValue(state),
   typeScaleSelected: state.typeScaleSelected,
   typeScaleValues: state.typeScaleValues,
 });

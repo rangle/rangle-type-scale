@@ -86,6 +86,7 @@ class SampleList extends Component {
                   lineHeight={lineHeight}
                   roundFontSizes={roundFontSizes}
                   typeScaleValue={sample}
+                  typeScaleSize={typeScaleSize}
                 />
               </div>
             ))}
