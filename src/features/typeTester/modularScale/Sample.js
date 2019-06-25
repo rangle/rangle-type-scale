@@ -21,28 +21,36 @@ const SampleBody = styled.div`
   }
 `;
 
-
-const Sample = (props) => {
-  const baseSizeValue = props.baseSize * props.typeScaleValue;
-  const typeScaleEms = `${roundOutput(props.typeScaleValue, 3, props.roundFontSizes)}em`;
-  const typeScalePx = `${roundOutput(baseSizeValue, 2, props.roundFontSizes)}px`;
+const Sample = ({
+  baseSize,
+  baseUnit,
+  fontFamily,
+  fontWeight,
+  lineHeight,
+  previewHeadline,
+  roundFontSizes,
+  typeScaleValue,
+}) => {
+  const baseSizeValue = baseSize * typeScaleValue;
+  const typeScaleEms = `${roundOutput(typeScaleValue, 3)}em`;
+  const typeScalePx = `${roundOutput(baseSizeValue, 2, roundFontSizes)}px`;
   
   const headlineStyles = {
-    fontSize: typeScalePx,
-    fontFamily: `${props.fonts[props.headingFontSelected].name}`,
-    fontWeight: `${props.headingWeightSelected}`,
-    lineHeight: `${props.headingLineHeight}`
+    fontSize: `${typeScalePx}`,
+    fontFamily: `${fontFamily}`,
+    fontWeight: `${fontWeight}`,
+    lineHeight: `${lineHeight}`
   };
 
   return (
     <SampleBody>
       <div className="label">
-        {props.baseUnit === "px" ? 
+        {baseUnit === "px" ? 
           typeScalePx : typeScaleEms
         }
       </div>
       <div className="value" style={headlineStyles}>
-        {props.previewHeadline}
+        {previewHeadline}
       </div>
     </SampleBody>
   );

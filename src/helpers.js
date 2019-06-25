@@ -3,7 +3,7 @@ const countDecimals = (num) => {
   return num.toString().split(".")[1].length || 0;
 }
 
-export const roundOutput = (val, decimals, round=true) => {
+export const roundOutput = (val, decimals, round=false) => {
   if (round) {
     return Math.round(val)
   } else {

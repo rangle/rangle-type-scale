@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import Sample from './Sample';
 import styled from 'styled-components';
 import { addLargeSample, addSmallSample, removeLargeSample, removeSmallSample } from '../actions/Controls.actions';
+import { headingFontName, typeScaleValue } from '../../../store/selectors';
+import Sample from './Sample';
 import ScaleControl from './ScaleControl';
  
 const StyledList = styled.div`
@@ -53,17 +54,14 @@ class SampleList extends Component {
       addSmallSample,
       baseSize,
       baseUnit,
+      fontWeight,
       fontFamily,
-      fonts,
-      headingFontSelected,
-      headingWeightSelected,
-      headingLineHeight,
       previewHeadline,
+      lineHeight,
       removeLargeSample,
       removeSmallSample,
       roundFontSizes,
       typeScaleSize,
-      sampleWeight
     } = this.props;
     const { sampleList } = this.state;
 
@@ -83,15 +81,11 @@ class SampleList extends Component {
                   baseSize={baseSize}
                   baseUnit={baseUnit}
                   fontFamily={fontFamily}
-                  fonts={fonts}
-                  headingFontSelected={headingFontSelected}
-                  headingWeightSelected={headingWeightSelected}
-                  headingLineHeight={headingLineHeight}
+                  fontWeight={fontWeight}
                   previewHeadline={previewHeadline}
+                  lineHeight={lineHeight}
                   roundFontSizes={roundFontSizes}
-                  typeScaleSize={typeScaleSize}
                   typeScaleValue={sample}
-                  sampleWeight={sampleWeight}
                 />
               </div>
             ))}
@@ -110,17 +104,14 @@ class SampleList extends Component {
 const mapStateToProps = state => ({
   baseSize: state.baseSize,
   baseUnit: state.baseUnit,
-  fonts: state.fonts,
-  headingFontSelected: state.headingFontSelected,
-  headingWeightSelected: state.headingWeightSelected,
-  headingLineHeight: state.headingLineHeight,
-  fontFamily: state.fonts[state.headingFontSelected].name,
+  fontFamily: headingFontName(state),
+  fontWeight: state.headingWeightSelected,
   largeSamples: state.largeSamples,
-  smallSamples: state.smallSamples,
+  lineHeight: state.headingLineHeight,
   previewHeadline: state.previewHeadline,
   roundFontSizes: state.roundFontSizes,
-  typeScaleSize: state.typeScaleValues[state.typeScaleSelected].value,
-  sampleWeight: state.sampleWeight
+  smallSamples: state.smallSamples,
+  typeScaleSize: typeScaleValue(state),
 });
 
 const mapDispatchToProps = {

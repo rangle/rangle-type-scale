@@ -8,11 +8,13 @@ const typeScaleSelected = state => state.typeScaleSelected;
 
 const getFontName = (fontArray, index) => fontArray[index].name;
 
+const getTypeScaleValue = (scaleArray, index) => scaleArray[index].value; 
+
 export const headingFontName = createSelector(fontValues, headingFontSelected, (fonts, headingFontIndex) => getFontName(fonts, headingFontIndex));
 
 export const bodyFontName = createSelector(fontValues, bodyFontSelected, (fonts, bodyFontIndex) => getFontName(fonts, bodyFontIndex));
 
-export const typeScaleValue = createSelector(typeScaleValues, typeScaleSelected, (typeScales, selectedIndex) => typeScales[selectedIndex]);
+export const typeScaleValue = createSelector(typeScaleValues, typeScaleSelected, (typeScales, selectedIndex) => getTypeScaleValue(typeScales, selectedIndex));
 
 
 

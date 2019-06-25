@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Heading from './Heading';
 import Paragraph from './Paragraph';
+import { bodyFontName, headingFontName, typeScaleValue } from '../../../store/selectors';
 
 const levels = [...Array(6).keys()].map(level => level + 1);
 
@@ -10,18 +11,16 @@ class BodyTypeTester extends Component {
     const { 
       baseSize,
       bodyFontColor,
-      bodyFontSelected,
+      bodyFont,
       bodyLineHeight,
-      bodyWeightSelected,
-      fonts,
-      headingFontSelected,
-      headingWeightSelected,
+      bodyWeight,
+      headingFont,
+      headingLineHeight,
+      headingWeight,
       previewParagraph, 
       previewHeadline,
       typeScaleSize
     } = this.props;
-    const bodyFontValue = `${fonts[bodyFontSelected].name}`;
-    const headingFontValue = `${fonts[headingFontSelected].name}`;
 
     return (
       <div>
@@ -29,19 +28,20 @@ class BodyTypeTester extends Component {
           <div key={i}>
             <Heading 
               baseSize={baseSize}
-              fontFamily={headingFontValue}
-              headingWeightSelected={headingWeightSelected}
+              fontFamily={headingFont}
+              fontWeight={headingWeight}
               level={level}
+              lineHeight={headingLineHeight}
               multiplier={(levels.length - i) - 1}
               text={previewHeadline}
               typeScaleSize={typeScaleSize} 
             />
             <Paragraph 
+              fontColor={bodyFontColor}
+              fontFamily={bodyFont}
+              fontWeight={bodyWeight}
+              lineHeight={bodyLineHeight}
               text={previewParagraph}
-              bodyLineHeight={bodyLineHeight}
-              bodyFont={bodyFontValue}
-              bodyFontColor={bodyFontColor}
-              bodyWeightSelected={bodyWeightSelected}
             />  
           </div>
         ))}
@@ -52,18 +52,16 @@ class BodyTypeTester extends Component {
 
 const mapStateToProps = state => ({
   baseSize: state.baseSize,
-  bodyFont: state.bodyFont,
   bodyFontColor: state.bodyFontColor,
-  bodyFontSelected: state.bodyFontSelected,
-  bodyWeightSelected: state.bodyWeightSelected,
-  fontFamily: state.fonts[state.bodyFontSelected].name,
-  fonts: state.fonts,
-  headingFontSelected: state.headingFontSelected,
-  headingWeightSelected: state.headingWeightSelected,
+  bodyFont: bodyFontName(state),
   bodyLineHeight: state.bodyLineHeight,
+  bodyWeight: state.bodyWeightSelected,
+  headingFont: headingFontName(state),
+  headingLineHeight: state.headingLineHeight,
+  headingWeight: state.headingWeightSelected,
   previewParagraph: state.previewParagraph,
   previewHeadline: state.previewHeadline,
-  typeScaleSize: state.typeScaleValues[state.typeScaleSelected].value
+  typeScaleSize: typeScaleValue(state)
 });
 
 export default connect(
