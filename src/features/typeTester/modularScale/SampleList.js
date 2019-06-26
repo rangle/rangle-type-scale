@@ -29,7 +29,11 @@ class SampleList extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if ((this.props.largeSamples !== prevProps.largeSamples) || (this.props.smallSamples !== prevProps.smallSamples)) { this.generateSamples(); }
+    if ((this.props.largeSamples !== prevProps.largeSamples) || 
+        (this.props.smallSamples !== prevProps.smallSamples) ||
+        (this.props.typeScaleSize !== prevProps.typeScaleSize)
+        ) 
+        { this.generateSamples(); }
   }
 
   generateSamples() {
@@ -61,7 +65,6 @@ class SampleList extends Component {
       removeLargeSample,
       removeSmallSample,
       roundFontSizes,
-      typeScaleSize,
     } = this.props;
     const { sampleList } = this.state;
 
@@ -86,7 +89,6 @@ class SampleList extends Component {
                   lineHeight={lineHeight}
                   roundFontSizes={roundFontSizes}
                   typeScaleValue={sample}
-                  typeScaleSize={typeScaleSize}
                 />
               </div>
             ))}

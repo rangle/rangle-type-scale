@@ -1,4 +1,5 @@
 import React from 'react';
+import { calculateTypeSize, calculateFontSizePx } from '../../../helpers';
 
 const Heading = ({
   baseSize,
@@ -10,11 +11,12 @@ const Heading = ({
   text,
   typeScaleSize,
 }) => {
-  const fontSize = Math.pow(typeScaleSize, multiplier);
-  const fontSizeToPx = baseSize * fontSize;
+  const fontSize = calculateTypeSize(baseSize, Math.pow(typeScaleSize, multiplier));
+  const fontSizePx = calculateFontSizePx(fontSize, 4, false);
+  
   const styles = {
     fontFamily: `${fontFamily}`,
-    fontSize: `${fontSizeToPx}px`,
+    fontSize: `${fontSizePx}`,
     fontWeight: `${fontWeight}`,
     lineHeight: `${lineHeight}`,
     margin: '2rem 0 1rem'

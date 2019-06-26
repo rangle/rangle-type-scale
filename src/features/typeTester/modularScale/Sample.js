@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from "styled-components"; 
 import '../../../fonts/fonts.css';
-import { roundOutput } from '../../../helpers';
+import { calculateTypeSize, calculateFontSizeEms, calculateFontSizePx } from '../../../helpers';
 
 const SampleBody = styled.div`
   align-items: center;
@@ -30,14 +30,13 @@ const Sample = ({
   previewHeadline,
   roundFontSizes,
   typeScaleValue,
-  typeScaleSize
 }) => {
-  const baseSizeValue = baseSize * typeScaleValue * typeScaleSize;
-  const typeScaleEms = `${roundOutput(typeScaleValue, 3)}em`;
-  const typeScalePx = `${roundOutput(baseSizeValue, 2, roundFontSizes)}px`;
+  const baseSizeValue = calculateTypeSize(baseSize, typeScaleValue);
+  const fontSizeEms = calculateFontSizeEms(typeScaleValue, 3, false);
+  const fontSizePx = calculateFontSizePx(baseSizeValue, 2, roundFontSizes);
   
   const headlineStyles = {
-    fontSize: `${typeScalePx}`,
+    fontSize: `${fontSizeEms}`,
     fontFamily: `${fontFamily}`,
     fontWeight: `${fontWeight}`,
     lineHeight: `${lineHeight}`
@@ -47,10 +46,12 @@ const Sample = ({
     <SampleBody>
       <div className="label">
         {baseUnit === "px" ? 
-          typeScalePx : typeScaleEms
+          fontSizePx : fontSizeEms
         }
       </div>
-      <div className="value" style={headlineStyles}>
+      <div 
+        className="value" 
+        style={headlineStyles}>
         {previewHeadline}
       </div>
     </SampleBody>
