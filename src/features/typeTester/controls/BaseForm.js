@@ -2,11 +2,12 @@ import React from 'react';
 import TextField from "@material-ui/core/TextField";
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import {CustomFormControlLabel, CustomTextField} from "./BaseForm.style";
 
 const BaseForm = (props) => {
   return (
     <form>
-      <TextField 
+      <CustomTextField
         id="baseSize" 
         label="Base Size (px)"
         type="number"
@@ -20,7 +21,7 @@ const BaseForm = (props) => {
         fullWidth={true}
         margin="normal"
       />
-      <FormControlLabel
+      <CustomFormControlLabel
         control={
           <Checkbox 
             checked={props.roundFontSizes} 
