@@ -7,6 +7,8 @@ import Header from './components/Header';
 
 const theme = {
   black: "#262626",
+  darkGray: "#737373",
+  fontFamily: "'Rangle Riforma', Helvetica, Arial",
   lightGray: "#858585",
 }
 
@@ -27,8 +29,8 @@ const StyledApp = styled.div`
 
   .wrapper.body {
     display: grid;
-    grid-column-gap: 50px;
-    grid-template-columns: 350px 1fr;
+    grid-column-gap: 100px;
+    grid-template-columns: 300px 1fr;
   }
 `;
 

@@ -1,11 +1,11 @@
 import React from 'react';
-import { TextField } from '@material-ui/core';
+import { CustomTextField } from './Form.style';
 
 const BodyForm = (props) => {
   return (
     <form>
-      <TextField 
-        fullWidth={true} 
+      <CustomTextField
+        fullWidth={true}
         margin="normal"
         select
         id="bodyFont"
@@ -13,36 +13,34 @@ const BodyForm = (props) => {
         value={props.bodyFontSelected}
         onChange={props.changeBodyFont}
         SelectProps={{
-          native: true,
-        }}        
+          native: true
+        }}
       >
         {props.fonts.map((font, index) => (
           <option key={font.name} value={index}>
             {font.name}
           </option>
         ))}
-      </TextField>
-      <TextField
+      </CustomTextField>
+      <CustomTextField
         id="bodyWeight"
         label="Body Weight"
         fullWidth={true}
         margin="normal"
         select
         SelectProps={{
-          native: true,
+          native: true
         }}
         value={props.bodyWeightSelected}
         onChange={props.changeBodyWeight}
       >
         {props.fonts[props.bodyFontSelected].weights.map(weight => (
-          <option
-            key={weight}
-            value={weight}>
+          <option key={weight} value={weight}>
             {weight}
           </option>
         ))}
-      </TextField>
-      <TextField
+      </CustomTextField>
+      <CustomTextField
         id="lineHeight"
         label="Line Height"
         type="number"
@@ -55,7 +53,7 @@ const BodyForm = (props) => {
         fullWidth={true}
         margin="normal"
       />
-      <TextField
+      <CustomTextField
         id="previewParagraph"
         label="Paragraph Preview Text"
         onChange={props.changePreviewParagraph}

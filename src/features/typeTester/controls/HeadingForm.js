@@ -1,50 +1,46 @@
 import React from 'react';
-import TextField from "@material-ui/core/TextField";
+import { CustomTextField } from './Form.style';
 
 const HeadingForm = (props) => {
   return (
     <form>
-      <TextField
+      <CustomTextField
         label="Heading Font"
         fullWidth={true}
         margin="normal"
         select
         SelectProps={{
-          native: true,
-        }}        
+          native: true
+        }}
         id="headingFont"
         value={props.headingFontSelected}
         onChange={props.changeHeadingFont}
       >
         {props.fonts.map((font, index) => (
-          <option
-            key={font.name}
-            value={index}>
+          <option key={font.name} value={index}>
             {font.name}
           </option>
         ))}
-      </TextField>
-      <TextField
+      </CustomTextField>
+      <CustomTextField
         id="headingWeight"
         label="Heading Weight"
         fullWidth={true}
         margin="normal"
         select
         SelectProps={{
-          native: true,
+          native: true
         }}
         value={props.headingWeightSelected}
         onChange={props.changeHeadingWeight}
       >
         {props.fonts[props.headingFontSelected].weights.map(weight => (
-          <option
-            key={weight}
-            value={weight}>
+          <option key={weight} value={weight}>
             {weight}
           </option>
         ))}
-      </TextField>
-      <TextField
+      </CustomTextField>
+      <CustomTextField
         id="lineHeight"
         label="Heading Line Height"
         type="number"
@@ -57,8 +53,8 @@ const HeadingForm = (props) => {
         fullWidth={true}
         margin="normal"
       />
-      <TextField 
-        id="previewHeadline" 
+      <CustomTextField
+        id="previewHeadline"
         label="Heading Text"
         value={props.previewHeadline}
         onChange={props.changePreviewHeadline}
