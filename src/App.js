@@ -5,21 +5,17 @@ import { Colors } from './utilities/Colors';
 import Sidebar from './features/typeTester/containers/Sidebar';
 import Main from './features/typeTester/containers/Main';
 import Header from './components/Header';
+import { backgroundColor, labelColor, typeColor } from './store/selectors';
 
-const theme = {
-  black: Colors.black,
-  darkGray: Colors.darkGray,
-  fontFamily: "'Rangle Riforma', Helvetica, Arial",
-  lightGray: Colors.lightGray,
-  white: Colors.white
-}
 
 const StyledApp = styled.div`
   header {
     margin-bottom: 80px;
   }
 
-  &.dark-mode {
+  background-color: ${props => props.theme.backgroundColor};
+  
+  /* &.dark-mode {
     background-color: ${props => props.theme.black};
     color: ${props => props.theme.white};
 
@@ -35,7 +31,7 @@ const StyledApp = styled.div`
     header {
       border-bottom: 1px solid transparent;
     }
-  }
+  } */
 
   .wrapper.body {
     display: grid;
@@ -45,20 +41,36 @@ const StyledApp = styled.div`
 `;
 
 class App extends Component {
+
   render() {
+
+
     const {
-      themeSelected
+      backgroundColor,
+      labelColor,
+      themeSelected,
+      typeColor
     } = this.props;
+  const currentTheme = {
+    black: Colors.black,
+    darkGray: Colors.darkGray,
+    fontFamily: "'Rangle Riforma', Helvetica, Arial",
+    lightGray: Colors.lightGray,
+    white: Colors.white,
+    backgroundColor,
+    labelColor,
+    typeColor
+  };
 
     return (
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={currentTheme}>
         <StyledApp className={themeSelected + "-mode"}>
           <>
-          <Header />
-          <div className="wrapper body">
-            <Sidebar />
-            <Main />
-          </div>
+            <Header />
+            <div className="wrapper body">
+              <Sidebar />
+              <Main />
+            </div>
           </>
         </StyledApp>
       </ThemeProvider>
@@ -67,6 +79,9 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
+  backgroundColor: backgroundColor(state),
+  labelColor: labelColor(state),
+  typeColor: typeColor(state),
   themeSelected: state.themeSelected
 });
 
