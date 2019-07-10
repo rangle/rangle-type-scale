@@ -24,6 +24,7 @@ const SampleBody = styled.div`
 const Sample = ({
   baseSize,
   baseUnit,
+  typeColor,
   fontFamily,
   fontWeight,
   lineHeight,
@@ -36,6 +37,7 @@ const Sample = ({
   const fontSizePx = calculateFontSizePx(baseSizeValue, 2, roundFontSizes);
   
   const headlineStyles = {
+    color: `${typeColor}`,
     fontSize: `${fontSizeEms}`,
     fontFamily: `${fontFamily}`,
     fontWeight: `${fontWeight}`,

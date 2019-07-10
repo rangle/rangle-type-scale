@@ -51,7 +51,7 @@ export const changeBackgroundColor = e => ({
   payload: e
 });
 
-export const changeFontColor = e => ({
+export const changeTypeColor = e => ({
   type: TYPESCALE_ACTIONS.CHANGE_FONT_COLOR,
   payload: e
 });
@@ -63,6 +63,11 @@ export const changePreviewHeadline = e => ({
 
 export const changePreviewParagraph = e => ({
   type: TYPESCALE_ACTIONS.CHANGE_PREVIEW_PARAGRAPH,
+  payload: e.target.value
+});
+
+export const changeTheme = e => ({
+  type: TYPESCALE_ACTIONS.CHANGE_THEME,
   payload: e.target.value
 });
 

@@ -35,6 +35,7 @@ export const CustomExpansionPanelSummary = styled(ExpansionPanelSummary)`
 
 export const CustomExpansionPanel = styled(ExpansionPanel)`
   &[class*="MuiPaper-elevation"] {
+    background-color: transparent;
     box-shadow: none;
   }
 `;

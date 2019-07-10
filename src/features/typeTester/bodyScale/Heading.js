@@ -3,6 +3,7 @@ import { calculateTypeSize, calculateFontSizePx } from '../../../helpers';
 
 const Heading = ({
   baseSize,
+  typeColor,
   fontFamily,
   fontWeight,
   level,
@@ -15,6 +16,7 @@ const Heading = ({
   const fontSizePx = calculateFontSizePx(fontSize, 4, false);
   
   const styles = {
+    color: `${typeColor}`,
     fontFamily: `${fontFamily}`,
     fontSize: `${fontSizePx}`,
     fontWeight: `${fontWeight}`,

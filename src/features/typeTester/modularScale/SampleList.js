@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import styled from 'styled-components';
 import { addLargeSample, addSmallSample, removeLargeSample, removeSmallSample } from '../actions/Controls.actions';
-import { headingFontName, typeScaleValue } from '../../../store/selectors';
+import { headingFontName, typeScaleValue, typeColor } from '../../../store/selectors';
 import Sample from './Sample';
 import ScaleControl from './ScaleControl';
  
@@ -65,6 +65,7 @@ class SampleList extends Component {
       removeLargeSample,
       removeSmallSample,
       roundFontSizes,
+      typeColor
     } = this.props;
     const { sampleList } = this.state;
 
@@ -83,6 +84,7 @@ class SampleList extends Component {
                 <Sample
                   baseSize={baseSize}
                   baseUnit={baseUnit}
+                  typeColor={typeColor}
                   fontFamily={fontFamily}
                   fontWeight={fontWeight}
                   previewHeadline={previewHeadline}
@@ -114,6 +116,7 @@ const mapStateToProps = state => ({
   previewHeadline: state.previewHeadline,
   roundFontSizes: state.roundFontSizes,
   smallSamples: state.smallSamples,
+  typeColor: typeColor(state),
   typeScaleSize: typeScaleValue(state),
 });
 

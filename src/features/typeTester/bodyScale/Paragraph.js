@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Paragraph = ({ fontColor, fontFamily, fontWeight, lineHeight, text }) => {
+const Paragraph = ({ typeColor, fontFamily, fontWeight, lineHeight, text }) => {
   const styles={
-    color: `${fontColor}`,
+    color: `${typeColor}`,
     fontFamily: `${fontFamily}`,
     fontWeight: `${fontWeight}`,
     lineHeight: `${lineHeight}`,

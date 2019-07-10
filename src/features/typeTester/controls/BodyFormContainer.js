@@ -5,14 +5,14 @@ import {
   changeBodyWeight,
   changeBodyFont,
   changeLineHeight,
-  changeFontColor,
+  changeTypeColor,
   changePreviewParagraph
 } from "../actions/Controls.actions";
 
 class BodyFormContainer extends Component {
   render() {
     const {
-      bodyFontColor,
+      bodyTypeColor,
       bodyFontSelected,
       bodyWeightSelected,
       fonts,
@@ -21,21 +21,21 @@ class BodyFormContainer extends Component {
       changeBodyWeight,
       changeBodyFont,
       changeLineHeight,
-      changeFontColor,
+      changeTypeColor,
       changePreviewParagraph
     } = this.props;
     return (
       <BodyForm
         bodyFontSelected={bodyFontSelected}
         bodyWeightSelected={bodyWeightSelected}
-        bodyFontColor={bodyFontColor}
+        bodyTypeColor={bodyTypeColor}
         fonts={fonts}
         bodyLineHeight={bodyLineHeight}
         previewParagraph={previewParagraph}
         changeBodyWeight={changeBodyWeight}
         changeBodyFont={changeBodyFont}
         changeLineHeight={changeLineHeight}
-        changeFontColor={changeFontColor}
+        changeTypeColor={changeTypeColor}
         changePreviewParagraph={changePreviewParagraph}
       />
     );
@@ -43,7 +43,7 @@ class BodyFormContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-  bodyFontColor: state.bodyFontColor,
+  bodyTypeColor: state.bodyTypeColor,
   bodyFontSelected: state.bodyFontSelected,
   bodyWeightSelected: state.bodyWeightSelected,
   fonts: state.fonts,
@@ -55,7 +55,7 @@ const mapDispatchToProps = {
   changeBodyWeight,
   changeBodyFont,
   changeLineHeight,
-  changeFontColor,
+  changeTypeColor,
   changePreviewParagraph
 };
 

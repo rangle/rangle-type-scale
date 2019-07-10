@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled, { ThemeProvider } from 'styled-components';
+import { Colors } from './utilities/Colors';
 import Sidebar from './features/typeTester/containers/Sidebar';
 import Main from './features/typeTester/containers/Main';
 import Header from './components/Header';
 
 const theme = {
-  black: "#262626",
-  darkGray: "#737373",
+  black: Colors.black,
+  darkGray: Colors.darkGray,
   fontFamily: "'Rangle Riforma', Helvetica, Arial",
-  lightGray: "#858585",
+  lightGray: Colors.lightGray,
+  white: Colors.white
 }
 
 const StyledApp = styled.div`
@@ -19,12 +21,20 @@ const StyledApp = styled.div`
 
   &.dark-mode {
     background-color: ${props => props.theme.black};
-    color: white;
+    color: ${props => props.theme.white};
+
+    header {
+      border-bottom: 1px solid ${props => props.theme.lightGray};
+    }
   }
 
   &.light-mode {
-    background-color: white;
+    background-color: ${props => props.theme.white};
     color: ${props => props.theme.black};
+
+    header {
+      border-bottom: 1px solid transparent;
+    }
   }
 
   .wrapper.body {
@@ -37,12 +47,12 @@ const StyledApp = styled.div`
 class App extends Component {
   render() {
     const {
-      lightMode
+      themeSelected
     } = this.props;
 
     return (
       <ThemeProvider theme={theme}>
-        <StyledApp className={lightMode ? "light-mode" : "dark-mode"}>
+        <StyledApp className={themeSelected + "-mode"}>
           <>
           <Header />
           <div className="wrapper body">
@@ -57,7 +67,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  lightMode: state.lightMode
+  themeSelected: state.themeSelected
 });
 
 export default connect(

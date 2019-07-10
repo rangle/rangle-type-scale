@@ -3,20 +3,26 @@ import { connect } from 'react-redux';
 import BaseForm from './BaseForm';
 import {
   changeBaseSize, 
+  changeTheme,
   changeTypeScale,
   toggleRounding
 } from '../actions/Controls.actions';
-import { typeScaleValue } from '../../../store/selectors';
+import { typeScaleValue, labelColor, typeColor } from '../../../store/selectors';
 
 class BaseFormContainer extends Component {
   render() {
     const { 
       baseSize, 
+      labelColor,
       roundFontSizes,
+      themes,
+      themeSelected,
+      typeColor,
       typeScaleSelected,
       typeScaleSize, 
       typeScaleValues, 
       changeBaseSize, 
+      changeTheme,
       changeTypeScale,
       toggleRounding 
     } = this.props;
@@ -25,11 +31,16 @@ class BaseFormContainer extends Component {
       <div>
         <BaseForm 
           baseSize={baseSize}
+          labelColor={labelColor}
           roundFontSizes={roundFontSizes}
+          themes={themes}
+          themeSelected={themeSelected}
+          typeColor={typeColor}
           typeScaleSize={typeScaleSize}
           typeScaleValues={typeScaleValues}
           typeScaleSelected={typeScaleSelected}
           changeBaseSize={changeBaseSize}
+          changeTheme={changeTheme}
           changeTypeScale={changeTypeScale}
           toggleRounding={toggleRounding}
         />
@@ -40,7 +51,11 @@ class BaseFormContainer extends Component {
 
 const mapStateToProps = state => ({
   baseSize: state.baseSize,
+  labelColor: labelColor(state),
   roundFontSizes: state.roundFontSizes,
+  themes: state.themes,
+  themeSelected: state.themeSelected,
+  typeColor: typeColor(state),
   typeScaleSize: typeScaleValue(state),
   typeScaleSelected: state.typeScaleSelected,
   typeScaleValues: state.typeScaleValues,
@@ -48,6 +63,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   changeBaseSize,
+  changeTheme,
   changeTypeScale,
   toggleRounding
 };

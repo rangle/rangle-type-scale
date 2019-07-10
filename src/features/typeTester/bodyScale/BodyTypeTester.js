@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Heading from './Heading';
 import Paragraph from './Paragraph';
-import { bodyFontName, headingFontName, typeScaleValue } from '../../../store/selectors';
+import { bodyFontName, headingFontName, typeScaleValue, typeColor } from '../../../store/selectors';
 
 const levels = [...Array(6).keys()].map(level => level + 1);
 
@@ -10,7 +10,6 @@ class BodyTypeTester extends Component {
   render() {
     const { 
       baseSize,
-      bodyFontColor,
       bodyFont,
       bodyLineHeight,
       bodyWeight,
@@ -19,6 +18,7 @@ class BodyTypeTester extends Component {
       headingWeight,
       previewParagraph, 
       previewHeadline,
+      typeColor,
       typeScaleSize
     } = this.props;
 
@@ -28,6 +28,7 @@ class BodyTypeTester extends Component {
           <div key={i}>
             <Heading 
               baseSize={baseSize}
+              typeColor={typeColor}
               fontFamily={headingFont}
               fontWeight={headingWeight}
               level={level}
@@ -37,7 +38,7 @@ class BodyTypeTester extends Component {
               typeScaleSize={typeScaleSize} 
             />
             <Paragraph 
-              fontColor={bodyFontColor}
+              typeColor={typeColor}
               fontFamily={bodyFont}
               fontWeight={bodyWeight}
               lineHeight={bodyLineHeight}
@@ -52,7 +53,7 @@ class BodyTypeTester extends Component {
 
 const mapStateToProps = state => ({
   baseSize: state.baseSize,
-  bodyFontColor: state.bodyFontColor,
+  bodyTypeColor: state.bodyTypeColor,
   bodyFont: bodyFontName(state),
   bodyLineHeight: state.bodyLineHeight,
   bodyWeight: state.bodyWeightSelected,
@@ -61,6 +62,7 @@ const mapStateToProps = state => ({
   headingWeight: state.headingWeightSelected,
   previewParagraph: state.previewParagraph,
   previewHeadline: state.previewHeadline,
+  typeColor: typeColor(state),
   typeScaleSize: typeScaleValue(state)
 });
 

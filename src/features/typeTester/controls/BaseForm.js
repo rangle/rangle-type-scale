@@ -1,6 +1,7 @@
 import React from 'react';
 import Checkbox from '@material-ui/core/Checkbox';
-import { CustomFormControlLabel, CustomTextField } from "./Form.style";
+import { CustomFormControlLabel, CustomTextField, CustomFormLabel } from "./Form.style";
+import ColorPicker from './ColorPicker';
 
 const BaseForm = (props) => {
   return (
@@ -8,6 +9,7 @@ const BaseForm = (props) => {
       <CustomTextField
         id="baseSize"
         label="Base Size (px)"
+        labelColor={props.labelColor}
         type="number"
         value={props.baseSize}
         onChange={props.changeBaseSize}
@@ -44,6 +46,12 @@ const BaseForm = (props) => {
           </option>
         ))}
       </CustomTextField>
+      <CustomFormLabel component="legend" classes={{ root: "label-legend" }}>Colour Theme</CustomFormLabel>
+      <ColorPicker 
+        handleChange={props.changeTheme}
+        themes={props.themes}
+        themeSelected={props.themeSelected}
+      />
     </form>
   );
 };
