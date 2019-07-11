@@ -10,6 +10,7 @@ import { backgroundColor, labelColor, typeColor } from './store/selectors';
 
 const StyledApp = styled.div`
   background-color: ${props => props.theme.backgroundColor};
+  margin-bottom: 50px;
 
   header {
     border-bottom: 1px solid transparent;
@@ -38,7 +39,8 @@ class App extends Component {
       themeSelected,
       typeColor
     } = this.props;
-  const currentTheme = {
+
+  const rangleTypescaleTheme = {
     black: Colors.black,
     darkGray: Colors.darkGray,
     fontFamily: "'Rangle Riforma', Helvetica, Arial",
@@ -50,7 +52,7 @@ class App extends Component {
   };
 
     return (
-      <ThemeProvider theme={currentTheme}>
+      <ThemeProvider theme={rangleTypescaleTheme}>
         <StyledApp className={themeSelected + "-mode"}>
           <>
             <Header />

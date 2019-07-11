@@ -17,6 +17,11 @@ export const CustomTextField = styled(TextField)`
     ${labelTypeStyles}
   }
 
+  & > label[class*="focused"] {
+    color: ${props => props.theme.typeColor};
+    font-weight: 700;
+  }
+
   & [class*="icon"] {
     color: ${props => props.theme.typeColor};
   }
@@ -27,6 +32,10 @@ export const CustomTextField = styled(TextField)`
 
   & [class*="underline"]:before {
     border-bottom-color: ${props => props.theme.labelColor};
+  }
+
+  & [class*="underline"]:after {
+    border-bottom-color: ${props => props.theme.typeColor};
   }
 `;
 

@@ -3,11 +3,9 @@ import { Colors } from '../utilities/Colors';
 export const TYPESCALE_ACTIONS = {
   ADD_LARGE_SAMPLE: 'ADD_LARGE_SAMPLE',
   ADD_SMALL_SAMPLE: 'ADD_SMALL_SAMPLE',
-  CHANGE_BACKGROUND_COLOR: 'CHANGE_BACKGROUND_COLOR',
   CHANGE_BASE_SIZE: 'CHANGE_BASE_SIZE',
   CHANGE_BODY_WEIGHT: 'CHANGE_BODY_WEIGHT',
   CHANGE_BODY_FONT: 'CHANGE_BODY_FONT',
-  CHANGE_FONT_COLOR: 'CHANGE_FONT_COLOR',
   CHANGE_HEADING_FONT: 'CHANGE_HEADING_FONT',
   CHANGE_HEADING_LINE_HEIGHT: 'CHANGE_HEADING_LINE_HEIGHT',
   CHANGE_HEADING_WEIGHT: 'CHANGE_HEADING_WEIGHT',
@@ -27,7 +25,6 @@ export const INITIAL_STATE = {
   
   /* body text */
   bodyLineHeight: 1.5,
-  bodyTypeColor: "#333333",
   bodyFont: "Rangle Riforma",
   bodyFontSelected: 0,
   bodyWeightSelected: 400,
@@ -38,16 +35,13 @@ export const INITIAL_STATE = {
   smallSamples: 5,
 
   /* heading fonts */
-  headingTypeColor: "#ffffff",
   headingFontSelected: 0,
   headingLineHeight: 1.5,
   headingWeightSelected: 400,
   
   /* base */
-  backgroundColor: "#ffffff",
   baseSize: 16,
   baseUnit: "px",
-  lightMode: true,
   fonts: [
     {
       name: "Rangle Riforma",
@@ -132,12 +126,6 @@ export const reducer = (state = INITIAL_STATE, action) => {
         smallSamples: (state.smallSamples += action.payload)
       };
     }
-    case TYPESCALE_ACTIONS.CHANGE_BACKGROUND_COLOR: {
-      return {
-        ...state,
-        backgroundColor: action.payload
-      };
-    }
     case TYPESCALE_ACTIONS.CHANGE_BASE_SIZE: {
       return {
         ...state,
@@ -166,12 +154,6 @@ export const reducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         bodyWeightSelected: action.payload
-      };
-    }
-    case TYPESCALE_ACTIONS.CHANGE_FONT_COLOR: {
-      return {
-        ...state,
-        bodyTypeColor: action.payload
       };
     }
     case TYPESCALE_ACTIONS.CHANGE_LINE_HEIGHT: {

@@ -9,7 +9,6 @@ const BaseForm = (props) => {
       <CustomTextField
         id="baseSize"
         label="Base Size (px)"
-        labelColor={props.labelColor}
         type="number"
         value={props.baseSize}
         onChange={props.changeBaseSize}
@@ -18,6 +17,9 @@ const BaseForm = (props) => {
         }}
         fullWidth={true}
         margin="normal"
+        classes={{
+          root: "custom-text-field"
+        }}
       />
       <CustomFormControlLabel
         control={
