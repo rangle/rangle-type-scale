@@ -8,18 +8,18 @@ const CustomPadding = css`
 `;
 
 export const CustomExpansionPanelSummary = styled(ExpansionPanelSummary)`
-  color: ${props => props.theme.black};
   font-family: ${props => props.theme.fontFamily};
   font-size: 1.250em;
   font-weight: 700;
   line-height: 1.5;
 
   &.custom-expansion-panel-summary {
+    color: ${props => props.theme.typeColor};
     ${CustomPadding}
   }
 
   & [class*="expandIcon"] {
-    color: ${props => props.theme.black};
+    color: ${props => props.theme.typeColor};
     right: 0;
   }
 

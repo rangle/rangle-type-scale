@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { AddBox, IndeterminateCheckBox } from "@material-ui/icons";
 import IconButton from "@material-ui/core/IconButton";
-import TextField from "@material-ui/core/TextField";
+import { CustomTextField, labelTypeStyles } from "../controls/Form.style";
 import styled from 'styled-components';
 
 const ScaleControlSet = styled.div`
@@ -9,11 +9,8 @@ const ScaleControlSet = styled.div`
   display: flex;
 
   .icon-button {
+    color: ${props => props.theme.typeColor};
     transition: opacity 0.5s ease-in-out;
-
-    path {
-      color: black;
-    }
 
     &:hover {
       cursor: pointer;
@@ -28,12 +25,10 @@ const ScaleControlSet = styled.div`
   }
 
   .label {
-    color: #737373;
-    font-size: 0.750em;
-    letter-spacing: 0.4px;
-    text-transform: uppercase;
+    ${labelTypeStyles};
+    font-size: 0.75em;
   }
-`
+`;
 
 const ScaleControl = ({incrementCounter, decrementCounter, incrementLabel, decrementLabel}) => {
   const [count, setCount] = useState(1);
@@ -45,16 +40,17 @@ const ScaleControl = ({incrementCounter, decrementCounter, incrementLabel, decre
       </label>
       <IconButton
         aria-label={incrementLabel}
-        onClick={() => incrementCounter(count)} className="icon-button"
+        onClick={() => incrementCounter(count)}
         disabled={count < 1}
+        classes={{ root: "icon-button" }}
       >
         <AddBox />
       </IconButton>
-      <TextField 
+      <CustomTextField
         type="number"
         id="incrementCounter"
         value={count}
-        onChange={(e) => setCount(parseInt(e.target.value))}
+        onChange={e => setCount(parseInt(e.target.value))}
         style={{ width: 40 }}
         margin="dense"
         inputProps={{
@@ -64,11 +60,12 @@ const ScaleControl = ({incrementCounter, decrementCounter, incrementLabel, decre
       />
       <IconButton
         aria-label={decrementLabel}
-        onClick={() => decrementCounter(count)} className="icon-button" 
+        onClick={() => decrementCounter(count)}
+        className="icon-button"
         disabled={count < 1}
-        >
+      >
         <IndeterminateCheckBox />
-      </IconButton>  
+      </IconButton>
     </ScaleControlSet>
   );
 };

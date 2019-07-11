@@ -24,6 +24,9 @@ const BaseForm = (props) => {
           <Checkbox
             checked={props.roundFontSizes}
             onChange={props.toggleRounding}
+            inputProps={{
+              tabIndex: 0
+            }}
           />
         }
         label="Round Font Sizes"

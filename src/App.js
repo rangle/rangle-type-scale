@@ -9,29 +9,18 @@ import { backgroundColor, labelColor, typeColor } from './store/selectors';
 
 
 const StyledApp = styled.div`
+  background-color: ${props => props.theme.backgroundColor};
+
   header {
+    border-bottom: 1px solid transparent;
     margin-bottom: 80px;
   }
 
-  background-color: ${props => props.theme.backgroundColor};
-  
-  /* &.dark-mode {
-    background-color: ${props => props.theme.black};
-    color: ${props => props.theme.white};
-
+  &.dark-mode {
     header {
       border-bottom: 1px solid ${props => props.theme.lightGray};
     }
   }
-
-  &.light-mode {
-    background-color: ${props => props.theme.white};
-    color: ${props => props.theme.black};
-
-    header {
-      border-bottom: 1px solid transparent;
-    }
-  } */
 
   .wrapper.body {
     display: grid;
@@ -43,8 +32,6 @@ const StyledApp = styled.div`
 class App extends Component {
 
   render() {
-
-
     const {
       backgroundColor,
       labelColor,

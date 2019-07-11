@@ -8,13 +8,15 @@ const shadowRadius = 3;
 const CustomRadioButton = styled(Radio)`
   &.custom-radio-button {
     border: 1px solid ${props => props.theme.darkGray};
-    box-shadow: 0 0 0 ${shadowRadius * 2}px rgba(255, 255, 255, 0);
+    box-shadow: 0 0 0 ${shadowRadius * 2}px
+      ${props => props.theme.backgroundColor};
     margin: 0 8px ${shadowRadius * 2}px;
     padding: 0;
   }
 
   &.custom-radio-button__checked[class*="colorSecondary"] {
-    box-shadow: 0 0 0 ${shadowRadius}px #ffffff, 0 0 0 ${shadowRadius * 2}px ${props => props.theme.darkGray};
+    box-shadow: 0 0 0 ${shadowRadius}px ${props => props.theme.backgroundColor},
+      0 0 0 ${shadowRadius * 2}px ${props => props.theme.darkGray};
   }
 `;
 

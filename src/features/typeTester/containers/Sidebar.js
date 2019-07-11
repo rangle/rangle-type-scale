@@ -6,6 +6,7 @@ import HeadingFormContainer from "../controls/HeadingFormContainer";
 import BodyFormContainer from "../controls/BodyFormContainer";
 
 const CustomHeading = styled.h2`
+  color: ${props => props.theme.typeColor};
   font-family: "Rangle Riforma";
   font-size: 2em;
   font-weight: 700;

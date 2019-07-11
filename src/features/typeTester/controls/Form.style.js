@@ -3,8 +3,8 @@ import TextField from "@material-ui/core/TextField";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormLabel from "@material-ui/core/FormLabel";
 
-const DifferentFont = css`
-  color: ${props => props.theme.darkGray};
+export const labelTypeStyles = css`
+  color: ${props => props.theme.labelColor};
   font-family: ${props => props.theme.fontFamily};
   font-size: 1rem;
   letter-spacing: 0.4px;
@@ -14,23 +14,31 @@ const DifferentFont = css`
 
 export const CustomTextField = styled(TextField)`
   & > label {
-    ${DifferentFont}
+    ${labelTypeStyles}
   }
 
   & [class*="icon"] {
-    color: ${props => props.theme.black};
+    color: ${props => props.theme.typeColor};
+  }
+
+  & [class*="input"] {
+    color: ${props => props.theme.typeColor};
+  }
+
+  & [class*="underline"]:before {
+    border-bottom-color: ${props => props.theme.labelColor};
   }
 `;
 
 export const CustomFormControlLabel = styled(FormControlLabel)`
   & > span {
-    ${DifferentFont}
+    ${labelTypeStyles}
     font-size: .75em;
     margin-bottom: 0;
   }
 
   & span[class*="checked"] {
-    color: ${props => props.theme.black};
+    color: ${props => props.theme.typeColor};
   }
 
   &.control-label-top {
@@ -41,7 +49,7 @@ export const CustomFormControlLabel = styled(FormControlLabel)`
 
 export const CustomFormLabel = styled(FormLabel)`
   &.label-legend {
-    ${DifferentFont}
+    ${labelTypeStyles}
     font-size: .75em;
     margin: 15px 0 10px;
   }
