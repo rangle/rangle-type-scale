@@ -5,6 +5,7 @@ import { Colors } from './utilities/Colors';
 import Sidebar from './features/typeTester/containers/Sidebar';
 import Main from './features/typeTester/containers/Main';
 import Header from './components/Header';
+import SampleList from './features/typeTester/modularScale/SampleList';
 import { backgroundColor, labelColor, typeColor } from './store/selectors';
 
 
@@ -28,6 +29,11 @@ const StyledApp = styled.div`
     grid-column-gap: 100px;
     grid-template-columns: 300px 1fr;
   }
+
+  .focus {
+    display: flex;
+    justify-content: center;
+  }
 `;
 
 class App extends Component {
@@ -35,6 +41,7 @@ class App extends Component {
   render() {
     const {
       backgroundColor,
+      focusMode,
       labelColor,
       themeSelected,
       typeColor
@@ -56,10 +63,16 @@ class App extends Component {
         <StyledApp className={themeSelected + "-mode"}>
           <>
             <Header />
-            <div className="wrapper body">
-              <Sidebar />
-              <Main />
-            </div>
+            {focusMode ? (
+              <div className="focus">
+                <SampleList />
+              </div>
+            ) : (
+              <div className="wrapper body">
+                <Sidebar />
+                <Main />
+              </div>
+            )}
           </>
         </StyledApp>
       </ThemeProvider>
@@ -69,6 +82,7 @@ class App extends Component {
 
 const mapStateToProps = state => ({
   backgroundColor: backgroundColor(state),
+  focusMode: state.focusMode,
   labelColor: labelColor(state),
   typeColor: typeColor(state),
   themeSelected: state.themeSelected

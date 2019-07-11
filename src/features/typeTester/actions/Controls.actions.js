@@ -86,6 +86,10 @@ export const removeSmallSample = (quantity) => ({
   payload: quantity
 });
 
+export const toggleFocusMode = () => ({
+  type: TYPESCALE_ACTIONS.TOGGLE_FOCUS_MODE
+});
+
 export const toggleRounding = () => ({
   type: TYPESCALE_ACTIONS.TOGGLE_ROUNDING
 });

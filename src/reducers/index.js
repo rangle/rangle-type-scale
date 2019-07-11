@@ -18,6 +18,7 @@ export const TYPESCALE_ACTIONS = {
   CHANGE_TYPESCALE: 'CHANGE_TYPESCALE',
   REMOVE_LARGE_SAMPLE: 'REMOVE_LARGE_SAMPLE',
   REMOVE_SMALL_SAMPLE: 'REMOVE_SMALL_SAMPLE',
+  TOGGLE_FOCUS_MODE: 'TOGGLE_FOCUS_MODE',
   TOGGLE_ROUNDING: 'TOGGLE_ROUNDING'
 };
 
@@ -42,6 +43,7 @@ export const INITIAL_STATE = {
   /* base */
   baseSize: 16,
   baseUnit: "px",
+  focusMode: false,
   fonts: [
     {
       name: "Rangle Riforma",
@@ -190,7 +192,7 @@ export const reducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         themeSelected: action.payload
-      }
+      };
     }
     case TYPESCALE_ACTIONS.CHANGE_TYPESCALE: {
       return {
@@ -208,6 +210,12 @@ export const reducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         smallSamples: (state.smallSamples -= action.payload)
+      };
+    }
+    case TYPESCALE_ACTIONS.TOGGLE_FOCUS_MODE: {
+      return {
+        ...state,
+        focusMode: !state.focusMode
       };
     }
     case TYPESCALE_ACTIONS.TOGGLE_ROUNDING: {

@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import styled from 'styled-components';
-import { addLargeSample, addSmallSample, removeLargeSample, removeSmallSample } from '../actions/Controls.actions';
+import { addLargeSample, addSmallSample, removeLargeSample, removeSmallSample, toggleFocusMode } from '../actions/Controls.actions';
 import { headingFontName, typeScaleValue, typeColor } from '../../../store/selectors';
 import Sample from './Sample';
 import ScaleControl from './ScaleControl';
+import CustomSwitch from '../../../components/CustomSwitch';
  
 const StyledList = styled.div`
   border-bottom: 1px solid #D8D8D8;
@@ -58,6 +59,7 @@ class SampleList extends Component {
       addSmallSample,
       baseSize,
       baseUnit,
+      focusState,
       fontWeight,
       fontFamily,
       previewHeadline,
@@ -65,6 +67,7 @@ class SampleList extends Component {
       removeLargeSample,
       removeSmallSample,
       roundFontSizes,
+      toggleFocusMode,
       typeColor
     } = this.props;
     const { sampleList } = this.state;
@@ -76,7 +79,11 @@ class SampleList extends Component {
             incrementCounter={addLargeSample}
             decrementLabel="Remove a large sample"
             decrementCounter={removeLargeSample}
-        />
+          />
+          <CustomSwitch 
+            checked={focusState}
+            handleChange={toggleFocusMode}
+          />
         <div className="sample-container">
           {sampleList
             .map((sample, i) => (
@@ -109,6 +116,7 @@ class SampleList extends Component {
 const mapStateToProps = state => ({
   baseSize: state.baseSize,
   baseUnit: state.baseUnit,
+  focusState: state.focusMode,
   fontFamily: headingFontName(state),
   fontWeight: state.headingWeightSelected,
   largeSamples: state.largeSamples,
@@ -125,7 +133,8 @@ const mapDispatchToProps = {
   addSmallSample,
   removeLargeSample,
   removeSmallSample,
-}
+  toggleFocusMode
+};
 
 export default connect(
   mapStateToProps,
