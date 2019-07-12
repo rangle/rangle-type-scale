@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { AddBox, IndeterminateCheckBox } from "@material-ui/icons";
 import IconButton from "@material-ui/core/IconButton";
-import { CustomTextField, labelTypeStyles } from "../controls/Form.style";
+import { CustomTextField, labelTypeStyles, CustomFormControlLabel } from "../controls/Form.style";
 import styled from 'styled-components';
 
 const ScaleControlSet = styled.div`
@@ -35,37 +35,45 @@ const ScaleControl = ({incrementCounter, decrementCounter, incrementLabel, decre
 
   return (
     <ScaleControlSet>
-      <label className="label" htmlFor="incrementCounter">
-        Scale
-      </label>
-      <IconButton
-        aria-label={incrementLabel}
-        onClick={() => incrementCounter(count)}
-        disabled={count < 1}
-        classes={{ root: "icon-button" }}
-      >
-        <AddBox />
-      </IconButton>
-      <CustomTextField
-        type="number"
-        id="incrementCounter"
-        value={count}
-        onChange={e => setCount(parseInt(e.target.value))}
-        style={{ width: 40 }}
-        margin="dense"
-        inputProps={{
-          min: 0,
-          max: 5
-        }}
+      <CustomFormControlLabel
+        className="label"
+        htmlFor="incrementCounter"
+        label="Scale"
+        control=
+        {
+          <>
+            <IconButton
+              aria-label={incrementLabel}
+              onClick={() => incrementCounter(count)}
+              disabled={count < 1}
+              classes={{ root: "icon-button" }}
+            >
+              <AddBox />
+            </IconButton>
+            <CustomTextField
+              type="number"
+              id="incrementCounter"
+              value={count}
+              onChange={e => setCount(parseInt(e.target.value))}
+              style={{ width: 40 }}
+              margin="dense"
+              inputProps={{
+                min: 0,
+                max: 5
+              }}
+            />
+            <IconButton
+              aria-label={decrementLabel}
+              onClick={() => decrementCounter(count)}
+              className="icon-button"
+              disabled={count < 1}
+            >
+              <IndeterminateCheckBox />
+            </IconButton>
+          </>
+        }
+
       />
-      <IconButton
-        aria-label={decrementLabel}
-        onClick={() => decrementCounter(count)}
-        className="icon-button"
-        disabled={count < 1}
-      >
-        <IndeterminateCheckBox />
-      </IconButton>
     </ScaleControlSet>
   );
 };

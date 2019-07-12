@@ -12,6 +12,11 @@ const StyledList = styled.div`
   color: ${props => props.theme.black};
   padding: 0 0 30px;
 
+  .controls {
+    display: flex;
+    justify-content: space-between;
+  }
+
   .sample-container {
     margin: 30px 0;
   }
@@ -74,16 +79,19 @@ class SampleList extends Component {
 
     return (
         <StyledList>
-          <ScaleControl 
-            incrementLabel="Add a large sample"
-            incrementCounter={addLargeSample}
-            decrementLabel="Remove a large sample"
-            decrementCounter={removeLargeSample}
-          />
-          <CustomSwitch 
-            checked={focusState}
-            handleChange={toggleFocusMode}
-          />
+          <div className="controls">
+            <ScaleControl 
+              incrementLabel="Add a large sample"
+              incrementCounter={addLargeSample}
+              decrementLabel="Remove a large sample"
+              decrementCounter={removeLargeSample}
+            />
+            <CustomSwitch 
+              checked={focusState}
+              handleChange={toggleFocusMode}
+              label="Detail Mode"
+            />
+          </div>
         <div className="sample-container">
           {sampleList
             .map((sample, i) => (

@@ -23,7 +23,7 @@ class BodyTypeTester extends Component {
     } = this.props;
 
     return (
-      <div>
+      <div className="body-type-tester">
         {levels.map((level, i, levels) => (
           <div key={i}>
             <Heading 

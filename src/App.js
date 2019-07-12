@@ -33,6 +33,10 @@ const StyledApp = styled.div`
   .focus {
     display: flex;
     justify-content: center;
+
+    .body-type-tester {
+      max-width: 800px;
+    }
   }
 `;
 
@@ -65,7 +69,7 @@ class App extends Component {
             <Header />
             {focusMode ? (
               <div className="focus">
-                <SampleList />
+                <Main />
               </div>
             ) : (
               <div className="wrapper body">
