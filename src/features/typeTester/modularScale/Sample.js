@@ -38,7 +38,7 @@ const Sample = ({
   
   const headlineStyles = {
     color: `${typeColor}`,
-    fontSize: `${fontSizeEms}`,
+    fontSize: `${fontSizePx}`,
     fontFamily: `${fontFamily}`,
     fontWeight: `${fontWeight}`,
     lineHeight: `${lineHeight}`

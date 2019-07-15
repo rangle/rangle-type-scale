@@ -46,8 +46,22 @@ export const CustomFormControlLabel = styled(FormControlLabel)`
     margin-bottom: 0;
   }
 
-  & span[class*="checked"] {
+  & [class*="bar"] {
+    background-color: #1FC028;
+    opacity: 1;
+  }
+
+  & span[class*="Checkbox-checked"] {
     color: ${props => props.theme.typeColor};
+  }
+
+  & span[class*="Switch-iconChecked"] {
+    color: #fafafa;
+  }
+
+  & [class*="checked"][class*="colorSecondary"] + [class*="bar"] {
+      background-color: #D44527;
+      opacity: 1;
   }
 
   &.control-label-top {

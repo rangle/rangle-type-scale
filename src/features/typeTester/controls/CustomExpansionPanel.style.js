@@ -37,6 +37,10 @@ export const CustomExpansionPanel = styled(ExpansionPanel)`
   &[class*="MuiPaper-elevation"] {
     background-color: transparent;
     box-shadow: none;
+
+    &::before {
+      background-color: ${props => props.theme.labelColor};
+    }
   }
 `;
 
