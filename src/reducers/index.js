@@ -19,7 +19,8 @@ export const TYPESCALE_ACTIONS = {
   REMOVE_LARGE_SAMPLE: 'REMOVE_LARGE_SAMPLE',
   REMOVE_SMALL_SAMPLE: 'REMOVE_SMALL_SAMPLE',
   TOGGLE_FOCUS_MODE: 'TOGGLE_FOCUS_MODE',
-  TOGGLE_ROUNDING: 'TOGGLE_ROUNDING'
+  TOGGLE_ROUNDING: 'TOGGLE_ROUNDING',
+  TOGGLE_UNITS: 'TOGGLE_UNITS'
 };
 
 export const INITIAL_STATE = {
@@ -111,6 +112,10 @@ export const INITIAL_STATE = {
       value: 1.618,
       name: "Golden Ratio"
     }
+  ],
+  typeUnits: [
+    "px",
+    "em"
   ]
 };
 
@@ -223,6 +228,12 @@ export const reducer = (state = INITIAL_STATE, action) => {
         ...state,
         roundFontSizes: !state.roundFontSizes
       };
+    }
+    case TYPESCALE_ACTIONS.TOGGLE_UNITS: {
+      return {
+        ...state,
+        baseUnit: action.payload
+      }
     }
     default:
       return state;
