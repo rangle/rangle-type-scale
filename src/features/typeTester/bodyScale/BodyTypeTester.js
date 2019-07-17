@@ -26,24 +26,24 @@ class BodyTypeTester extends Component {
       <div className="body-type-tester">
         {levels.map((level, i, levels) => (
           <div key={i}>
-            <Heading 
+            <Heading
               baseSize={baseSize}
               typeColor={typeColor}
               fontFamily={headingFont}
               fontWeight={headingWeight}
               level={level}
               lineHeight={headingLineHeight}
-              multiplier={(levels.length - i) - 1}
+              multiplier={levels.length - i - 1}
               text={previewHeadline}
-              typeScaleSize={typeScaleSize} 
+              typeScaleSize={typeScaleSize}
             />
-            <Paragraph 
+            <Paragraph
               typeColor={typeColor}
               fontFamily={bodyFont}
               fontWeight={bodyWeight}
               lineHeight={bodyLineHeight}
               text={previewParagraph}
-            />  
+            />
           </div>
         ))}
       </div>

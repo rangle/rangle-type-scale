@@ -6,8 +6,7 @@ import { headingFontName, typeScaleValue, typeColor } from '../../../store/selec
 import Sample from './Sample';
 import ScaleControl from './ScaleControl';
 import CustomSwitch from '../../../components/CustomSwitch';
-import IncrementButton from '../../../components/IncrementButton';
- 
+
 const StyledList = styled.div`
   border-bottom: 1px solid #D8D8D8;
   color: ${props => props.theme.black};
@@ -26,7 +25,7 @@ const StyledList = styled.div`
 class SampleList extends Component {
   constructor(props) {
     super(props);
-      this.state = {
+    this.state = {
       sampleList: []
     }  
   }

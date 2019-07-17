@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled, { ThemeProvider } from 'styled-components';
 import { Colors } from './utilities/Colors';
+import { backgroundColor, labelColor, typeColor } from './store/selectors';
 import Sidebar from './features/typeTester/containers/Sidebar';
 import Main from './features/typeTester/containers/Main';
 import Header from './components/Header';
-import SampleList from './features/typeTester/modularScale/SampleList';
-import { backgroundColor, labelColor, typeColor } from './store/selectors';
+import BreakpointUp from './features/typeTester/containers/BreakpointUp';
 
 
 const StyledApp = styled.div`
