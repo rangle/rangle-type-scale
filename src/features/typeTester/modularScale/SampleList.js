@@ -2,14 +2,17 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import styled from 'styled-components';
 import { addLargeSample, addSmallSample, removeLargeSample, removeSmallSample, toggleFocusMode } from '../actions/Controls.actions';
-import { headingFontName, typeScaleValue, typeColor } from '../../../store/selectors';
+import { 
+  headingFontName, 
+  typeScaleValue, 
+  typeColor } from '../../../store/selectors';
 import Sample from './Sample';
 import ScaleControl from './ScaleControl';
 import CustomSwitch from '../../../components/CustomSwitch';
-
 const StyledList = styled.div`
   border-bottom: 1px solid #D8D8D8;
   color: ${props => props.theme.black};
+  margin-bottom: 30px;
   padding: 0 0 30px;
 
   .controls {
@@ -100,12 +103,13 @@ class SampleList extends Component {
                 <Sample
                   baseSize={baseSize}
                   baseUnit={baseUnit}
-                  typeColor={typeColor}
+                  focusState={focusState}
                   fontFamily={fontFamily}
                   fontWeight={fontWeight}
-                  previewHeadline={previewHeadline}
                   lineHeight={lineHeight}
+                  previewHeadline={previewHeadline}
                   roundFontSizes={roundFontSizes}
+                  typeColor={typeColor}
                   typeScaleValue={sample}
                 />
               </div>

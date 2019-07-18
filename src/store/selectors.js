@@ -1,12 +1,14 @@
 import { createSelector } from 'reselect';
+import { calculateTypeSize } from '../helpers';
 
+const baseSize = state => state.baseSize;
+const bodyFontSelected = state => state.bodyFontSelected;
 const fontValues = state => state.fonts;
 const headingFontSelected = state => state.headingFontSelected;
-const bodyFontSelected = state => state.bodyFontSelected;
-const typeScaleValues = state => state.typeScaleValues;
-const typeScaleSelected = state => state.typeScaleSelected;
 const themes = state => state.themes;
 const themeSelected = state => state.themeSelected;
+const typeScaleValues = state => state.typeScaleValues;
+const typeScaleSelected = state => state.typeScaleSelected;
 
 const getFontName = (fontArray, index) => fontArray[index].name;
 
@@ -25,6 +27,8 @@ export const typeColor = createSelector(theme, (theme => theme.themeColors.type)
 export const labelColor = createSelector(theme, (theme => theme.themeColors.labels));
 
 export const backgroundColor = createSelector(theme, (theme => theme.themeColors.background));
+
+
 
 
 

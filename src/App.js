@@ -7,11 +7,11 @@ import Sidebar from './features/typeTester/containers/Sidebar';
 import Main from './features/typeTester/containers/Main';
 import Header from './components/Header';
 import BreakpointUp from './features/typeTester/containers/BreakpointUp';
-
+import { backgroundColor, labelColor, typeColor } from './store/selectors';
 
 const StyledApp = styled.div`
   background-color: ${props => props.theme.backgroundColor};
-  margin-bottom: 50px;
+  padding-bottom: 50px;
 
   header {
     border-bottom: 1px solid transparent;
