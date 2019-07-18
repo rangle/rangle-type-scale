@@ -9,9 +9,6 @@ const HeadingForm = (props) => {
         fullWidth={true}
         margin="normal"
         select
-        SelectProps={{
-          native: true
-        }}
         id="headingFont"
         value={props.headingFontSelected}
         onChange={props.changeHeadingFont}
@@ -28,9 +25,6 @@ const HeadingForm = (props) => {
         fullWidth={true}
         margin="normal"
         select
-        SelectProps={{
-          native: true
-        }}
         value={props.headingWeightSelected}
         onChange={props.changeHeadingWeight}
       >

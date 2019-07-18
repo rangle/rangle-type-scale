@@ -39,9 +39,6 @@ const BaseForm = (props) => {
             root: "custom-text-field, custom-text-field--half-width"
           }}
           select
-          SelectProps={{
-            native: true
-          }}
           value={props.baseUnit}
           onChange={props.toggleUnits}
         >
@@ -70,9 +67,6 @@ const BaseForm = (props) => {
         fullWidth={true}
         margin="normal"
         select
-        SelectProps={{
-          native: true
-        }}
         value={props.typeScaleSelected}
         onChange={props.changeTypeScale}
       >

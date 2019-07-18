@@ -7,6 +7,7 @@ import BackIcon from '@material-ui/icons/KeyboardBackspace';
 import Sidebar from './Sidebar';
 import Main from './Main';
 
+const customHeadingText = "Type Settings";
 const CustomHeading = styled.h2`
   color: ${props => props.theme.typeColor};
   font-family: "Rangle Riforma";
@@ -20,7 +21,6 @@ const CustomHeading = styled.h2`
     margin-right: 15px;
   }
 `;
-const customHeadingText = "Type Settings";
 
 const InvisibleButton = styled.button`
   background-color: transparent;
@@ -31,6 +31,7 @@ const InvisibleButton = styled.button`
 
 const GridContainer = styled.div`
   background-color: ${props => props.theme.backgroundColor};
+  border-top: 1px solid ${props => props.themeSelected === "dark" ? props.theme.labelColor : "transparent" };
   padding: 80px 0 50px;
 
   .wrapper.grid {
@@ -63,9 +64,10 @@ function SidebarBreakpointUp(props) {
   };
 
   return (
-    <GridContainer>
+    <GridContainer 
+      themeSelected={props.themeSelected}>
       <div className="wrapper">
-        <Hidden smUp>
+        <Hidden mdUp>
           <InvisibleButton 
             type="button" 
             onClick={() => setControlVisibility(!controlsVisible)}>

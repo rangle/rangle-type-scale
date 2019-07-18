@@ -12,9 +12,6 @@ const BodyForm = (props) => {
         label="Body Font"
         value={props.bodyFontSelected}
         onChange={props.changeBodyFont}
-        SelectProps={{
-          native: true
-        }}
       >
         {props.fonts.map((font, index) => (
           <option key={font.name} value={index}>
@@ -28,9 +25,6 @@ const BodyForm = (props) => {
         fullWidth={true}
         margin="normal"
         select
-        SelectProps={{
-          native: true
-        }}
         value={props.bodyWeightSelected}
         onChange={props.changeBodyWeight}
       >
