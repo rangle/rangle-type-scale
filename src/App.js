@@ -3,42 +3,8 @@ import { connect } from 'react-redux';
 import styled, { ThemeProvider } from 'styled-components';
 import { Colors } from './utilities/Colors';
 import { backgroundColor, labelColor, typeColor } from './store/selectors';
-import Sidebar from './features/typeTester/containers/Sidebar';
-import Main from './features/typeTester/containers/Main';
 import Header from './components/Header';
 import BreakpointUp from './features/typeTester/containers/BreakpointUp';
-import { backgroundColor, labelColor, typeColor } from './store/selectors';
-
-const StyledApp = styled.div`
-  background-color: ${props => props.theme.backgroundColor};
-  padding-bottom: 50px;
-
-  header {
-    border-bottom: 1px solid transparent;
-    margin-bottom: 80px;
-  }
-
-  &.dark-mode {
-    header {
-      border-bottom: 1px solid ${props => props.theme.lightGray};
-    }
-  }
-
-  .wrapper.body {
-    display: grid;
-    grid-column-gap: 100px;
-    grid-template-columns: 300px 1fr;
-  }
-
-  .focus {
-    display: flex;
-    justify-content: center;
-
-    .body-type-tester {
-      max-width: 800px;
-    }
-  }
-`;
 
 class App extends Component {
 
@@ -71,16 +37,6 @@ class App extends Component {
               focusMode={focusMode}
               themeSelected={themeSelected}
             />
-            {/* {focusMode ? (
-              <div className="focus">
-                <Main />
-              </div>
-            ) : (
-              <div className="wrapper body">
-                <Sidebar />
-                <Main />
-              </div>
-            )} */}
           </>
         </div>
       </ThemeProvider>
