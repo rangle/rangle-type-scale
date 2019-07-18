@@ -1,19 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import styled from 'styled-components';
 import { bodyFontName, headingFontName, typeScaleValue, typeColor } from '../../../store/selectors';
 import { calculateTypeSize, calculateFontSizePx, calculateFontSizeEms } from '../../../helpers';
-import Heading from './Heading';
-import Paragraph from './Paragraph';
+import Heading from '../../../components/Heading';
+import Paragraph from '../../../components/Paragraph';
 import SampleItem from '../../../components/SampleItem';
-
-const BodyTypeSample = styled.div`
-  align-items: start;
-  display: grid;
-  grid-template-columns: auto 1fr;
-  grid-column-gap: 20px;
-  margin: 30px 0;
-`;
 
 const levels = [...Array(6).keys()].map(level => level + 1);
 

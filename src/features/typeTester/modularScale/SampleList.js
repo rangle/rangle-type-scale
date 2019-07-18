@@ -13,6 +13,7 @@ import CustomSwitch from '../../../components/CustomSwitch';
 const StyledList = styled.div`
   border-bottom: 1px solid #D8D8D8;
   color: ${props => props.theme.black};
+  margin-bottom: 30px;
   padding: 0 0 30px;
 
   .controls {

@@ -2,7 +2,7 @@ import React from 'react';
 import '../../../fonts/fonts.css';
 import { calculateTypeSize, calculateFontSizeEms, calculateFontSizePx } from '../../../helpers';
 import SampleItem from '../../../components/SampleItem';
-import Heading from '../bodyScale/Heading';
+import Heading from '../../../components/Heading';
 
 const Sample = ({
   baseSize,
