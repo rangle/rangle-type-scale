@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
 import '../fonts/fonts.css';
-import { calculateTypeSize, calculateFontSizeEms, calculateFontSizePx } from '../helpers';
 import UnitLabel from './UnitLabel';
 
 const SampleBody = styled.div`
@@ -13,22 +12,20 @@ const SampleBody = styled.div`
 `;
 
 const SampleItem = ({
-  baseSize,
-  baseUnit,
+  alignLabel,
   children,
   focusState,
-  roundFontSizes,
-  typeScaleValue,
+  labelMargin,
+  text
 }) => {
-  const baseSizeValue = calculateTypeSize(baseSize, typeScaleValue);
-  const fontSizeEms = calculateFontSizeEms(typeScaleValue, 3, false);
-  const fontSizePx = calculateFontSizePx(baseSizeValue, 2, roundFontSizes);
 
   return (
     <SampleBody>
       {!focusState &&
         <UnitLabel
-          text={baseUnit === "px" ? fontSizePx : fontSizeEms}
+          alignLabel={alignLabel}
+          labelMargin={labelMargin}
+          text={text}
         />
       }
       <div>

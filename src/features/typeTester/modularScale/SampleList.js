@@ -9,8 +9,6 @@ import {
 import Sample from './Sample';
 import ScaleControl from './ScaleControl';
 import CustomSwitch from '../../../components/CustomSwitch';
-import IncrementButton from '../../../components/IncrementButton';
-import UnitLabel from '../../../components/UnitLabel';
  
 const StyledList = styled.div`
   border-bottom: 1px solid #D8D8D8;

@@ -5,7 +5,7 @@ import { bodyFontName, headingFontName, typeScaleValue, typeColor } from '../../
 import { calculateTypeSize, calculateFontSizePx, calculateFontSizeEms } from '../../../helpers';
 import Heading from './Heading';
 import Paragraph from './Paragraph';
-import UnitLabel from '../../../components/UnitLabel';
+import SampleItem from '../../../components/SampleItem';
 
 const BodyTypeSample = styled.div`
   align-items: start;
@@ -44,26 +44,21 @@ class BodyTypeTester extends Component {
           const fontSize = calculateTypeSize(baseSize, typeScaleValue);
           const fontSizePx = calculateFontSizePx(fontSize, 2, roundFontSizes);
           const fontSizeEms = calculateFontSizeEms(typeScaleValue, 3, false);
-
-          const styles = {
-            marginTop: `${3.5 * multiplier}px`
-          }
+          const marginTop = `${3.5 * multiplier}px`;
 
           return (
-            <BodyTypeSample key={i}>
-              {
-                !focusState && 
-                <div className="label-container" style={styles}>
-                  <UnitLabel
-                    text={baseUnit === "px" ? fontSizePx : fontSizeEms}
-                  />
-                </div>
-              }
-              <div>
-                <Heading
+            <SampleItem
+              alignLabel="start"
+              labelMargin={`${marginTop} 0 0`}
+              key={i}
+              focusState={focusState} 
+              text={baseUnit === "px" ? fontSizePx : fontSizeEms}  
+            >
+               <Heading
                   fontFamily={headingFont}
                   fontSize={`${fontSize}px`}
                   fontWeight={headingWeight}
+                  level={level}
                   lineHeight={headingLineHeight}
                   text={previewHeadline}
                   typeColor={typeColor}
@@ -75,8 +70,7 @@ class BodyTypeTester extends Component {
                   text={previewParagraph}
                   typeColor={typeColor}
                 />
-              </div>
-            </BodyTypeSample>
+            </SampleItem>
           )
         })}
       </div>
