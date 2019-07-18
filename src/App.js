@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled, { ThemeProvider } from 'styled-components';
 import { Colors } from './utilities/Colors';
+import { backgroundColor, labelColor, typeColor } from './store/selectors';
 import Sidebar from './features/typeTester/containers/Sidebar';
 import Main from './features/typeTester/containers/Main';
 import Header from './components/Header';
+import BreakpointUp from './features/typeTester/containers/BreakpointUp';
 import { backgroundColor, labelColor, typeColor } from './store/selectors';
-
 
 const StyledApp = styled.div`
   background-color: ${props => props.theme.backgroundColor};
@@ -63,10 +64,14 @@ class App extends Component {
 
     return (
       <ThemeProvider theme={rangleTypescaleTheme}>
-        <StyledApp className={themeSelected + "-mode"}>
+        <div className={themeSelected + "-mode"}>
           <>
             <Header />
-            {focusMode ? (
+            <BreakpointUp 
+              focusMode={focusMode}
+              themeSelected={themeSelected}
+            />
+            {/* {focusMode ? (
               <div className="focus">
                 <Main />
               </div>
@@ -75,9 +80,9 @@ class App extends Component {
                 <Sidebar />
                 <Main />
               </div>
-            )}
+            )} */}
           </>
-        </StyledApp>
+        </div>
       </ThemeProvider>
     );
   }

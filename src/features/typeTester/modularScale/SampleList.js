@@ -9,7 +9,6 @@ import {
 import Sample from './Sample';
 import ScaleControl from './ScaleControl';
 import CustomSwitch from '../../../components/CustomSwitch';
- 
 const StyledList = styled.div`
   border-bottom: 1px solid #D8D8D8;
   color: ${props => props.theme.black};
@@ -29,7 +28,7 @@ const StyledList = styled.div`
 class SampleList extends Component {
   constructor(props) {
     super(props);
-      this.state = {
+    this.state = {
       sampleList: []
     }  
   }
@@ -77,7 +76,8 @@ class SampleList extends Component {
       removeSmallSample,
       roundFontSizes,
       toggleFocusMode,
-      typeColor
+      typeColor,
+      width
     } = this.props;
     const { sampleList } = this.state;
 
@@ -90,11 +90,11 @@ class SampleList extends Component {
               decrementLabel="Remove a large sample"
               decrementCounter={removeLargeSample}
             />
-            <CustomSwitch 
-              checked={focusState}
-              handleChange={toggleFocusMode}
-              label="Detail Mode"
-            />
+          <CustomSwitch
+            checked={focusState}
+            handleChange={toggleFocusMode}
+            label="Detail Mode"
+          />
           </div>
         <div className="sample-container">
           {sampleList
