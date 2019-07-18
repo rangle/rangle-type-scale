@@ -1,34 +1,96 @@
 import React, { Component } from 'react';
-import { ThemeProvider } from "styled-components";
-import Sidebar from './components/Sidebar';
-import styled from "styled-components";
-import Main from './components/Main';
+import { connect } from 'react-redux';
+import styled, { ThemeProvider } from 'styled-components';
+import { Colors } from './utilities/Colors';
+import Sidebar from './features/typeTester/containers/Sidebar';
+import Main from './features/typeTester/containers/Main';
+import Header from './components/Header';
+import { backgroundColor, labelColor, typeColor } from './store/selectors';
 
-const theme = {
-  black: "#333333",
-  lightGray: "#858585",
-}
 
 const StyledApp = styled.div`
-  display: grid;
-  grid-column-gap: 50px;
-  grid-template-columns: 350px 1fr;
-  margin: 0 30px;
+  background-color: ${props => props.theme.backgroundColor};
+  padding-bottom: 50px;
+
+  header {
+    border-bottom: 1px solid transparent;
+    margin-bottom: 80px;
+  }
+
+  &.dark-mode {
+    header {
+      border-bottom: 1px solid ${props => props.theme.lightGray};
+    }
+  }
+
+  .wrapper.body {
+    display: grid;
+    grid-column-gap: 100px;
+    grid-template-columns: 300px 1fr;
+  }
+
+  .focus {
+    display: flex;
+    justify-content: center;
+
+    .body-type-tester {
+      max-width: 800px;
+    }
+  }
 `;
 
 class App extends Component {
+
   render() {
+    const {
+      backgroundColor,
+      focusMode,
+      labelColor,
+      themeSelected,
+      typeColor
+    } = this.props;
+
+  const rangleTypescaleTheme = {
+    black: Colors.black,
+    darkGray: Colors.darkGray,
+    fontFamily: "'Rangle Riforma', Helvetica, Arial",
+    lightGray: Colors.lightGray,
+    white: Colors.white,
+    backgroundColor,
+    labelColor,
+    typeColor
+  };
+
     return (
-      <ThemeProvider theme={theme}>
-        <StyledApp>
-          <aside>
-            <Sidebar />
-          </aside>
-          <Main />
+      <ThemeProvider theme={rangleTypescaleTheme}>
+        <StyledApp className={themeSelected + "-mode"}>
+          <>
+            <Header />
+            {focusMode ? (
+              <div className="focus">
+                <Main />
+              </div>
+            ) : (
+              <div className="wrapper body">
+                <Sidebar />
+                <Main />
+              </div>
+            )}
+          </>
         </StyledApp>
       </ThemeProvider>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  backgroundColor: backgroundColor(state),
+  focusMode: state.focusMode,
+  labelColor: labelColor(state),
+  typeColor: typeColor(state),
+  themeSelected: state.themeSelected
+});
+
+export default connect(
+  mapStateToProps,
+)(App);

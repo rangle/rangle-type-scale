@@ -5,42 +5,37 @@ import {
   changeBodyWeight,
   changeBodyFont,
   changeLineHeight,
-  changeBackgroundColor,
-  changeFontColor,
+  changeTypeColor,
   changePreviewParagraph
-} from "./BodyForm.actions";
+} from "../actions/Controls.actions";
 
 class BodyFormContainer extends Component {
   render() {
     const {
-      backgroundColor,
-      bodyWeight,
-      bodyFontColor,
-      bodyFont,
-      fontFamilies,
-      lineHeight,
+      bodyTypeColor,
+      bodyFontSelected,
+      bodyWeightSelected,
+      fonts,
+      bodyLineHeight,
       previewParagraph,
       changeBodyWeight,
       changeBodyFont,
       changeLineHeight,
-      changeBackgroundColor,
-      changeFontColor,
+      changeTypeColor,
       changePreviewParagraph
     } = this.props;
     return (
       <BodyForm
-        backgroundColor={backgroundColor}
-        bodyFont={bodyFont}
-        bodyWeight={bodyWeight}
-        bodyFontColor={bodyFontColor}
-        fontFamilies={fontFamilies}
-        lineHeight={lineHeight}
+        bodyFontSelected={bodyFontSelected}
+        bodyWeightSelected={bodyWeightSelected}
+        bodyTypeColor={bodyTypeColor}
+        fonts={fonts}
+        bodyLineHeight={bodyLineHeight}
         previewParagraph={previewParagraph}
         changeBodyWeight={changeBodyWeight}
         changeBodyFont={changeBodyFont}
         changeLineHeight={changeLineHeight}
-        changeBackgroundColor={changeBackgroundColor}
-        changeFontColor={changeFontColor}
+        changeTypeColor={changeTypeColor}
         changePreviewParagraph={changePreviewParagraph}
       />
     );
@@ -48,12 +43,11 @@ class BodyFormContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-  backgroundColor: state.backgroundColor,
-  bodyWeight: state.bodyWeight,
-  bodyFontColor: state.bodyFontColor,
-  bodyFont: state.bodyFont,
-  fontFamilies: state.fontFamilies,
-  lineHeight: state.lineHeight,
+  bodyTypeColor: state.bodyTypeColor,
+  bodyFontSelected: state.bodyFontSelected,
+  bodyWeightSelected: state.bodyWeightSelected,
+  fonts: state.fonts,
+  bodyLineHeight: state.bodyLineHeight,
   previewParagraph: state.previewParagraph
 }); 
 
@@ -61,8 +55,7 @@ const mapDispatchToProps = {
   changeBodyWeight,
   changeBodyFont,
   changeLineHeight,
-  changeBackgroundColor,
-  changeFontColor,
+  changeTypeColor,
   changePreviewParagraph
 };
 
