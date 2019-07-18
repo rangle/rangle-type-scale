@@ -73,7 +73,8 @@ class SampleList extends Component {
       removeSmallSample,
       roundFontSizes,
       toggleFocusMode,
-      typeColor
+      typeColor,
+      width
     } = this.props;
     const { sampleList } = this.state;
 
@@ -86,11 +87,11 @@ class SampleList extends Component {
               decrementLabel="Remove a large sample"
               decrementCounter={removeLargeSample}
             />
-            <CustomSwitch 
-              checked={focusState}
-              handleChange={toggleFocusMode}
-              label="Detail Mode"
-            />
+          <CustomSwitch
+            checked={focusState}
+            handleChange={toggleFocusMode}
+            label="Detail Mode"
+          />
           </div>
         <div className="sample-container">
           {sampleList

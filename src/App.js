@@ -64,11 +64,14 @@ class App extends Component {
 
     return (
       <ThemeProvider theme={rangleTypescaleTheme}>
-        <StyledApp className={themeSelected + "-mode"}>
+        <div className={themeSelected + "-mode"}>
           <>
-            <BreakpointUp />
             <Header />
-            {focusMode ? (
+            <BreakpointUp 
+              focusMode={focusMode}
+              themeSelected={themeSelected}
+            />
+            {/* {focusMode ? (
               <div className="focus">
                 <Main />
               </div>
@@ -77,9 +80,9 @@ class App extends Component {
                 <Sidebar />
                 <Main />
               </div>
-            )}
+            )} */}
           </>
-        </StyledApp>
+        </div>
       </ThemeProvider>
     );
   }

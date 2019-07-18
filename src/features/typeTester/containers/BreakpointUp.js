@@ -13,7 +13,7 @@ const CustomHeading = styled.h2`
   font-size: 2em;
   font-weight: 700;
   line-height: 1.2;
-  margin: 0 0 30px;
+  margin: 0 0 40px;
 
   .icon {
     display: inline-block;
@@ -29,19 +29,49 @@ const InvisibleButton = styled.button`
   padding: 0;
 `;
 
-function BreakpointUp(props) {
-  const [show, setShow] = useState(false);
+const GridContainer = styled.div`
+  margin-top: 80px;
+
+  .wrapper.grid {
+    display: grid;
+    grid-column-gap: 100px;
+    grid-template-columns: 300px 1fr;
+  }
+
+  .focus {
+    display: flex;
+    justify-content: center;
+
+    .body-type-tester {
+      max-width: 800px;
+    }
+  }
+`;
+
+function SidebarBreakpointUp(props) {
+  const [controlsVisible, setControlVisibility] = useState(false);
   const { width } = props;
+  const baseClass = "wrapper";
+  const classList = (base) => {
+    if (props.focusMode) {
+      return `${base} focus`
+    } else if (width !== "sm" && width !== "xs" && !props.focusMode) {
+      return `${base} grid`;
+    }
+    return base;
+  };
 
   return (
-    <div>
-      <div>
+    <GridContainer>
+      <div className="wrapper">
         <Hidden smUp>
-          <InvisibleButton type="button" onClick={() => setShow(!show)}>
+          <InvisibleButton 
+            type="button" 
+            onClick={() => setControlVisibility(!controlsVisible)}>
             <CustomHeading>
               <span className="icon">
                 {
-                  show ? 
+                  controlsVisible ? 
                   <BackIcon /> :
                   <SettingsIcon />
                 }
@@ -50,18 +80,24 @@ function BreakpointUp(props) {
             </CustomHeading>
           </InvisibleButton>
         </Hidden>
-        <Hidden smDown={show === false}>
-          <Hidden smDown={show === true}>
-            <CustomHeading>
-              {customHeadingText}
-            </CustomHeading>
-          </Hidden>
-          <Sidebar />
-        </Hidden>
-        <Main />
       </div>
-    </div>
+      <div className={classList(baseClass)}>
+        <Hidden smDown={controlsVisible === false} smUp={props.focusMode}>
+          <div>
+            <Hidden smDown={controlsVisible === true}>
+              <CustomHeading>
+                {customHeadingText}
+              </CustomHeading>
+            </Hidden>
+            <Sidebar />
+          </div>
+        </Hidden>
+        <Hidden smDown={controlsVisible}>
+          <Main />
+        </Hidden>
+      </div>
+    </GridContainer>
   );
 }
 
-export default withWidth()(BreakpointUp);
+export default withWidth()(SidebarBreakpointUp);
