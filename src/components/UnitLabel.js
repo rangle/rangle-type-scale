@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { calculateTypeSize, calculateFontSizeEms, calculateFontSizePx } from '../helpers';
 
 const Label = styled.div`
   background-color: #F0F4F6;
@@ -13,20 +12,11 @@ const Label = styled.div`
 `;
 
 const UnitLabel = ({ 
-  baseSize,
-  baseUnit,
-  roundFontSizes,
-  typeScaleValue
+  text
  }) => {
-  const baseSizeValue = calculateTypeSize(baseSize, typeScaleValue);
-  const fontSizeEms = calculateFontSizeEms(typeScaleValue, 3, false);
-  const fontSizePx = calculateFontSizePx(baseSizeValue, 2, roundFontSizes);
-
   return (
     <Label>
-      {baseUnit === "px" ?
-        fontSizePx : fontSizeEms
-      }
+      {text}
     </Label>
   );
 };

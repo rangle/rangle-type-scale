@@ -7,6 +7,7 @@ const Paragraph = ({ typeColor, fontFamily, fontWeight, lineHeight, text }) => {
     fontWeight: `${fontWeight}`,
     lineHeight: `${lineHeight}`,
   }
+  
   return (
     <p style={styles}>
       {text}

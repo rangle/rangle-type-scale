@@ -104,12 +104,13 @@ class SampleList extends Component {
                 <Sample
                   baseSize={baseSize}
                   baseUnit={baseUnit}
-                  typeColor={typeColor}
+                  focusState={focusState}
                   fontFamily={fontFamily}
                   fontWeight={fontWeight}
-                  previewHeadline={previewHeadline}
                   lineHeight={lineHeight}
+                  previewHeadline={previewHeadline}
                   roundFontSizes={roundFontSizes}
+                  typeColor={typeColor}
                   typeScaleValue={sample}
                 />
               </div>

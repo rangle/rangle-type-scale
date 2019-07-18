@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
+import { bodyFontName, headingFontName, typeScaleValue, typeColor } from '../../../store/selectors';
+import { calculateTypeSize, calculateFontSizePx, calculateFontSizeEms } from '../../../helpers';
 import Heading from './Heading';
 import Paragraph from './Paragraph';
-import { bodyFontName, headingFontName, typeScaleValue, typeColor } from '../../../store/selectors';
 import UnitLabel from '../../../components/UnitLabel';
 
 const BodyTypeSample = styled.div`
@@ -24,6 +25,7 @@ class BodyTypeTester extends Component {
       bodyFont,
       bodyLineHeight,
       bodyWeight,
+      focusState,
       headingFont,
       headingLineHeight,
       headingWeight,
@@ -39,6 +41,9 @@ class BodyTypeTester extends Component {
         {levels.map((level, i, levels) => {
           const multiplier = (levels.length - i) - 1;
           const typeScaleValue = Math.pow(typeScaleSize, multiplier);
+          const fontSize = calculateTypeSize(baseSize, typeScaleValue);
+          const fontSizePx = calculateFontSizePx(fontSize, 2, roundFontSizes);
+          const fontSizeEms = calculateFontSizeEms(typeScaleValue, 3, false);
 
           const styles = {
             marginTop: `${3.5 * multiplier}px`
@@ -46,32 +51,29 @@ class BodyTypeTester extends Component {
 
           return (
             <BodyTypeSample key={i}>
-              <div className="label-container" style={styles}>
-                <UnitLabel
-                  baseSize={baseSize}
-                  baseUnit={baseUnit}
-                  roundFontSizes={roundFontSizes}
-                  typeScaleValue={typeScaleValue}
-                />
-              </div>
+              {
+                !focusState && 
+                <div className="label-container" style={styles}>
+                  <UnitLabel
+                    text={baseUnit === "px" ? fontSizePx : fontSizeEms}
+                  />
+                </div>
+              }
               <div>
                 <Heading
-                  baseSize={baseSize}
-                  typeColor={typeColor}
                   fontFamily={headingFont}
+                  fontSize={`${fontSize}px`}
                   fontWeight={headingWeight}
-                  level={level}
                   lineHeight={headingLineHeight}
-                  multiplier={multiplier}
                   text={previewHeadline}
-                  typeScaleSize={typeScaleSize}
+                  typeColor={typeColor}
                 />
                 <Paragraph
-                  typeColor={typeColor}
                   fontFamily={bodyFont}
                   fontWeight={bodyWeight}
                   lineHeight={bodyLineHeight}
                   text={previewParagraph}
+                  typeColor={typeColor}
                 />
               </div>
             </BodyTypeSample>
@@ -89,6 +91,7 @@ const mapStateToProps = state => ({
   bodyFont: bodyFontName(state),
   bodyLineHeight: state.bodyLineHeight,
   bodyWeight: state.bodyWeightSelected,
+  focusState: state.focusMode,
   headingFont: headingFontName(state),
   headingLineHeight: state.headingLineHeight,
   headingWeight: state.headingWeightSelected,

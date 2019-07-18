@@ -1,24 +1,19 @@
 import React from 'react';
-import { calculateTypeSize, calculateFontSizePx } from '../../../helpers';
 
 const Heading = ({
-  baseSize,
-  typeColor,
   fontFamily,
+  fontSize,
   fontWeight,
   level,
   lineHeight,
-  multiplier,
   text,
-  typeScaleSize,
+  typeColor,
 }) => {
-  const fontSize = calculateTypeSize(baseSize, Math.pow(typeScaleSize, multiplier));
-  const fontSizePx = calculateFontSizePx(fontSize, 4, false);
   
   const styles = {
     color: `${typeColor}`,
     fontFamily: `${fontFamily}`,
-    fontSize: `${fontSizePx}`,
+    fontSize: `${fontSize}`,
     fontWeight: `${fontWeight}`,
     lineHeight: `${lineHeight}`,
     margin: '0'

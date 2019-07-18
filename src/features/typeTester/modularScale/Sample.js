@@ -15,12 +15,13 @@ const SampleBody = styled.div`
 const Sample = ({
   baseSize,
   baseUnit,
-  typeColor,
+  focusState,
   fontFamily,
   fontWeight,
   lineHeight,
   previewHeadline,
   roundFontSizes,
+  typeColor,
   typeScaleValue,
 }) => {
   const baseSizeValue = calculateTypeSize(baseSize, typeScaleValue);
@@ -37,12 +38,11 @@ const Sample = ({
 
   return (
     <SampleBody>
-      <UnitLabel 
-        baseSize={baseSize}
-        baseUnit={baseUnit}
-        roundFontSizes={roundFontSizes}
-        typeScaleValue={typeScaleValue}    
-      />
+      {!focusState && 
+        <UnitLabel
+          text={baseUnit === "px" ? fontSizePx : fontSizeEms}
+        />
+      }
       <div 
         className="value" 
         style={headlineStyles}>
