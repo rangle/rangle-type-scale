@@ -30,7 +30,8 @@ const InvisibleButton = styled.button`
 `;
 
 const GridContainer = styled.div`
-  margin-top: 80px;
+  background-color: ${props => props.theme.backgroundColor};
+  padding: 80px 0 50px;
 
   .wrapper.grid {
     display: grid;
