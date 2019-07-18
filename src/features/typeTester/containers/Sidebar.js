@@ -17,7 +17,7 @@ const CustomHeading = styled.h2`
 const Sidebar = () => {
   return (
     <div>
-      <CustomHeading>Type Settings</CustomHeading>
+      {/* <CustomHeading>Type Settings</CustomHeading> */}
       <MyCustomExpansionPanel
         panelName="baseForm"
         expanded={true}

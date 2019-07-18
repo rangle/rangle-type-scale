@@ -66,6 +66,7 @@ class App extends Component {
       <ThemeProvider theme={rangleTypescaleTheme}>
         <StyledApp className={themeSelected + "-mode"}>
           <>
+            <BreakpointUp />
             <Header />
             {focusMode ? (
               <div className="focus">
