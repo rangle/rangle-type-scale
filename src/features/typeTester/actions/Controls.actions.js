@@ -94,5 +94,10 @@ export const toggleRounding = () => ({
   type: TYPESCALE_ACTIONS.TOGGLE_ROUNDING
 });
 
+export const toggleUnits = e => ({
+  type: TYPESCALE_ACTIONS.TOGGLE_UNITS,
+  payload: e.target.value
+});
+
 
 
