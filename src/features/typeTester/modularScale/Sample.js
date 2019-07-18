@@ -2,6 +2,7 @@ import React from 'react';
 import styled from "styled-components"; 
 import '../../../fonts/fonts.css';
 import { calculateTypeSize, calculateFontSizeEms, calculateFontSizePx } from '../../../helpers';
+import UnitLabel from '../../../components/UnitLabel';
 
 const SampleBody = styled.div`
   align-items: center;
@@ -9,16 +10,6 @@ const SampleBody = styled.div`
   grid-template-columns: auto 1fr;
   grid-column-gap: 20px;
   margin-bottom: 30px;
-
-  .label {
-    background-color: #F0F4F6;
-    color: ${props => props.theme.black};
-    display: inline-block;
-    font-size: 0.875em;
-    padding: 3px 0;
-    text-align: center;
-    width: 70px;
-  }
 `;
 
 const Sample = ({
@@ -46,11 +37,12 @@ const Sample = ({
 
   return (
     <SampleBody>
-      <div className="label">
-        {baseUnit === "px" ? 
-          fontSizePx : fontSizeEms
-        }
-      </div>
+      <UnitLabel 
+        baseSize={baseSize}
+        baseUnit={baseUnit}
+        roundFontSizes={roundFontSizes}
+        typeScaleValue={typeScaleValue}    
+      />
       <div 
         className="value" 
         style={headlineStyles}>

@@ -5,13 +5,12 @@ import { Colors } from './utilities/Colors';
 import Sidebar from './features/typeTester/containers/Sidebar';
 import Main from './features/typeTester/containers/Main';
 import Header from './components/Header';
-import SampleList from './features/typeTester/modularScale/SampleList';
 import { backgroundColor, labelColor, typeColor } from './store/selectors';
 
 
 const StyledApp = styled.div`
   background-color: ${props => props.theme.backgroundColor};
-  margin-bottom: 50px;
+  padding-bottom: 50px;
 
   header {
     border-bottom: 1px solid transparent;
