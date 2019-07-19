@@ -1,8 +1,8 @@
-import React from 'react';
-import '../../../fonts/fonts.css';
-import { calculateTypeSize, calculateFontSizeEms, calculateFontSizePx } from '../../../helpers';
-import SampleItem from '../../../components/SampleItem';
-import Heading from '../../../components/Heading';
+import React from "react";
+import "../../../fonts/fonts.css";
+import { calculateFontSizes } from "../../../helpers";
+import SampleItem from "../../../components/SampleItem";
+import Heading from "../../../components/Heading";
 
 const Sample = ({
   baseSize,
@@ -14,12 +14,13 @@ const Sample = ({
   previewHeadline,
   roundFontSizes,
   typeColor,
-  typeScaleValue,
+  typeScaleValue
 }) => {
-  const fontSize = calculateTypeSize(baseSize, typeScaleValue);
-  const fontSizeEms = calculateFontSizeEms(typeScaleValue, 3, false);
-  const fontSizePx = calculateFontSizePx(fontSize, 2, roundFontSizes);
-  
+  const { fontSize, fontSizePx, fontSizeEms } = calculateFontSizes(
+    baseSize,
+    typeScaleValue,
+    roundFontSizes
+  );
   return (
     <SampleItem
       focusState={focusState}
@@ -30,6 +31,7 @@ const Sample = ({
         fontSize={`${fontSize}px`}
         fontWeight={fontWeight}
         level={1}
+        ç
         lineHeight={lineHeight}
         text={previewHeadline}
         typeColor={typeColor}
