@@ -1,0 +1,44 @@
+@font-face {
+  font-family: "Rangle Riforma";
+  src: url("./RangleRiformaWeb-Regular.eot") format("eot2"),
+       url("./RangleRiformaWeb-Regular.woff2") format("woff2"),
+       url("./RangleRiformaWeb-Regular.woff") format("woff");
+  font-Weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Rangle Riforma";
+  src: url("./RangleRiformaWeb-Light.woff2") format("woff2"),
+       url("./RangleRiformaWeb-Light.eot") format("eot");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Rangle Riforma";
+  src: url("./RangleRiformaWeb-Medium.woff2") format("woff2"),
+       url("./RangleRiformaWeb-Medium.eot") format("eot"),
+       url("./RangleRiformaWeb-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Rangle Riforma";
+  src: url("./RangleRiformaWeb-Bold.woff2") format("woff2"),
+       url("./RangleRiformaWeb-Bold.eot") format("eot"),
+       url("./RangleRiformaWeb-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Rangle Riforma";
+  src: url("./RangleRiformaWeb-Heavy.woff2") format("woff2"),
+       url("./RangleRiformaWeb-Heavy.eot") format("eot"),
+       url("./RangleRiformaWeb-Heavy.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+}
+
