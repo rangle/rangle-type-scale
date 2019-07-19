@@ -1,6 +1,5 @@
 {
   "name": "rangle-type-scale",
-  "homepage": "https://jlealess.github.io/rangle-type-scale",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
