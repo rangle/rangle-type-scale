@@ -1,5 +1,5 @@
 import React from "react";
-import "../../../fonts/fonts.css";
+// import "../../../fonts/fonts.css";
 import { calculateFontSizes } from "../../../helpers";
 import SampleItem from "../../../components/SampleItem";
 import Heading from "../../../components/Heading";

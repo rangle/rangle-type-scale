@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
-import '../fonts/fonts.css';
+// import '../fonts/fonts.css';
 import UnitLabel from './UnitLabel';
 
 const SampleBody = styled.div`
