@@ -1,34 +1,68 @@
 import React, { Component } from 'react';
-import { ThemeProvider } from "styled-components";
-import Sidebar from './components/Sidebar';
-import styled from "styled-components";
-import Main from './components/Main';
+import { connect } from 'react-redux';
+import styled, { ThemeProvider } from 'styled-components';
+import { Colors } from './utilities/Colors';
+import { backgroundColor, labelColor, typeColor } from './store/selectors';
+import Header from './components/Header';
+import BreakpointUp from './features/typeTester/containers/BreakpointUp';
 
-const theme = {
-  black: "#333333",
-  lightGray: "#858585",
-}
+import JssProvider from 'react-jss/lib/JssProvider';
+import { createGenerateClassName } from '@material-ui/core/styles';
 
-const StyledApp = styled.div`
-  display: grid;
-  grid-column-gap: 50px;
-  grid-template-columns: 350px 1fr;
-  margin: 0 30px;
-`;
+
+const generateClassName = createGenerateClassName({
+  dangerouslyUseGlobalCSS: true,
+  productionPrefix: 'c'
+});
 
 class App extends Component {
+
   render() {
+    const {
+      backgroundColor,
+      focusMode,
+      labelColor,
+      themeSelected,
+      typeColor
+    } = this.props;
+
+  const rangleTypescaleTheme = {
+    black: Colors.black,
+    darkGray: Colors.darkGray,
+    fontFamily: "'Rangle Riforma', Helvetica, Arial",
+    lightGray: Colors.lightGray,
+    white: Colors.white,
+    backgroundColor,
+    labelColor,
+    typeColor
+  };
+
     return (
-      <ThemeProvider theme={theme}>
-        <StyledApp>
-          <aside>
-            <Sidebar />
-          </aside>
-          <Main />
-        </StyledApp>
-      </ThemeProvider>
+      <JssProvider generateClassName={ generateClassName }>
+        <ThemeProvider theme={rangleTypescaleTheme}>
+          <div className={themeSelected + "-mode"}>
+            <>
+              <Header />
+              <BreakpointUp 
+                focusMode={focusMode}
+                themeSelected={themeSelected}
+              />
+            </>
+          </div>
+        </ThemeProvider>
+      </JssProvider>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  backgroundColor: backgroundColor(state),
+  focusMode: state.focusMode,
+  labelColor: labelColor(state),
+  typeColor: typeColor(state),
+  themeSelected: state.themeSelected
+});
+
+export default connect(
+  mapStateToProps,
+)(App);

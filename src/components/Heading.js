@@ -1,17 +1,26 @@
 import React from 'react';
 
-const Heading = (props) => {
-  const fontSize = Math.pow(props.typeScaleSize, props.multiplier);
-  const fontSizeToPx = props.baseSize * fontSize;
+const Heading = ({
+  fontFamily,
+  fontSize,
+  fontWeight,
+  level,
+  lineHeight,
+  text,
+  typeColor,
+}) => {
+  
   const styles = {
-    fontFamily: `${props.fontFamily}`,
-    fontSize: `${fontSizeToPx}px`,
-    fontWeight: `${props.sampleWeight}`,
-    margin: '2rem 0 1rem'
+    color: `${typeColor}`,
+    fontFamily: `${fontFamily}`,
+    fontSize: `${fontSize}`,
+    fontWeight: `${fontWeight}`,
+    lineHeight: `${lineHeight}`,
+    margin: '0'
   };
-  const H = 'h' + props.level;
+  const H = 'h' + level;
   return (
-    <H style={styles}>{props.text}</H>
+    <H style={styles}>{text}</H>
   );
 };
 

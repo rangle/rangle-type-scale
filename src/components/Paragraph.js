@@ -1,14 +1,16 @@
 import React from 'react';
 
-const Paragraph = (props) => {
+const Paragraph = ({ typeColor, fontFamily, fontWeight, lineHeight, text }) => {
   const styles={
-    color: `${props.bodyFontColor}`,
-    lineHeight: `${props.lineHeight}`,
-    fontWeight: `${props.bodyWeight}`
+    color: `${typeColor}`,
+    fontFamily: `${fontFamily}`,
+    fontWeight: `${fontWeight}`,
+    lineHeight: `${lineHeight}`,
   }
+  
   return (
     <p style={styles}>
-      {props.text}
+      {text}
     </p>
   );
 };
