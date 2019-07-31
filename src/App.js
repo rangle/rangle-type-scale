@@ -6,6 +6,15 @@ import { backgroundColor, labelColor, typeColor } from './store/selectors';
 import Header from './components/Header';
 import BreakpointUp from './features/typeTester/containers/BreakpointUp';
 
+import JssProvider from 'react-jss/lib/JssProvider';
+import { createGenerateClassName } from '@material-ui/core/styles';
+
+
+const generateClassName = createGenerateClassName({
+  dangerouslyUseGlobalCSS: true,
+  productionPrefix: 'c'
+});
+
 class App extends Component {
 
   render() {
@@ -29,17 +38,19 @@ class App extends Component {
   };
 
     return (
-      <ThemeProvider theme={rangleTypescaleTheme}>
-        <div className={themeSelected + "-mode"}>
-          <>
-            <Header />
-            <BreakpointUp 
-              focusMode={focusMode}
-              themeSelected={themeSelected}
-            />
-          </>
-        </div>
-      </ThemeProvider>
+      <JssProvider generateClassName={ generateClassName }>
+        <ThemeProvider theme={rangleTypescaleTheme}>
+          <div className={themeSelected + "-mode"}>
+            <>
+              <Header />
+              <BreakpointUp 
+                focusMode={focusMode}
+                themeSelected={themeSelected}
+              />
+            </>
+          </div>
+        </ThemeProvider>
+      </JssProvider>
     );
   }
 }
