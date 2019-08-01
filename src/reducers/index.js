@@ -50,10 +50,6 @@ export const INITIAL_STATE = {
       name: "Rangle Riforma",
       weights: [300, 400, 500, 700, 900]
     },
-    {
-      name: "Georgia",
-      weights: [300, 400, 500, 700, 900]
-    }
   ],
   previewHeadline: "Making things that matter",
   roundFontSizes: true,
