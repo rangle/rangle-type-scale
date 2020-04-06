@@ -9,7 +9,7 @@
     "gh-pages": "^2.0.1",
     "material-ui-color-picker": "^3.2.0",
     "react": "^16.8.4",
-    "react-color": "^2.17.0",
+    "react-color": "^2.18.0",
     "react-dom": "^16.8.4",
     "react-jss": "^8.6.1",
     "react-redux": "^6.0.1",
